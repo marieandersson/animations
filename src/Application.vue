@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <h1>Animations</h1>
-    <click></click>
-    <hover></hover>
-    <scroll></scroll>
+    <div class="sections">
+      <click></click>
+      <hover></hover>
+      <scroll></scroll>
+    </div>
   </div>
 </template>
 
@@ -22,8 +24,12 @@ export default {
 }
 </script>
 
-<style>
-h1 {
-  color: red;
+<style lang="scss">
+.sections {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  min-height: 100%;
+  width: 100%;
 }
 </style>
