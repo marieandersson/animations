@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'click-section'
+  name: 'click'
 }
 </script>
 

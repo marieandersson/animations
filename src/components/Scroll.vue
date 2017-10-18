@@ -1,6 +1,12 @@
-'use strict';
-var Vue = require('vue');
+<template>
+  <h2>Scroll section</h2>
+</template>
 
-Vue.component('scroll-section', {
-  template: '<div>Scroll section</div>'
-})
+<script>
+export default {
+  name: 'scroll'
+}
+</script>
+
+<style>
+</style>

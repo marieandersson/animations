@@ -1,6 +1,12 @@
-'use strict';
-var Vue = require('vue');
+<template>
+  <h2>Hover section</h2>
+</template>
 
-Vue.component('hover-section', {
-  template: '<div>Hover section</div>'
-})
+<script>
+export default {
+  name: 'hover'
+}
+</script>
+
+<style>
+</style>
