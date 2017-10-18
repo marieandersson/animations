@@ -13,7 +13,9 @@
     "browser-sync-webpack-plugin": "^1.2.0",
     "laravel-mix": "^1.5.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "vue": "^2.5.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/marieeriksson/animations.git"
