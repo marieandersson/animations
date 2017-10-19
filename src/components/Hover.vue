@@ -16,13 +16,13 @@ export default {
     addActiveClass: function () {
       this.isActive = !this.isActive;
     }
-  }
+  },
 }
 </script>
 
 <style lang="scss">
 .hover-section {
-  background: lightgreen;
+  background: #6E828A;
   min-height: 100%;
   flex: 1;
   transition: all 0.5s linear;

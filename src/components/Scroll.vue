@@ -9,7 +9,7 @@ export default {
   name: 'scrollSection',
   data () {
     return {
-      isActive: true
+      isActive: false
     }
   },
   methods: {
@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 .scroll-section {
-  background: lightblue;
+  background: #CDE3EB;
   min-height: 100%;
   flex: 1;
   transition: all 0.5s linear;

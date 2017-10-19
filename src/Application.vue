@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <h1>Animations</h1>
     <div class="sections">
-      <clickSection v-on:click="addActiveClass"></clickSection>
-      <hoverSection v-on:click="addActiveClass"></hoverSection>
-      <scrollSection v-on:click="addActiveClass"></scrollSection>
+      <clickSection></clickSection>
+      <hoverSection></hoverSection>
+      <scrollSection></scrollSection>
+      <frontPage></frontPage>
     </div>
   </div>
 </template>
@@ -13,21 +13,16 @@
 import clickSection from './components/Click.vue';
 import hoverSection from './components/Hover.vue';
 import scrollSection from './components/Scroll.vue';
+import frontPage from './components/Front.vue';
 
 export default {
     name: 'app',
     components: {
       clickSection,
       hoverSection,
-      scrollSection
-    },
-    methods: {
-      addActiveClass(event) {
-        console.log('test');
-        event.target.classList.add('active-section');
-      }
+      scrollSection,
+      frontPage
     }
-
 }
 </script>
 
@@ -35,7 +30,7 @@ export default {
 .sections {
   position: absolute;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   min-height: 100%;
   width: 100%;
   .active-section {

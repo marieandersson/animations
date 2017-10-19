@@ -1,16 +1,15 @@
 <template>
-  <div @click="addActiveClass" :class="isActive ? 'active-section section click-section' : 'section click-section' ">
-    <h2>Click</h2>
+  <div @click="addActiveClass" :class="isActive ? 'active-section section front-section' : 'section front-section' ">
+    <h2>Front Page</h2>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'clickSection',
+  name: 'frontPage',
   data () {
     return {
-      isActive: false
+      isActive: true
     }
   },
   methods: {
@@ -22,8 +21,8 @@ export default {
 </script>
 
 <style lang="scss">
-.click-section {
-  background: #143A52;
+.front-section {
+  background: #E3EFF3;
   min-height: 100%;
   flex: 1;
   transition: all 0.5s linear;
