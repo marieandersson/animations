@@ -1,12 +1,22 @@
 <template>
-  <div class="hover-section">
-    <h2>Hover section</h2>
+  <div @click="addActiveClass" :class="isActive ? 'active-section section hover-section' : 'section hover-section' ">
+    <h2>Hover</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hover'
+  name: 'hoverSection',
+  data () {
+    return {
+      isActive: false
+    }
+  },
+  methods: {
+    addActiveClass: function () {
+      this.isActive = !this.isActive;
+    }
+  }
 }
 </script>
 
@@ -14,5 +24,7 @@ export default {
 .hover-section {
   background: lightgreen;
   min-height: 100%;
+  flex: 1;
+  transition: all 0.5s linear;
 }
 </style>

@@ -1,12 +1,22 @@
 <template>
-  <div class="scroll-section">
-    <h2>Scroll section</h2>
+  <div @click="addActiveClass" :class="isActive ? 'active-section section scroll-section' : 'section scroll-section' ">
+    <h2>Scroll</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'scroll'
+  name: 'scrollSection',
+  data () {
+    return {
+      isActive: true
+    }
+  },
+  methods: {
+    addActiveClass: function () {
+      this.isActive = !this.isActive;
+    }
+  }
 }
 </script>
 
@@ -15,5 +25,6 @@ export default {
   background: lightblue;
   min-height: 100%;
   flex: 1;
+  transition: all 0.5s linear;
 }
 </style>

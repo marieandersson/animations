@@ -2,25 +2,32 @@
   <div id="app">
     <h1>Animations</h1>
     <div class="sections">
-      <click></click>
-      <hover></hover>
-      <scroll></scroll>
+      <clickSection v-on:click="addActiveClass"></clickSection>
+      <hoverSection v-on:click="addActiveClass"></hoverSection>
+      <scrollSection v-on:click="addActiveClass"></scrollSection>
     </div>
   </div>
 </template>
 
 <script>
-import click from './components/Click.vue';
-import hover from './components/Hover.vue';
-import scroll from './components/Scroll.vue';
+import clickSection from './components/Click.vue';
+import hoverSection from './components/Hover.vue';
+import scrollSection from './components/Scroll.vue';
 
 export default {
     name: 'app',
     components: {
-      click,
-      hover,
-      scroll
+      clickSection,
+      hoverSection,
+      scrollSection
+    },
+    methods: {
+      addActiveClass(event) {
+        console.log('test');
+        event.target.classList.add('active-section');
+      }
     }
+
 }
 </script>
 
@@ -31,5 +38,9 @@ export default {
   flex-direction: row;
   min-height: 100%;
   width: 100%;
+  .active-section {
+    flex: 8;
+    transition: all 0.5s linear;
+  }
 }
 </style>
