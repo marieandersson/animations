@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="addActiveClass" :class="isActive ? 'active-section section scroll-section' : 'section scroll-section' ">
+  <div v-on:click="addActiveClass" :class="open ? 'open section scroll-section' : 'closed section scroll-section' ">
     <h2>Scroll</h2>
   </div>
 </template>
@@ -10,19 +10,22 @@ export default {
   data () {
     return {
       isActive: false,
-      sectionName: 'scrollSection'
+      open: true,
+      sectionNo: 2
     }
   },
   methods: {
     addActiveClass: function () {
       this.isActive = true;
-      Event.$emit('sectionClicked', this.sectionName);
+      Event.$emit('sectionClicked', this.sectionNo);
     }
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked != this.sectionName) {
-        this.isActive = false;
+      if (sectionClicked < this.sectionNo) {
+        this.open = false;
+      } else {
+        this.open = true;
       }
     });
   }

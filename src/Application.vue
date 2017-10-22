@@ -15,8 +15,6 @@ import hoverSection from './components/Hover.vue';
 import scrollSection from './components/Scroll.vue';
 import frontPage from './components/Front.vue';
 
-//const sectionsArray = [clickSection, hoverSection, scrollSection, frontPage];
-
 export default {
     name: 'app',
     components: {
@@ -24,17 +22,7 @@ export default {
       hoverSection,
       scrollSection,
       frontPage
-    },
-    // methods: {
-    //   addActiveClass(clickedSection) {
-    //     sectionsArray.forEach(section => {
-    //       if (section.name != clickedSection) {
-    //         console.log(section);
-    //       }
-    //     });
-    //
-    //   }
-    // }
+    }
 }
 </script>
 
@@ -43,9 +31,14 @@ export default {
   min-height: 100%;
   width: 100vw;
   overflow: hidden;
-  .active-section {
-    transform: translateX(calc(100%-60px));
-    transition: all 0.5s linear;
+  .section:nth-child(2n).closed {
+    transform: translateX(100%) translateX(-60px);
+  }
+  .section:nth-child(3n).closed {
+    transform: translateX(100%) translateX(-60px);
+  }
+  .section:nth-child(4n).closed {
+    transform: translateX(100%) translateX(-60px);
   }
 }
 </style>

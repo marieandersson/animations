@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="addActiveClass" :class="isActive ? 'active-section section front-section' : 'section front-section' ">
+  <div v-on:click="addActiveClass" :class="open ? 'open section front-section' : 'closed section front-section' ">
     <h2>Front Page</h2>
   </div>
 </template>
@@ -10,19 +10,22 @@ export default {
   data () {
     return {
       isActive: true,
-      sectionName: 'frontPage'
+      open: true,
+      sectionNo: 3
     }
   },
   methods: {
     addActiveClass: function () {
       this.isActive = true;
-      Event.$emit('sectionClicked', this.sectionName);
+      Event.$emit('sectionClicked', this.sectionNo);
     }
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked != this.sectionName) {
-        this.isActive = false;
+      if (sectionClicked < this.sectionNo) {
+        this.open = false;
+      } else {
+        this.open = true;
       }
     });
   }
