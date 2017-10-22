@@ -1,5 +1,5 @@
 <template>
-  <div @click="addActiveClass" :class="isActive ? 'active-section section front-section' : 'section front-section' ">
+  <div v-on:click="addActiveClass" :class="isActive ? 'active-section section front-section' : 'section front-section' ">
     <h2>Front Page</h2>
   </div>
 </template>
@@ -13,8 +13,8 @@ export default {
     }
   },
   methods: {
-    addActiveClass: function () {
-      this.isActive = !this.isActive;
+    addActiveClass: function (event) {
+      this.$emit('clicked', event.target);
     }
   }
 }
@@ -24,7 +24,9 @@ export default {
 .front-section {
   background: #E3EFF3;
   min-height: 100%;
-  flex: 1;
+  width: calc(100% - 180px);
+  position: absolute;
+  left: 180px;
   transition: all 0.5s linear;
 }
 </style>

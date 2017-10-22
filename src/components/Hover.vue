@@ -1,5 +1,5 @@
 <template>
-  <div @click="addActiveClass" :class="isActive ? 'active-section section hover-section' : 'section hover-section' ">
+  <div v-on:click="addActiveClass" :class="isActive ? 'active-section section hover-section' : 'section hover-section' ">
     <h2>Hover</h2>
   </div>
 </template>
@@ -13,8 +13,8 @@ export default {
     }
   },
   methods: {
-    addActiveClass: function () {
-      this.isActive = !this.isActive;
+    addActiveClass: function (event) {
+      this.$emit('clicked', event.target);
     }
   },
 }
@@ -24,7 +24,9 @@ export default {
 .hover-section {
   background: #6E828A;
   min-height: 100%;
-  flex: 1;
+  width: calc(100% - 180px);
+  position: absolute;
+  left: 60px;
   transition: all 0.5s linear;
 }
 </style>

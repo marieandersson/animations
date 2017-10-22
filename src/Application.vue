@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="sections">
-      <clickSection></clickSection>
-      <hoverSection></hoverSection>
-      <scrollSection></scrollSection>
-      <frontPage></frontPage>
+      <clickSection v-on:clicked="addActiveClass"></clickSection>
+      <hoverSection v-on:clicked="addActiveClass"></hoverSection>
+      <scrollSection v-on:clicked="addActiveClass"></scrollSection>
+      <frontPage v-on:clicked="addActiveClass"></frontPage>
     </div>
   </div>
 </template>
@@ -22,19 +22,22 @@ export default {
       hoverSection,
       scrollSection,
       frontPage
+    },
+    methods: {
+      addActiveClass(clickedSection) {
+        console.log(clickedSection);
+      }
     }
 }
 </script>
 
 <style lang="scss">
 .sections {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
   min-height: 100%;
-  width: 100%;
+  width: 100vw;
+  overflow: hidden;
   .active-section {
-    flex: 8;
+    transform: translateX(calc(100%-60px));
     transition: all 0.5s linear;
   }
 }

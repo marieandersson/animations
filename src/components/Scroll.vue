@@ -1,5 +1,5 @@
 <template>
-  <div @click="addActiveClass" :class="isActive ? 'active-section section scroll-section' : 'section scroll-section' ">
+  <div v-on:click="addActiveClass" :class="isActive ? 'active-section section scroll-section' : 'section scroll-section' ">
     <h2>Scroll</h2>
   </div>
 </template>
@@ -13,8 +13,8 @@ export default {
     }
   },
   methods: {
-    addActiveClass: function () {
-      this.isActive = !this.isActive;
+    addActiveClass: function (event) {
+      this.$emit('clicked', event.target);
     }
   }
 }
@@ -24,7 +24,9 @@ export default {
 .scroll-section {
   background: #CDE3EB;
   min-height: 100%;
-  flex: 1;
+  width: calc(100% - 180px);
+  position: absolute;
+  left: 120px;
   transition: all 0.5s linear;
 }
 </style>
