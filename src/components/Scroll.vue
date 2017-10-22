@@ -9,13 +9,22 @@ export default {
   name: 'scrollSection',
   data () {
     return {
-      isActive: false
+      isActive: false,
+      sectionName: 'scrollSection'
     }
   },
   methods: {
-    addActiveClass: function (event) {
-      this.$emit('clicked', event.target);
+    addActiveClass: function () {
+      this.isActive = true;
+      Event.$emit('sectionClicked', this.sectionName);
     }
+  },
+  created () {
+    Event.$on('sectionClicked', sectionClicked => {
+      if (sectionClicked != this.sectionName) {
+        this.isActive = false;
+      }
+    });
   }
 }
 </script>

@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <div class="sections">
-      <clickSection v-on:clicked="addActiveClass"></clickSection>
-      <hoverSection v-on:clicked="addActiveClass"></hoverSection>
-      <scrollSection v-on:clicked="addActiveClass"></scrollSection>
-      <frontPage v-on:clicked="addActiveClass"></frontPage>
+      <clickSection></clickSection>
+      <hoverSection></hoverSection>
+      <scrollSection></scrollSection>
+      <frontPage></frontPage>
     </div>
   </div>
 </template>
@@ -15,6 +15,8 @@ import hoverSection from './components/Hover.vue';
 import scrollSection from './components/Scroll.vue';
 import frontPage from './components/Front.vue';
 
+//const sectionsArray = [clickSection, hoverSection, scrollSection, frontPage];
+
 export default {
     name: 'app',
     components: {
@@ -23,11 +25,16 @@ export default {
       scrollSection,
       frontPage
     },
-    methods: {
-      addActiveClass(clickedSection) {
-        console.log(clickedSection);
-      }
-    }
+    // methods: {
+    //   addActiveClass(clickedSection) {
+    //     sectionsArray.forEach(section => {
+    //       if (section.name != clickedSection) {
+    //         console.log(section);
+    //       }
+    //     });
+    //
+    //   }
+    // }
 }
 </script>
 

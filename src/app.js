@@ -2,7 +2,9 @@
 import Vue from 'vue';
 import Application from './Application';
 
-var bus = new Vue({
+window.Event = new Vue();
+
+new Vue({
   el: '#app',
   template: '<Application/>',
   components: { Application }

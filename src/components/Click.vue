@@ -10,13 +10,22 @@ export default {
   name: 'clickSection',
   data () {
     return {
-      isActive: false
+      isActive: false,
+      sectionName: 'clickSection'
     }
   },
   methods: {
-    addActiveClass: function (event) {
-      this.$emit('clicked', event.target);
+    addActiveClass: function () {
+      this.isActive = true;
+      Event.$emit('sectionClicked', this.sectionName);
     }
+  },
+  created () {
+    Event.$on('sectionClicked', sectionClicked => {
+      if (sectionClicked != this.sectionName) {
+        this.isActive = false;
+      }
+    });
   }
 }
 </script>

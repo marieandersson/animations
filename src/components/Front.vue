@@ -9,13 +9,22 @@ export default {
   name: 'frontPage',
   data () {
     return {
-      isActive: true
+      isActive: true,
+      sectionName: 'frontPage'
     }
   },
   methods: {
-    addActiveClass: function (event) {
-      this.$emit('clicked', event.target);
+    addActiveClass: function () {
+      this.isActive = true;
+      Event.$emit('sectionClicked', this.sectionName);
     }
+  },
+  created () {
+    Event.$on('sectionClicked', sectionClicked => {
+      if (sectionClicked != this.sectionName) {
+        this.isActive = false;
+      }
+    });
   }
 }
 </script>
