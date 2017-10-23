@@ -31,14 +31,5 @@ export default {
   min-height: 100%;
   width: 100vw;
   overflow: hidden;
-  .section:nth-child(2n).closed {
-    transform: translateX(100%) translateX(-60px);
-  }
-  .section:nth-child(3n).closed {
-    transform: translateX(100%) translateX(-60px);
-  }
-  .section:nth-child(4n).closed {
-    transform: translateX(100%) translateX(-60px);
-  }
 }
 </style>

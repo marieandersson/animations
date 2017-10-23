@@ -35,7 +35,7 @@ export default {
 
 <style lang="scss">
 .click-section {
-  background: #143A52;
+  background: #bbbbbb;
   min-height: 100%;
   width: calc(100% - 180px);
   position: absolute;

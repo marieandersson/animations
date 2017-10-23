@@ -34,11 +34,14 @@ export default {
 
 <style lang="scss">
 .front-section {
-  background: #E3EFF3;
+  background: #eeeeee;
   min-height: 100%;
   width: calc(100% - 180px);
   position: absolute;
   left: 180px;
   transition: all 0.5s linear;
+}
+.front-section.closed {
+  transform: translateX(100%) translateX(-60px);
 }
 </style>

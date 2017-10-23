@@ -34,11 +34,14 @@ export default {
 
 <style lang="scss">
 .scroll-section {
-  background: #CDE3EB;
+  background: #dddddd;
   min-height: 100%;
   width: calc(100% - 180px);
   position: absolute;
   left: 120px;
   transition: all 0.5s linear;
+}
+.scroll-section.closed {
+  transform: translateX(100%) translateX(-60px);
 }
 </style>

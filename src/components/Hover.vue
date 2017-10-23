@@ -34,11 +34,14 @@ export default {
 
 <style lang="scss">
 .hover-section {
-  background: #6E828A;
+  background: #cccccc;
   min-height: 100%;
   width: calc(100% - 180px);
   position: absolute;
   left: 60px;
   transition: all 0.5s linear;
+}
+.hover-section.closed {
+  transform: translateX(100%) translateX(-60px);
 }
 </style>
