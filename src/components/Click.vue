@@ -1,11 +1,10 @@
 <template>
-  <div :class="open ? 'open section click-section' : 'section click-section' ">
+  <div :class="open ? 'open' : '' " class="section click-section">
     <h2>Click</h2>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'clickSection',
   data () {
@@ -16,11 +15,7 @@ export default {
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked == this.sectionNo) {
-        this.open = true;
-      } else {
-        this.open = false;
-      }
+      sectionClicked == this.sectionNo ? this.open = true : this.open = false;
     });
   }
 }
@@ -28,11 +23,6 @@ export default {
 
 <style lang="scss">
 .click-section {
-  background: lightyellow;
-  min-height: 100%;
-  width: calc(100% - 40px);
-  position: absolute;
-  left: 40px;
-  transition: all 0.5s linear;
+  background: #ff3f34;
 }
 </style>

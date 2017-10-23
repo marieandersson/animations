@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open section front-section' : 'section front-section' ">
+  <div :class="open ? 'open' : '' " class="section front-section">
     <h2>Front Page</h2>
   </div>
 </template>
@@ -15,11 +15,7 @@ export default {
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked == this.sectionNo) {
-        this.open = true;
-      } else {
-        this.open = false;
-      }
+      sectionClicked == this.sectionNo ? this.open = true : this.open = false;
     });
   }
 }
@@ -27,14 +23,10 @@ export default {
 
 <style lang="scss">
 .front-section {
-  background: lightblue;
-  min-height: 100%;
-  width: calc(100% - 40px);
-  position: absolute;
-  left: 40px;
-  transition: all 0.5s linear;
+  background: #000;
+  h2 {
+    color: #fff;
+  }
 }
-.front-section.closed {
-  transform: translateX(100%) translateX(-60px);
-}
+
 </style>

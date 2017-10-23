@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open section hover-section' : 'section hover-section' ">
+  <div :class="open ? 'open' : '' " class="section hover-section">
     <h2>Hover</h2>
   </div>
 </template>
@@ -15,11 +15,7 @@ export default {
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked == this.sectionNo) {
-        this.open = true;
-      } else {
-        this.open = false;
-      }
+      sectionClicked == this.sectionNo ? this.open = true : this.open = false;
     });
   }
 }
@@ -27,14 +23,9 @@ export default {
 
 <style lang="scss">
 .hover-section {
-  background: lightgreen;
-  min-height: 100%;
-  width: calc(100% - 40px);
-  position: absolute;
-  left: 40px;
-  transition: all 0.5s linear;
-}
-.hover-section.closed {
-  transform: translateX(100%) translateX(-60px);
+  background: #fff;
+  h2 {
+    color: #ff3f34;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open section scroll-section' : 'section scroll-section' ">
+  <div :class="open ? 'open' : '' " class="section scroll-section">
     <h2>Scroll</h2>
   </div>
 </template>
@@ -15,11 +15,7 @@ export default {
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked == this.sectionNo) {
-        this.open = true;
-      } else {
-        this.open = false;
-      }
+      sectionClicked == this.sectionNo ? this.open = true : this.open = false;
     });
   }
 }
@@ -27,14 +23,9 @@ export default {
 
 <style lang="scss">
 .scroll-section {
-  background: lightpink;
-  min-height: 100%;
-  width: calc(100% - 40px);
-  position: absolute;
-  left: 40px;
-  transition: all 0.5s linear;
-}
-.scroll-section.closed {
-  transform: translateX(100%) translateX(-60px);
+  background: #ff8784;
+  h2 {
+    color: #fff;
+  }
 }
 </style>

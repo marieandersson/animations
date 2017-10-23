@@ -31,18 +31,20 @@ export default {
     },
     methods: {
       openSection() {
-        Event.$emit('sectionClicked', event.target.dataset.section);
+        const section = event.target.dataset.section;
+        Event.$emit('sectionClicked', section);
       }
     }
 }
+
 </script>
 
 <style lang="scss">
 nav {
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 40px;
-  z-index: 10;
+  z-index: 10000;
   left: 0;
   top: 0;
   background: red;
@@ -60,21 +62,49 @@ nav {
     }
   }
   .start-nav {
-    background: lightblue;
+    background: #000;
+    p {
+      color: #fff;
+    }
   }
   .scroll-nav {
-    background: lightpink;
+    background: #ff8784;
+    p {
+      color: #fff;
+    }
   }
   .hover-nav {
-    background: lightgreen;
+    background: #fff;
+    p {
+      color: #ff3f34;
+    }
   }
   .click-nav {
-    background: lightyellow;
+    background: #ff3f34;
   }
 }
 .sections {
   min-height: 100%;
   width: 100vw;
   overflow: hidden;
+  .section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: calc(100% - 40px);
+    position: absolute;
+    left: 40px;
+    transition: transform 0.3s linear;
+    transition-delay: 0.3s;
+    transform: translateX(-100%);
+    z-index: 5;
+  }
+  .section.open {
+    transform: translateX(0);
+    transition: transform 0.3s linear;
+    transition-delay: 0;
+    z-index: 6;
+  }
 }
 </style>
