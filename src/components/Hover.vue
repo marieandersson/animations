@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="addActiveClass" :class="open ? 'open section hover-section' : 'closed section hover-section' ">
+  <div :class="open ? 'open section hover-section' : 'section hover-section' ">
     <h2>Hover</h2>
   </div>
 </template>
@@ -9,23 +9,16 @@ export default {
   name: 'hoverSection',
   data () {
     return {
-      isActive: false,
-      open: true,
-      sectionNo: 1
-    }
-  },
-  methods: {
-    addActiveClass: function () {
-      this.isActive = true;
-      Event.$emit('sectionClicked', this.sectionNo);
+      open: false,
+      sectionNo: 2
     }
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked < this.sectionNo) {
-        this.open = false;
-      } else {
+      if (sectionClicked == this.sectionNo) {
         this.open = true;
+      } else {
+        this.open = false;
       }
     });
   }
@@ -34,11 +27,11 @@ export default {
 
 <style lang="scss">
 .hover-section {
-  background: #cccccc;
+  background: lightgreen;
   min-height: 100%;
-  width: calc(100% - 180px);
+  width: calc(100% - 40px);
   position: absolute;
-  left: 60px;
+  left: 40px;
   transition: all 0.5s linear;
 }
 .hover-section.closed {
