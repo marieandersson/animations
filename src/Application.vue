@@ -22,28 +22,22 @@ import hoverSection from './components/Hover.vue';
 import clickSection from './components/Click.vue';
 
 export default {
-    name: 'app',
-    components: {
-      frontPage,
-      scrollSection,
-      hoverSection,
-      clickSection
-    },
-    methods: {
-      openSection() {
-        const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
-        const section = event.target.dataset.section;
-        window.history.pushState(section, null, `${slugs[section]}`);
-        Event.$emit('sectionClicked', section);
-      }
+  name: 'app',
+  components: {
+    frontPage,
+    scrollSection,
+    hoverSection,
+    clickSection
+  },
+  methods: {
+    openSection() {
+      const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
+      const section = event.target.dataset.section;
+      window.history.pushState(section, null, `${slugs[section]}`);
+      Event.$emit('sectionClicked', section);
     }
+  }
 }
-window.onpopstate = function (event)  {
-  let section = event.state;
-  if (!section) section = 0;
-  Event.$emit('sectionClicked', section);
-};
-
 </script>
 
 <style lang="scss">
