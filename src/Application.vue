@@ -31,8 +31,9 @@ export default {
     },
     methods: {
       openSection() {
+        const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
         const section = event.target.dataset.section;
-        window.history.pushState(section, null, `${section}`);
+        window.history.pushState(section, null, `${slugs[section]}`);
         Event.$emit('sectionClicked', section);
       }
     }
