@@ -15,7 +15,12 @@ export default {
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      sectionClicked == this.sectionNo ? this.open = true : this.open = false;
+      if (sectionClicked == this.sectionNo) {
+        this.open = true;
+        // window.history.pushState(sectionClicked, null, '/');
+      } else {
+        this.open = false;
+      }
     });
   }
 }

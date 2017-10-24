@@ -32,10 +32,16 @@ export default {
     methods: {
       openSection() {
         const section = event.target.dataset.section;
+        window.history.pushState(section, null, `${section}`);
         Event.$emit('sectionClicked', section);
       }
     }
 }
+window.onpopstate = function (event)  {
+  let section = event.state;
+  if (!section) section = 0;
+  Event.$emit('sectionClicked', section);
+};
 
 </script>
 
@@ -95,14 +101,14 @@ nav {
     width: calc(100% - 40px);
     position: absolute;
     left: 40px;
-    transition: transform 0.3s linear;
-    transition-delay: 0.3s;
+    transition: transform .2s linear;
+    transition-delay: .5s;
     transform: translateX(-100%);
     z-index: 5;
   }
   .section.open {
     transform: translateX(0);
-    transition: transform 0.3s linear;
+    transition: transform .5s linear;
     transition-delay: 0;
     z-index: 6;
   }
