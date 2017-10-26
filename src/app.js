@@ -20,7 +20,7 @@ if (subUrl === 'scroll') {
   Event.$emit('sectionClicked', 3);
 } else {
   // if sub url is unvalid, redirect to root
-  window.history.replaceState({}, '', '/');
+  window.history.replaceState(0, '', '/');
 }
 
 // handle user going back and forward in history
