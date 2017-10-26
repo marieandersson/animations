@@ -29,3 +29,10 @@ window.onpopstate = function (event) {
   if (!section) section = 0;
   Event.$emit('sectionClicked', section);
 }
+
+// document.querySelectorAll('.section').forEach(section => {
+//   console.log(section);
+//   section.addEventListener('transitionend', function (event) {
+//     console.log('end');
+//   });
+// })

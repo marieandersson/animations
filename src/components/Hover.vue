@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section hover-section">
+  <div :class="open ? 'open' : '' " class="section hover-section" data-sec="2">
     <h2>Hover</h2>
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
     Event.$on('sectionClicked', sectionClicked => {
       if (sectionClicked == this.sectionNo) {
         this.open = true;
-        // window.history.pushState(sectionClicked, null, '/hover');
       } else {
         this.open = false;
       }

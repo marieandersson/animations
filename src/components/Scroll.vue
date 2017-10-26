@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section scroll-section">
+  <div :class="open ? 'open' : '' " class="section scroll-section" data-sec="1">
     <h2>Scroll</h2>
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
     Event.$on('sectionClicked', sectionClicked => {
       if (sectionClicked == this.sectionNo) {
         this.open = true;
-        // window.history.pushState(sectionClicked, null, '/scroll');
       } else {
         this.open = false;
       }

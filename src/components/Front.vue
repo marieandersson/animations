@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section front-section">
+  <div :class="open ? 'open' : '' " class="section front-section" data-sec="0">
     <h2>Front Page</h2>
   </div>
 </template>
@@ -17,7 +17,6 @@ export default {
     Event.$on('sectionClicked', sectionClicked => {
       if (sectionClicked == this.sectionNo) {
         this.open = true;
-        // window.history.pushState(sectionClicked, null, '/');
       } else {
         this.open = false;
       }

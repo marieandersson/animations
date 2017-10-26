@@ -21,6 +21,9 @@ import scrollSection from './components/Scroll.vue';
 import hoverSection from './components/Hover.vue';
 import clickSection from './components/Click.vue';
 
+let menuClickable = true;
+const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
+
 export default {
   name: 'app',
   components: {
@@ -31,10 +34,18 @@ export default {
   },
   methods: {
     openSection() {
-      const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
-      const section = event.target.dataset.section;
-      window.history.pushState(section, null, `${slugs[section]}`);
-      Event.$emit('sectionClicked', section);
+      const clickedSection = event.target.dataset.section;
+      if (menuClickable) {
+        menuClickable = false;
+        window.history.pushState(clickedSection, null, `${slugs[clickedSection]}`);
+        Event.$emit('sectionClicked', clickedSection);
+      }
+      // let section transition reach end before user can click menu again
+      // TODO: check if this is the right way to go
+      setTimeout(setBackClickable, 500);
+      function setBackClickable () {
+        menuClickable = true;
+      }
     }
   }
 }
