@@ -62,6 +62,7 @@ nav {
   background: red;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
   div {
     width: 100%;
     flex: 1;
@@ -96,14 +97,13 @@ nav {
   }
 }
 .sections {
-  min-height: 100%;
   width: 100vw;
   overflow: hidden;
   .section {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100%;
+    min-height: 300vh;
     width: calc(100% - 40px);
     position: absolute;
     left: 40px;
@@ -119,4 +119,5 @@ nav {
     z-index: 6;
   }
 }
+.cls-1{fill:#001f44;}.cls-2{fill:#002f88;}.cls-3{fill:none;stroke:#001f44;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}
 </style>
