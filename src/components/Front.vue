@@ -46,6 +46,7 @@ export default {
   .box {
     width: 500px;
     height: 500px;
+    margin: 5em 0;
     background-color: yellow;
   }
 }

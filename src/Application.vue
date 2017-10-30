@@ -126,6 +126,7 @@ nav {
     transform: translateX(-100%);
     z-index: 6;
     .section-content {
+      padding: 1em 2em;
       opacity: 0;
       transition: opacity .2s linear;
     }
