@@ -6,6 +6,7 @@
       <div data-section="2" v-on:click="openSection" class="hover-nav"><p data-section="2">Hover</p></div>
       <div data-section="3" v-on:click="openSection" class="click-nav"><p data-section="3">Click</p></div>
     </nav>
+    <background></background>
     <div class="sections">
       <frontPage></frontPage>
       <scrollSection></scrollSection>
@@ -20,6 +21,7 @@ import frontPage from './components/Front.vue';
 import scrollSection from './components/Scroll.vue';
 import hoverSection from './components/Hover.vue';
 import clickSection from './components/Click.vue';
+import background from './components/Background.vue';
 
 let menuClickable = true;
 const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
@@ -30,7 +32,8 @@ export default {
     frontPage,
     scrollSection,
     hoverSection,
-    clickSection
+    clickSection,
+    background
   },
   methods: {
     openSection() {
@@ -101,8 +104,8 @@ nav {
   overflow: hidden;
   .section {
     display: flex;
-    justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 300vh;
     width: calc(100% - 40px);
     position: absolute;
@@ -119,5 +122,4 @@ nav {
     z-index: 6;
   }
 }
-.cls-1{fill:#001f44;}.cls-2{fill:#002f88;}.cls-3{fill:none;stroke:#001f44;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}
 </style>

@@ -1,10 +1,13 @@
 <template>
   <div :class="open ? 'open' : '' " class="section scroll-section" data-sec="1">
-    <h2>Scroll</h2>
+    <div class="section-content">
+      <h2>Scroll</h2>
+    </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'scrollSection',
   data () {

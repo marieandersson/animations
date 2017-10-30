@@ -1,10 +1,13 @@
 <template>
   <div :class="open ? 'open' : '' " class="section hover-section" data-sec="2">
-    <h2>Hover</h2>
+    <div class="section-content">
+      <h2>Hover</h2>
+    </div>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'hoverSection',
   data () {
