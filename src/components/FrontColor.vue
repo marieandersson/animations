@@ -1,19 +1,16 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section scroll-section" data-sec="1">
-    <div class="section-content">
-      <h2>Scroll</h2>
-    </div>
+  <div :class="open ? 'open' : '' " class="section front-section-color" data-sec="0">
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'scrollSection',
+  name: 'frontPageColor',
   data () {
     return {
-      open: false,
-      sectionNo: 1
+      open: true,
+      sectionNo: 0
     }
   },
   created () {
@@ -29,10 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
-.scroll-section {
-  z-index: 10 !important;
-  h2 {
-    color: #fff;
-  }
+.front-section-color {
+  background: #000;
 }
+
 </style>

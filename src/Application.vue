@@ -9,18 +9,26 @@
     <background></background>
     <div class="sections">
       <frontPage></frontPage>
+      <frontPageColor></frontPageColor>
       <scrollSection></scrollSection>
+      <scrollSectionColor></scrollSectionColor>
       <hoverSection></hoverSection>
+      <hoverSectionColor></hoverSectionColor>
       <clickSection></clickSection>
+      <clickSectionColor></clickSectionColor>
     </div>
   </div>
 </template>
 
 <script>
 import frontPage from './components/Front.vue';
+import frontPageColor from './components/FrontColor.vue';
 import scrollSection from './components/Scroll.vue';
+import scrollSectionColor from './components/ScrollColor.vue';
 import hoverSection from './components/Hover.vue';
+import hoverSectionColor from './components/HoverColor.vue';
 import clickSection from './components/Click.vue';
+import clickSectionColor from './components/ClickColor.vue';
 import background from './components/Background.vue';
 
 let menuClickable = true;
@@ -30,9 +38,13 @@ export default {
   name: 'app',
   components: {
     frontPage,
+    frontPageColor,
     scrollSection,
+    scrollSectionColor,
     hoverSection,
+    hoverSectionColor,
     clickSection,
+    clickSectionColor,
     background
   },
   methods: {

@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss">
 .hover-section {
-  background: #fff;
+  z-index: 10 !important;
   h2 {
     color: #ff3f34;
   }
