@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section hover-section-color" data-sec="0">
+  <div :class="open ? 'open' : '' " class="section color-section hover-section-color" data-sec="2">
   </div>
 </template>
 
@@ -9,8 +9,8 @@ export default {
   name: 'hoverSectionColor',
   data () {
     return {
-      open: true,
-      sectionNo: 0
+      open: false,
+      sectionNo: 2
     }
   },
   created () {

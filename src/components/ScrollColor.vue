@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section scroll-section-color" data-sec="0">
+  <div :class="open ? 'open' : '' " class="section color-section scroll-section-color" data-sec="1">
   </div>
 </template>
 
@@ -9,8 +9,8 @@ export default {
   name: 'scrollSectionColor',
   data () {
     return {
-      open: true,
-      sectionNo: 0
+      open: false,
+      sectionNo: 1
     }
   },
   created () {

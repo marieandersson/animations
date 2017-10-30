@@ -122,16 +122,28 @@ nav {
     width: calc(100% - 40px);
     position: absolute;
     left: 40px;
-    transition: transform .2s linear;
-    transition-delay: .5s;
+    transition: transform .2s linear .5s;
     transform: translateX(-100%);
+    z-index: 6;
+    .section-content {
+      opacity: 0;
+      transition: opacity .2s linear;
+    }
+  }
+  .color-section {
     z-index: 5;
   }
   .section.open {
     transform: translateX(0);
     transition: transform .5s linear;
-    transition-delay: 0;
-    z-index: 6;
+    z-index: 11;
+    .section-content {
+      opacity: 1;
+      transition: none;
+    }
+  }
+  .color-section.open {
+    z-index: 9;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section front-section-color" data-sec="0">
+  <div :class="open ? 'open' : '' " class="section color-section front-section-color" data-sec="0">
   </div>
 </template>
 

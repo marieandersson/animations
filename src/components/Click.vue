@@ -30,6 +30,5 @@ export default {
 
 <style lang="scss">
 .click-section {
-  z-index: 10 !important;
 }
 </style>

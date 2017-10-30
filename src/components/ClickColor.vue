@@ -1,5 +1,5 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section click-section-color" data-sec="0">
+  <div :class="open ? 'open' : '' " class="section color-section click-section-color" data-sec="3">
   </div>
 </template>
 
@@ -9,8 +9,8 @@ export default {
   name: 'clickSectionColor',
   data () {
     return {
-      open: true,
-      sectionNo: 0
+      open: false,
+      sectionNo: 3
     }
   },
   created () {
