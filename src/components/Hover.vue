@@ -44,4 +44,10 @@ export default {
     background-color: purple;
   }
 }
+// Hide hover-section on mobile devices
+// @media screen and (max-width: 400px)  {
+//   .hover-section, .hover-nav {
+//     display: none;
+//   }
+// }
 </style>
