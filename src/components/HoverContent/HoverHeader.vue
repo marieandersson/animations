@@ -14,5 +14,15 @@ export default {
 </script>
 
 <style lang="scss">
-
+.hover-header {
+  width: 50%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h2, h3 {
+    margin: 0;
+  }
+}
 </style>

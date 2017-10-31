@@ -51,7 +51,7 @@ export default {
           console.log(self.stop);
           if (self.stop) {
             self.stop = false;
-            self.animation = false;
+            self.animating = false;
             return;
           }
           requestAnimationFrame(self.animate);
@@ -60,8 +60,8 @@ export default {
       });
     },
     runAnimation (index, callback) {
-      this.grey.animate({ d: this.greyAnimation.paths[index] }, 1000, mina.linear);
-      this.pink.animate({ d: this.pinkAnimation.paths[index] }, 1000, mina.easeinout, callback);
+      this.grey.animate({ d: this.greyAnimation.paths[index] }, 2000, mina.linear);
+      this.pink.animate({ d: this.pinkAnimation.paths[index] }, 2000, mina.easeinout, callback);
     },
     stopAnimation () {
       this.stop = true;
