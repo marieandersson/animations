@@ -14,5 +14,17 @@ export default {
 </script>
 
 <style lang="scss">
+.front-header {
+  width: 50%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h1, h2 {
+    color: #fff;
+    margin: 0;
+  }
+}
 
 </style>

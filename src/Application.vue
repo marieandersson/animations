@@ -21,15 +21,16 @@
 </template>
 
 <script>
+import frontPageColor from './components/backgrounds/FrontColor.vue';
+import scrollSectionColor from './components/backgrounds/ScrollColor.vue';
+import hoverSectionColor from './components/backgrounds/HoverColor.vue';
+import clickSectionColor from './components/backgrounds/ClickColor.vue';
+import background from './components/backgrounds/Background.vue';
+
 import frontPage from './components/Front.vue';
-import frontPageColor from './components/FrontColor.vue';
 import scrollSection from './components/Scroll.vue';
-import scrollSectionColor from './components/ScrollColor.vue';
 import hoverSection from './components/Hover.vue';
-import hoverSectionColor from './components/HoverColor.vue';
 import clickSection from './components/Click.vue';
-import clickSectionColor from './components/ClickColor.vue';
-import background from './components/Background.vue';
 
 let menuClickable = true;
 const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
@@ -37,15 +38,15 @@ const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
 export default {
   name: 'app',
   components: {
-    frontPage,
     frontPageColor,
-    scrollSection,
     scrollSectionColor,
-    hoverSection,
     hoverSectionColor,
-    clickSection,
     clickSectionColor,
-    background
+    background,
+    frontPage,
+    scrollSection,
+    hoverSection,
+    clickSection
   },
   methods: {
     openSection() {
@@ -128,6 +129,9 @@ nav {
     .section-content {
       padding: 1em 2em;
       opacity: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
       transition: opacity .2s linear;
     }
   }
