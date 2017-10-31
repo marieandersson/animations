@@ -1,7 +1,7 @@
 <template>
   <div class="bubble-one">
 
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 299 278">
+    <svg v-on:mouseover="animate" class="bubble-one-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 299 278">
       <defs>
         <linearGradient id="linear-gradient" x1="121.28" y1="72.08" x2="230.33" y2="228.09" gradientUnits="userSpaceOnUse">
           <stop offset="0" stop-color="#ff1aa2"/>
@@ -17,9 +17,32 @@
 </template>
 
 <script>
+const Snap = require( "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js" );
 
 export default {
   name: 'bubbleOne',
+  // data : {
+  //
+  //     // set paths as data?
+  //
+  // },
+  methods: {
+    animate () {
+      const bubble = this.$el.querySelector('.bubble-one-svg');
+      const s = Snap(bubble);
+      const grey = Snap.select('.grey');
+      const pink = Snap.select('.pink');
+
+      const greyPathOne = 'M257.18,131.28c0,50.09-38.6,114.79-99.24,114.79S41.82,197.43,41.82,147.35,86.75,28,147.39,28,257.18,81.19,257.18,131.28Z';
+      const pinkPathOne = 'M244.76,145.93c0,34.63-24.72,79.38-63.55,79.38S106.84,191.67,106.84,157s28.78-82.55,67.61-82.55S244.76,111.29,244.76,145.93Z';
+      const greyPathTwo = 'M258.09,132.07c-1.6,59-54.94,111-96.34,111-64.34,0-98.2-70.22-98.2-104.43,0-96,37.71-144,99.55-134C222.37,14.25,260,60.67,258.09,132.07Z';
+      const pinkPathTwo = 'M174.89,165.28c0,23.65,58,111.07-11.37,111.07-73.79,0-44.8-82.05-44.8-105.7S61.76,70,153.55,64.93C261,59,174.89,141.62,174.89,165.28Z';
+      grey.animate({ d: greyPathTwo}, 1000, mina.linear);
+      pink.animate({d: pinkPathTwo}, 1000, mina.easeinout);
+    }
+  },
+  mounted () {
+  }
 }
 </script>
 
