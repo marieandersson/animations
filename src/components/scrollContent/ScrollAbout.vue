@@ -27,9 +27,7 @@ export default {
   .scroll-about-text {
     width: 50%;
   }
-  h3, p {
-    color: #fff;
-  }
+
 }
 
 </style>

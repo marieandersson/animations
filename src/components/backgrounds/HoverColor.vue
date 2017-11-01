@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
 .hover-section-color {
-  background: #fff;
+  background: #E6E6E6;
 }
 
 </style>

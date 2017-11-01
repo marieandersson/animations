@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
 .scroll-section-color {
-  background: #ff8784;
+  background: #E6E6E6;
 }
 
 </style>

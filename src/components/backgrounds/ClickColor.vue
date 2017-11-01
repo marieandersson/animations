@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
 .click-section-color {
-  background: #ff3f34;
+  background: #E6E6E6;
 }
 
 </style>

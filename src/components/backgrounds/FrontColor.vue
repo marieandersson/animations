@@ -27,7 +27,7 @@ export default {
 
 <style lang="scss">
 .front-section-color {
-  background: #000;
+  background: #E6E6E6;
 }
 
 </style>

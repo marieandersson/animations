@@ -22,7 +22,6 @@ export default {
   align-items: center;
   justify-content: center;
   h2, h3 {
-    color: #fff;
     margin: 0;
   }
 }
