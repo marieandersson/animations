@@ -75,8 +75,10 @@ nav {
     }
   }
   .active.start-nav {
-    background: linear-gradient(#1808EF, #001F44);
-
+    background: linear-gradient(#e6e6e6, #000000);
+    p {
+      color: #fff;
+    }
   }
   .active.scroll-nav {
     background: linear-gradient(#F40000, #FF0098);
@@ -92,43 +94,4 @@ nav {
 
   }
 }
-// .sections {
-//   width: 100vw;
-//   overflow: hidden;
-//   min-height: 400vh;
-//   .section {
-//     display: flex;
-//     align-items: center;
-//     flex-direction: column;
-//     width: calc(100% - 40px);
-//     position: absolute;
-//     left: 40px;
-//     transition: transform .2s linear .5s;
-//     transform: translateX(-100%);
-//     z-index: 6;
-//     .section-content {
-//       padding: 1em 10%;
-//       opacity: 0;
-//       display: flex;
-//       flex-direction: column;
-//       width: 100%;
-//       transition: opacity .2s linear;
-//     }
-//   }
-//   .color-section {
-//     z-index: 5;
-//   }
-//   .section.open {
-//     transform: translateX(0);
-//     transition: transform .5s linear;
-//     z-index: 11;
-//     .section-content {
-//       opacity: 1;
-//       transition: none;
-//     }
-//   }
-//   .color-section.open {
-//     z-index: 9;
-//   }
-// }
 </style>
