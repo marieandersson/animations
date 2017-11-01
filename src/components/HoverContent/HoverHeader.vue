@@ -21,6 +21,7 @@ export default {
   flex-direction: column;
   align-items: left;
   padding: 5em 0 0 5em;
+  margin-bottom: 5em;
   h2, h3 {
     margin: 0;
   }

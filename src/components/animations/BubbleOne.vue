@@ -1,7 +1,7 @@
 <template>
   <div class="bubble-one">
 
-    <svg v-on:mouseover="animate" v-on:mouseleave="stopAnimation" class="bubble-one-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 299 278">
+    <svg v-on:mouseover="animateIn" v-on:mouseleave="animateOut" class="bubble-one-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 299 278">
       <defs>
         <linearGradient id="linear-gradient" x1="121.28" y1="72.08" x2="230.33" y2="228.09" gradientUnits="userSpaceOnUse">
           <stop offset="0" stop-color="#ff1aa2"/>
@@ -35,35 +35,36 @@ export default {
           'M174.89,165.28c0,23.65,58,111.07-11.37,111.07-73.79,0-44.8-82.05-44.8-105.7S61.76,70,153.55,64.93C261,59,174.89,141.62,174.89,165.28Z'
         ]
       },
-      animating: false,
-      stop: false
+      // animating: false,
+      // stop: false
     }
   },
   methods: {
-    animate () {
-      if (this.animating) {
-        return;
-      }
-      this.animating = true;
-      let self = this;
-      self.runAnimation(1, function () {
-        self.runAnimation(0, function () {
-          if (self.stop) {
-            self.stop = false;
-            self.animating = false;
-            return;
-          }
-          requestAnimationFrame(self.animate);
-          self.animating = false;
-        })
-      });
+    animateIn () {
+      this.runAnimation(1);
+      // if (this.animating) {
+      //   return;
+      // }
+      // this.animating = true;
+      // let self = this;
+      // self.runAnimation(1, function () {
+      //   self.runAnimation(0, function () {
+      //     if (self.stop) {
+      //       self.stop = false;
+      //       // self.animating = false;
+      //       return;
+      //     }
+      //   //  self.animating = false;
+      //     // requestAnimationFrame(self.animate);
+      //   })
+      // });
     },
-    runAnimation (index, callback) {
+    animateOut () {
+      this.runAnimation(0);
+    },
+    runAnimation (index) {
       this.grey.animate({ d: this.greyAnimation.paths[index] }, 2000, mina.linear);
-      this.pink.animate({ d: this.pinkAnimation.paths[index] }, 2000, mina.easeinout, callback);
-    },
-    stopAnimation () {
-      this.stop = true;
+      this.pink.animate({ d: this.pinkAnimation.paths[index] }, 2000, mina.easeinout);
     }
   },
   mounted () {
@@ -77,7 +78,8 @@ export default {
 
 <style lang="scss">
 .bubble-one {
-  width: 25%;
+  width: 20%;
+  padding-bottom: 20px;
   svg {
     .grey-two {
       fill:#d8d2d2;

@@ -1,11 +1,9 @@
 <template>
-  <div class="hover-about">
-    <bubbleOne></bubbleOne>
-    <div class="hover-about-text">
+  <div class="scroll-about">
+    <div class="scroll-about-text">
       <h3>Allmänt/Where to</h3>
       <p>Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden, utan även övergången till elektronisk typografi utan större förändringar. Det blev allmänt känt på 1960-talet i samband med lanseringen av Letraset-ark med avsnitt av Lorem Ipsum, och senare med mjukvaror som Aldus PageMaker.</p>
     </div>
-    <bubbleTwo></bubbleTwo>
   </div>
 </template>
 
@@ -14,7 +12,7 @@ import bubbleOne from '../animations/BubbleOne.vue';
 import bubbleTwo from '../animations/BubbleTwo.vue';
 
 export default {
-  name: 'hoverAbout',
+  name: 'scrollAbout',
   components: {
     bubbleOne,
     bubbleTwo
@@ -23,15 +21,14 @@ export default {
 </script>
 
 <style lang="scss">
-.hover-about {
-  width: 100%;
-  height: 500px;
+.scroll-about {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-  .hover-about-text {
-    width: 60%;
-    margin: 0 5em;
+  .scroll-about-text {
+    width: 50%;
+  }
+  h3, p {
+    color: #fff;
   }
 }
 

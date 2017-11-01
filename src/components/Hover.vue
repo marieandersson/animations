@@ -3,6 +3,10 @@
     <div class="section-content">
       <hoverHeader></hoverHeader>
       <hoverAbout></hoverAbout>
+      <hoverHow></hoverHow>
+      <hoverFullAnimationOne></hoverFullAnimationOne>
+      <hoverUx></hoverUx>
+      <hoverFullAnimationTwo></hoverFullAnimationTwo>
     </div>
   </div>
 </template>
@@ -10,12 +14,20 @@
 <script>
 import hoverHeader from './hoverContent/HoverHeader.vue';
 import hoverAbout from './hoverContent/HoverAbout.vue';
+import hoverHow from './hoverContent/HoverHow.vue';
+import hoverFullAnimationOne from './hoverContent/hoverFullAnimationOne.vue';
+import hoverUx from './hoverContent/HoverUX.vue';
+import hoverFullAnimationTwo from './hoverContent/hoverFullAnimationTwo.vue';
 
 export default {
   name: 'hoverSection',
   components: {
     hoverHeader,
-    hoverAbout
+    hoverAbout,
+    hoverHow,
+    hoverFullAnimationOne,
+    hoverUx,
+    hoverFullAnimationTwo
   },
   data () {
     return {

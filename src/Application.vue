@@ -115,11 +115,12 @@ nav {
 .sections {
   width: 100vw;
   overflow: hidden;
+  height: 400vh;
   .section {
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height: 300vh;
+    height: 400vh;
     width: calc(100% - 40px);
     position: absolute;
     left: 40px;
@@ -127,7 +128,7 @@ nav {
     transform: translateX(-100%);
     z-index: 6;
     .section-content {
-      padding: 1em 2em;
+      padding: 1em 10%;
       opacity: 0;
       display: flex;
       flex-direction: column;
