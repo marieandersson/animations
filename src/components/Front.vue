@@ -1,19 +1,17 @@
 <template>
   <div :class="open ? 'open' : '' " class="section front-section" data-sec="0">
     <div class="section-content">
-      <frontHeader></frontHeader>
+
     </div>
   </div>
 </template>
 
 <script>
-import frontHeader from './frontContent/FrontHeader.vue';
+
 
 export default {
   name: 'frontPage',
-  components: {
-    frontHeader
-  },
+
   data () {
     return {
       open: true,

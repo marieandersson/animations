@@ -9,27 +9,18 @@
     <background></background>
     <div class="sections">
       <frontPage></frontPage>
-      <frontPageColor></frontPageColor>
       <scrollSection></scrollSection>
-      <scrollSectionColor></scrollSectionColor>
-      <hoverSection></hoverSection>
-      <hoverSectionColor></hoverSectionColor>
+      <mainSection></mainSection>
       <clickSection></clickSection>
-      <clickSectionColor></clickSectionColor>
     </div>
   </div>
 </template>
 
 <script>
-import frontPageColor from './components/backgrounds/FrontColor.vue';
-import scrollSectionColor from './components/backgrounds/ScrollColor.vue';
-import hoverSectionColor from './components/backgrounds/HoverColor.vue';
-import clickSectionColor from './components/backgrounds/ClickColor.vue';
-import background from './components/backgrounds/Background.vue';
-
+import background from './components/animations/Background.vue';
 import frontPage from './components/Front.vue';
 import scrollSection from './components/Scroll.vue';
-import hoverSection from './components/Hover.vue';
+import mainSection from './components/Main.vue';
 import clickSection from './components/Click.vue';
 
 let menuClickable = true;
@@ -38,14 +29,10 @@ const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
 export default {
   name: 'app',
   components: {
-    frontPageColor,
-    scrollSectionColor,
-    hoverSectionColor,
-    clickSectionColor,
     background,
     frontPage,
     scrollSection,
-    hoverSection,
+    mainSection,
     clickSection
   },
   methods: {
@@ -115,12 +102,11 @@ nav {
 .sections {
   width: 100vw;
   overflow: hidden;
-  height: 400vh;
+  min-height: 400vh;
   .section {
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 400vh;
     width: calc(100% - 40px);
     position: absolute;
     left: 40px;
