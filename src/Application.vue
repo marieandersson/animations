@@ -1,16 +1,16 @@
 <template>
   <div id="app">
     <nav>
-      <div data-state="0" v-on:click="openSection" class="start-nav" v-bind:class="activeState == 0 ? 'active' : '' ">
+      <div data-state="0" v-on:click="openSection" class="nav-item start-nav" v-bind:class="activeState == 0 ? 'active' : '' ">
         <p data-state="0">Start</p>
       </div>
-      <div data-state="1" v-on:click="openSection" class="scroll-nav" v-bind:class="activeState == 1 ? 'active' : '' ">
+      <div data-state="1" v-on:click="openSection" class="nav-item scroll-nav" v-bind:class="activeState == 1 ? 'active' : '' ">
         <p data-state="1">Scroll</p>
       </div>
-      <div data-state="2" v-on:click="openSection" class="hover-nav" v-bind:class="activeState == 2 ? 'active' : '' ">
+      <div data-state="2" v-on:click="openSection" class="nav-item hover-nav" v-bind:class="activeState == 2 ? 'active' : '' ">
         <p data-state="2">Hover</p>
       </div>
-      <div data-state="3" v-on:click="openSection" class="click-nav" v-bind:class="activeState == 3 ? 'active' : '' ">
+      <div data-state="3" v-on:click="openSection" class="nav-item click-nav" v-bind:class="activeState == 3 ? 'active' : '' ">
         <p data-state="3">Click</p>
       </div>
     </nav>
@@ -63,18 +63,33 @@ nav {
   flex-direction: column;
   cursor: pointer;
   background: #f6f6f6;
-  div {
+  .nav-item {
     width: 100%;
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all .3s linear;
+    background: transparent;
     p {
       transform: rotate(-90deg);
       margin: 0;
     }
   }
+  .start-nav p {
+    color: #000;
+  }
+  .scroll-nav p {
+    color: #FF0098;
+  }
+  .hover-nav p {
+    color: #EE3F00;
+  }
+  .click-nav p {
+    color: #1808EF;
+  }
   .active.start-nav {
+    transition: all .3s linear;
     background: linear-gradient(#e6e6e6, #000000);
     p {
       color: #fff;
@@ -82,16 +97,21 @@ nav {
   }
   .active.scroll-nav {
     background: linear-gradient(#F40000, #FF0098);
-
+    p {
+      color: #fff;
+    }
   }
   .active.hover-nav {
     background: linear-gradient(#FF8B00, #EE3F00);
-
-
+    p {
+      color: #fff;
+    }
   }
   .active.click-nav {
     background: linear-gradient(#1808EF, #001F44);
-
+    p {
+      color: #fff;
+    }
   }
 }
 </style>
