@@ -1,6 +1,6 @@
 <template>
-  <div :class="open ? 'open' : '' " class="section" data-sec="2">
-    <div class="section-content">
+  <main class="main">
+    <div class="content-wrap">
       <heading></heading>
       <about></about>
       <how></how>
@@ -8,7 +8,7 @@
       <ux></ux>
       <fullAnimationTwo></fullAnimationTwo>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -31,24 +31,65 @@ export default {
   },
   data () {
     return {
-      open: false,
-      sectionNo: 2
+      activeState: 0,
+      states: [
+        {
+          name: 'front',
+          stateNo: 0,
+          active: true
+        },
+        {
+          name: 'scroll',
+          stateNo: 1,
+          active: false
+        },
+        {
+          name: 'hover',
+          stateNo: 2,
+          active: false
+        },
+        {
+          name: 'click',
+          stateNo: 3,
+          active: false
+        }
+      ]
     }
   },
   created () {
     Event.$on('sectionClicked', sectionClicked => {
-      if (sectionClicked == this.sectionNo) {
-        this.open = true;
-      } else {
-        this.open = false;
-      }
+      let self = this;
+      self.states.map(function(state) {
+        if (state.stateNo == sectionClicked) {
+          state.active = true;
+          self.activeState = state.stateNo;
+        } else {
+          state.active = false;
+        }
+      });
+      console.log(self.activeState);
     });
   }
 }
 </script>
 
 <style lang="scss">
-.hover-section {
-
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: calc(100% - 40px);
+  position: absolute;
+  left: 40px;
+  transition: transform .2s linear .5s;
+  z-index: 11;
+  .content-wrap {
+    padding: 1em 10%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transition: opacity .2s linear;
+  }
 }
+
 </style>

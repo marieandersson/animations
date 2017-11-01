@@ -7,21 +7,14 @@
       <div data-section="3" v-on:click="openSection" class="click-nav"><p data-section="3">Click</p></div>
     </nav>
     <background></background>
-    <div class="sections">
-      <frontPage></frontPage>
-      <scrollSection></scrollSection>
-      <mainSection></mainSection>
-      <clickSection></clickSection>
-    </div>
+    <mainSection></mainSection>
   </div>
 </template>
 
 <script>
 import background from './components/animations/Background.vue';
-import frontPage from './components/Front.vue';
-import scrollSection from './components/Scroll.vue';
 import mainSection from './components/Main.vue';
-import clickSection from './components/Click.vue';
+
 
 let menuClickable = true;
 const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
@@ -30,10 +23,7 @@ export default {
   name: 'app',
   components: {
     background,
-    frontPage,
-    scrollSection,
-    mainSection,
-    clickSection
+    mainSection
   },
   methods: {
     openSection() {
@@ -99,43 +89,43 @@ nav {
     background: #ff3f34;
   }
 }
-.sections {
-  width: 100vw;
-  overflow: hidden;
-  min-height: 400vh;
-  .section {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: calc(100% - 40px);
-    position: absolute;
-    left: 40px;
-    transition: transform .2s linear .5s;
-    transform: translateX(-100%);
-    z-index: 6;
-    .section-content {
-      padding: 1em 10%;
-      opacity: 0;
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      transition: opacity .2s linear;
-    }
-  }
-  .color-section {
-    z-index: 5;
-  }
-  .section.open {
-    transform: translateX(0);
-    transition: transform .5s linear;
-    z-index: 11;
-    .section-content {
-      opacity: 1;
-      transition: none;
-    }
-  }
-  .color-section.open {
-    z-index: 9;
-  }
-}
+// .sections {
+//   width: 100vw;
+//   overflow: hidden;
+//   min-height: 400vh;
+//   .section {
+//     display: flex;
+//     align-items: center;
+//     flex-direction: column;
+//     width: calc(100% - 40px);
+//     position: absolute;
+//     left: 40px;
+//     transition: transform .2s linear .5s;
+//     transform: translateX(-100%);
+//     z-index: 6;
+//     .section-content {
+//       padding: 1em 10%;
+//       opacity: 0;
+//       display: flex;
+//       flex-direction: column;
+//       width: 100%;
+//       transition: opacity .2s linear;
+//     }
+//   }
+//   .color-section {
+//     z-index: 5;
+//   }
+//   .section.open {
+//     transform: translateX(0);
+//     transition: transform .5s linear;
+//     z-index: 11;
+//     .section-content {
+//       opacity: 1;
+//       transition: none;
+//     }
+//   }
+//   .color-section.open {
+//     z-index: 9;
+//   }
+// }
 </style>
