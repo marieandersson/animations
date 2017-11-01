@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main v-bind:class="activeState">
     <div class="content-wrap">
       <heading></heading>
       <about></about>
@@ -31,7 +31,7 @@ export default {
   },
   data () {
     return {
-      activeState: 0,
+      activeState: 'front',
       states: [
         {
           name: 'front',
@@ -62,19 +62,18 @@ export default {
       self.states.map(function(state) {
         if (state.stateNo == sectionClicked) {
           state.active = true;
-          self.activeState = state.stateNo;
+          self.activeState = state.name;
         } else {
           state.active = false;
         }
       });
-      console.log(self.activeState);
     });
   }
 }
 </script>
 
 <style lang="scss">
-.main {
+main {
   display: flex;
   align-items: center;
   flex-direction: column;

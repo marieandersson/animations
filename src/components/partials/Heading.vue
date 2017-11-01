@@ -1,5 +1,5 @@
 <template>
-  <div class="hover-header">
+  <div class="header">
   <!-- animate heading with canvas ? -->
     <h1>Heading</h1>
     <h2>sub-heading</h2>
@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="scss">
-.hover-header {
+.header {
   width: 100%;
   height: 500px;
   display: flex;
@@ -22,8 +22,18 @@ export default {
   align-items: left;
   padding: 5em 0 0 5em;
   margin-bottom: 5em;
+  transition: color 1s linear; 
   h2, h3 {
     margin: 0;
   }
+}
+.front .header {
+  color: pink;
+}
+.scroll .header {
+  color: yellow;
+}
+.click .header {
+  color: green;
 }
 </style>
