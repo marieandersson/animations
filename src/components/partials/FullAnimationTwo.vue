@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  name: 'hoverFullAnimationTwo',
+  name: 'fullAnimationTwo',
 
 }
 </script>

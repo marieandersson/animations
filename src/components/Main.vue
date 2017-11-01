@@ -6,7 +6,7 @@
       <how></how>
       <fullAnimationOne></fullAnimationOne>
       <ux></ux>
-      <fullAnimationTwo></fullAnimationTwo>
+      <!-- <fullAnimationTwo></fullAnimationTwo> -->
     </div>
   </main>
 </template>

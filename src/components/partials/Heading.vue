@@ -9,7 +9,7 @@
 <script>
 
 export default {
-  name: 'hoverHeader',
+  name: 'header',
 }
 </script>
 

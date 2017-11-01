@@ -79,7 +79,7 @@ export default {
 <style lang="scss">
 .bubble-one {
   width: 20%;
-  padding-bottom: 20px;
+  align-self: flex-end;
   svg {
     .grey-two {
       fill:#d8d2d2;
