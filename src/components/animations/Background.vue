@@ -27,5 +27,6 @@ export default {
   top: 0;
   z-index: 10;
 }
-.cls-1{fill:#001f44;}.cls-2{fill:#002f88;}.cls-3{fill:none;stroke:#001f44;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}
+.cls-1{fill:#001f44;}
+.cls-2{fill:#fff;}.cls-3{fill:none;stroke:#001f44;stroke-linecap:round;stroke-miterlimit:10;stroke-width:3px;}
 </style>

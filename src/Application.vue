@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <nav>
-      <div data-section="0" v-on:click="openSection" class="start-nav"><p data-section="0">Start</p></div>
-      <div data-section="1" v-on:click="openSection" class="scroll-nav"><p data-section="1">Scroll</p></div>
-      <div data-section="2" v-on:click="openSection" class="hover-nav"><p data-section="2">Hover</p></div>
-      <div data-section="3" v-on:click="openSection" class="click-nav"><p data-section="3">Click</p></div>
+      <div data-state="0" v-on:click="openSection" class="start-nav" v-bind:class="{ startActive ? 'active' : '' }"><p data-state="0">Start</p></div>
+      <div data-state="1" v-on:click="openSection" class="scroll-nav"><p data-state="1">Scroll</p></div>
+      <div data-state="2" v-on:click="openSection" class="hover-nav"><p data-state="2">Hover</p></div>
+      <div data-state="3" v-on:click="openSection" class="click-nav"><p data-state="3">Click</p></div>
     </nav>
     <background></background>
     <mainSection></mainSection>
@@ -25,9 +25,15 @@ export default {
     background,
     mainSection
   },
+  data () {
+    return {
+      startActive: true
+    }
+  },
   methods: {
     openSection() {
-      const clickedSection = event.target.dataset.section;
+      const clickedSection = event.target.dataset.state;
+      event.target.classList.add('open');
       if (menuClickable) {
         menuClickable = false;
         window.history.pushState(clickedSection, null, `${slugs[clickedSection]}`);
@@ -48,8 +54,8 @@ export default {
 nav {
   position: fixed;
   height: 100vh;
-  width: 40px;
-  z-index: 10000;
+  width: 60px;
+  z-index: 12;
   left: 0;
   top: 0;
   background: red;
@@ -68,25 +74,28 @@ nav {
     }
   }
   .start-nav {
-    background: #000;
+    background: linear-gradient(#1808EF, #001F44);
     p {
       color: #fff;
     }
   }
   .scroll-nav {
-    background: #ff8784;
+    background: linear-gradient(#F40000, #FF0098);
     p {
       color: #fff;
     }
   }
   .hover-nav {
-    background: #fff;
+    background: linear-gradient(#FF8B00, #EE3F00);
     p {
-      color: #ff3f34;
+      color: #fff;
     }
   }
   .click-nav {
-    background: #ff3f34;
+    background: linear-gradient(#1808EF, #001F44);
+    p {
+      color: #fff;
+    }
   }
 }
 // .sections {

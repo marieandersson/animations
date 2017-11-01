@@ -77,9 +77,9 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: calc(100% - 40px);
+  width: calc(100% - 60px);
   position: absolute;
-  left: 40px;
+  left: 60px;
   transition: transform .2s linear .5s;
   z-index: 11;
   .content-wrap {
