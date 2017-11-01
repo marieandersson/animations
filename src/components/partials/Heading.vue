@@ -1,7 +1,7 @@
 <template>
   <div class="header">
   <!-- animate heading with canvas ? -->
-    <h1>Rubrik</h1>
+    <h1>Heading</h1>
     <h2>Type somehing</h2>
   </div>
 </template>
@@ -21,13 +21,16 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: left;
-  padding: 15% 0 0 20%;
+  padding: 15% 0 0 15%;
   margin: 0;
   h1 {
     transition: all .3s linear;
     font-size: 8em;
     color: #fff;
     margin: 0;
+  }
+  h2 {
+    transition: all .3s linear;
   }
 }
 .front .header {
@@ -39,15 +42,24 @@ export default {
   h1 {
     text-shadow: -5px 5px 0 #FF0098;
   }
+  h2 {
+    color: #FF0098;
+  }
 }
 .hover .header {
   h1 {
     text-shadow: -5px 5px 0 #EE3F00;
   }
+  h2 {
+    color: #EE3F00;
+  }
 }
 .click .header {
   h1 {
     text-shadow: -5px 5px 0 #1808EF;
+  }
+  h2 {
+    color: #1808EF;
   }
 }
 </style>
