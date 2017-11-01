@@ -3,7 +3,7 @@
 
     <svg v-on:mouseover="animateIn" v-on:mouseleave="animateOut" class="bubble-one-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 299 278">
       <defs>
-        <linearGradient id="linear-gradient" x1="121.28" y1="72.08" x2="230.33" y2="228.09" gradientUnits="userSpaceOnUse">
+        <linearGradient id="bubble-one-gradient" x1="121.28" y1="72.08" x2="230.33" y2="228.09" gradientUnits="userSpaceOnUse">
           <stop offset="0" stop-color="#ff1aa2"/>
           <stop offset="1" stop-color="#f40000"/>
         </linearGradient>
@@ -85,7 +85,7 @@ export default {
       fill:#d8d2d2;
     }
     .pink-two {
-      fill:url(#linear-gradient);
+      fill:url(#bubble-one-gradient);
     }
   }
 }

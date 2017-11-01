@@ -1,9 +1,9 @@
 <template>
   <div class="bubble-two">
 
-    <svg v-on:mouseover="animateIn" v-on:mouseleave="animateOut" class="bubble-two-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 299 278">
+    <svg v-on:mouseover="animateIn" v-on:mouseleave="animateOut" class="bubble-two-svg" viewBox="0 0 299 278" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
-        <linearGradient id="linear-gradient" x1="110.27" y1="53.02" x2="213.5" y2="200.69" gradientUnits="userSpaceOnUse">
+        <linearGradient id="bubble-two-gradient" x1="110.27" y1="53.02" x2="213.5" y2="200.69" gradientUnits="userSpaceOnUse">
           <stop offset="0" stop-color="#ff1aa2"/>
           <stop offset="1" stop-color="#f40000"/>
         </linearGradient>
@@ -84,7 +84,7 @@ export default {
       fill:#d8d2d2;
     }
     .pink-one {
-      fill:url(#linear-gradient);
+      fill:url(#bubble-two-gradient);
     }
   }
 }

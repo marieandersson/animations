@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 .hover-how {
-  border: 1px solid black;
+  border-bottom: 1px solid black;
   width: 100%;
   height: 100vh;
   display: flex;
