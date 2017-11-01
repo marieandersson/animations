@@ -1,7 +1,7 @@
 <template>
   <div class="header">
   <!-- animate heading with canvas ? -->
-    <h1>Heading</h1>
+    <h1>Rubrik</h1>
     <h2>Type somehing</h2>
   </div>
 </template>

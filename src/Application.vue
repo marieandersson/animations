@@ -23,7 +23,7 @@
 import background from './components/animations/Background.vue';
 import mainSection from './components/Main.vue';
 
-const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
+const slugs = ['/', 'scroll', 'hover', 'click'];
 
 export default {
   name: 'app',
