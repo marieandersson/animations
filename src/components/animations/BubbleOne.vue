@@ -8,8 +8,8 @@
           <stop offset="1" stop-color="#f40000"/>
         </linearGradient>
       </defs>
-      <path class="cls-1 grey" :d="this.greyAnimation.paths[0]" />
-      <path class="cls-2 pink" :d="this.pinkAnimation.paths[0]" />
+      <path class="cls-1 grey-two" :d="this.greyAnimation.paths[0]" />
+      <path class="cls-2 pink-two" :d="this.pinkAnimation.paths[0]" />
     </svg>
 
   </div>
@@ -48,7 +48,6 @@ export default {
       let self = this;
       self.runAnimation(1, function () {
         self.runAnimation(0, function () {
-          console.log(self.stop);
           if (self.stop) {
             self.stop = false;
             self.animating = false;
@@ -68,10 +67,10 @@ export default {
     }
   },
   mounted () {
-    const bubble = this.$el.querySelector('.bubble-one-svg');
-    const s = Snap(bubble);
-    this.grey = Snap.select('.grey');
-    this.pink = Snap.select('.pink');
+    const bubbleOne = this.$el.querySelector('.bubble-one-svg');
+    const s = Snap(bubbleOne);
+    this.grey = Snap.select('.grey-two');
+    this.pink = Snap.select('.pink-two');
   }
 }
 </script>
@@ -80,10 +79,10 @@ export default {
 .bubble-one {
   width: 25%;
   svg {
-    .grey {
+    .grey-two {
       fill:#d8d2d2;
     }
-    .pink {
+    .pink-two {
       fill:url(#linear-gradient);
     }
   }

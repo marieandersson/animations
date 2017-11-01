@@ -15,12 +15,12 @@ export default {
 
 <style lang="scss">
 .hover-header {
-  width: 50%;
-  height: 300px;
+  width: 100%;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  padding: 5em 0 0 5em;
   h2, h3 {
     margin: 0;
   }
