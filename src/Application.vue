@@ -39,10 +39,14 @@ export default {
   methods: {
     openSection() {
       const clickedSection = event.target.dataset.state;
-      this.activeState = clickedSection;
       window.history.pushState(clickedSection, null, `${slugs[clickedSection]}`);
       Event.$emit('sectionClicked', clickedSection);
     }
+  },
+  created () {
+    Event.$on('sectionClicked', clickedSection => {
+        this.activeState = clickedSection;
+    });
   }
 }
 </script>
