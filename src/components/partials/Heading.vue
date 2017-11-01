@@ -16,24 +16,27 @@ export default {
 <style lang="scss">
 .header {
   width: 100%;
-  height: 500px;
+  height: 100vh;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: left;
   padding: 5em 0 0 5em;
-  margin-bottom: 5em;
-  transition: color 1s linear; 
+  transition: color .3s linear;
   h2, h3 {
     margin: 0;
   }
 }
 .front .header {
-  color: pink;
+  color: #1808EF;
 }
 .scroll .header {
-  color: yellow;
+  color: #FF0098;
+}
+.hover .header {
+  color: #FF8B00;
 }
 .click .header {
-  color: green;
+  color: #1808EF;
 }
 </style>

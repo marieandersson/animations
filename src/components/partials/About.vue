@@ -24,11 +24,12 @@ export default {
 
 <style lang="scss">
 .hover-about {
+  border: 1px solid black;
   width: 100%;
-  height: 500px;
+  height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   .hover-about-text {
     width: 60%;
     margin: 0 5em;

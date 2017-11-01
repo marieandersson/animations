@@ -14,6 +14,7 @@ export default {
 
 <style lang="scss">
 .hover-full-animation-two {
+  border: 1px solid black;
   width: 100%;
   height: 100vh;
 }

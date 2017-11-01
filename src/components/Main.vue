@@ -80,14 +80,11 @@ main {
   width: calc(100% - 60px);
   position: absolute;
   left: 60px;
-  transition: transform .2s linear .5s;
   z-index: 11;
   .content-wrap {
-    padding: 1em 10%;
     display: flex;
     flex-direction: column;
     width: 100%;
-    transition: opacity .2s linear;
   }
 }
 

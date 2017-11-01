@@ -79,7 +79,6 @@ export default {
 <style lang="scss">
 .bubble-two {
   width: 20%;
-  align-self: center;
   svg {
     .grey-one {
       fill:#d8d2d2;

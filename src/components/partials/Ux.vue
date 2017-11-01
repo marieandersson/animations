@@ -20,10 +20,11 @@ export default {
 <style lang="scss">
 .hover-ux {
   width: 100%;
-  height: 500px;
+  height: 100vh;
+  border: 1px solid black;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   .hover-ux-text {
     width: 60%;
   }

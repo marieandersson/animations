@@ -1,10 +1,18 @@
 <template>
   <div id="app">
     <nav>
-      <div data-state="0" v-on:click="openSection" class="start-nav" v-bind:class="{ startActive ? 'active' : '' }"><p data-state="0">Start</p></div>
-      <div data-state="1" v-on:click="openSection" class="scroll-nav"><p data-state="1">Scroll</p></div>
-      <div data-state="2" v-on:click="openSection" class="hover-nav"><p data-state="2">Hover</p></div>
-      <div data-state="3" v-on:click="openSection" class="click-nav"><p data-state="3">Click</p></div>
+      <div data-state="0" v-on:click="openSection" class="start-nav" v-bind:class="activeState == 0 ? 'active' : '' ">
+        <p data-state="0">Start</p>
+      </div>
+      <div data-state="1" v-on:click="openSection" class="scroll-nav" v-bind:class="activeState == 1 ? 'active' : '' ">
+        <p data-state="1">Scroll</p>
+      </div>
+      <div data-state="2" v-on:click="openSection" class="hover-nav" v-bind:class="activeState == 2 ? 'active' : '' ">
+        <p data-state="2">Hover</p>
+      </div>
+      <div data-state="3" v-on:click="openSection" class="click-nav" v-bind:class="activeState == 3 ? 'active' : '' ">
+        <p data-state="3">Click</p>
+      </div>
     </nav>
     <background></background>
     <mainSection></mainSection>
@@ -15,8 +23,6 @@
 import background from './components/animations/Background.vue';
 import mainSection from './components/Main.vue';
 
-
-let menuClickable = true;
 const slugs = ['/', 'scroll', 'hover', 'click']; // change hover slug on mobile?
 
 export default {
@@ -27,24 +33,15 @@ export default {
   },
   data () {
     return {
-      startActive: true
+      activeState: 0
     }
   },
   methods: {
     openSection() {
       const clickedSection = event.target.dataset.state;
-      event.target.classList.add('open');
-      if (menuClickable) {
-        menuClickable = false;
-        window.history.pushState(clickedSection, null, `${slugs[clickedSection]}`);
-        Event.$emit('sectionClicked', clickedSection);
-      }
-      // let section transition reach end before user can click menu again
-      // TODO: check if this is the right way to go
-      setTimeout(setBackClickable, 500);
-      function setBackClickable () {
-        menuClickable = true;
-      }
+      this.activeState = clickedSection;
+      window.history.pushState(clickedSection, null, `${slugs[clickedSection]}`);
+      Event.$emit('sectionClicked', clickedSection);
     }
   }
 }
@@ -58,10 +55,10 @@ nav {
   z-index: 12;
   left: 0;
   top: 0;
-  background: red;
   display: flex;
   flex-direction: column;
   cursor: pointer;
+  background: #f6f6f6;
   div {
     width: 100%;
     flex: 1;
@@ -73,29 +70,22 @@ nav {
       margin: 0;
     }
   }
-  .start-nav {
+  .active.start-nav {
     background: linear-gradient(#1808EF, #001F44);
-    p {
-      color: #fff;
-    }
+
   }
-  .scroll-nav {
+  .active.scroll-nav {
     background: linear-gradient(#F40000, #FF0098);
-    p {
-      color: #fff;
-    }
+
   }
-  .hover-nav {
+  .active.hover-nav {
     background: linear-gradient(#FF8B00, #EE3F00);
-    p {
-      color: #fff;
-    }
+
+
   }
-  .click-nav {
+  .active.click-nav {
     background: linear-gradient(#1808EF, #001F44);
-    p {
-      color: #fff;
-    }
+
   }
 }
 // .sections {

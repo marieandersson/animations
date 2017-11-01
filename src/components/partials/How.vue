@@ -22,12 +22,12 @@ export default {
 
 <style lang="scss">
 .hover-how {
+  border: 1px solid black;
   width: 100%;
-  height: 500px;
+  height: 100vh;
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
-
+  align-items: center;
   .hover-how-text {
     width: 60%;
   }
