@@ -1,5 +1,5 @@
 <template>
-  <div class="background">
+  <div :class="['background', activeState]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 2152.21">
       <defs>
         <linearGradient id="linear-gradient" :x1="shadowAnimation.gradients[0].x1" :y1="shadowAnimation.gradients[0].y1" :x2="shadowAnimation.gradients[0].x2" :y2="shadowAnimation.gradients[0].y2" gradientUnits="userSpaceOnUse">
@@ -131,19 +131,27 @@ export default {
     fill: url(#linear-gradient);
     transition: all .3s linear;
   }
-  .cls-2 {
+  .path-one {
     fill: #fff;
   }
-  .cls-3 {
+  .line-one, .line-two {
     fill:none;
-    stroke:#001f44;
     stroke-linecap:round;
     stroke-miterlimit:10;
     stroke-width:3px;
     transition: all .3s linear;
   }
-  .line-one {
-    // filter: url(#blurMe);
-  }
+}
+.start .line-one, .start .line-two {
+  stroke: #e6e6e6;
+}
+.scroll .line-one, .scroll .line-two {
+  stroke: #FF0098;
+}
+.hover .line-one, .hover .line-two {
+  stroke: #FF8B00;
+}
+.click .line-one, .click .line-two {
+  stroke: #1808EF;
 }
 </style>
