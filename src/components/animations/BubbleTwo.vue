@@ -4,8 +4,8 @@
     <svg v-on:mouseover="animateIn" v-on:mouseleave="animateOut" class="bubble-two-svg" viewBox="0 0 299 278" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <linearGradient id="bubble-two-gradient" x1="110.27" y1="53.02" x2="213.5" y2="200.69" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#ff1aa2"/>
-          <stop offset="1" stop-color="#f40000"/>
+          <stop offset="0" :stop-color="gradientColors[activeState].start" />
+          <stop offset="1" :stop-color="gradientColors[activeState].end"/>
         </linearGradient>
       </defs>
       <path class="cls-1 grey-one" :d="greyAnimation.paths[0]" />
@@ -22,6 +22,7 @@ export default {
   name: 'bubbleTwo',
   data () {
     return {
+      activeState: 'start',
       // SVG paths
       greyAnimation: {
         paths: [
@@ -34,6 +35,24 @@ export default {
           'M227.81,121.85c0,34.63-7.73,65.71-59.28,73.44-45.46,6.82-78.61-26.36-78.61-61,0-60.14,48.46-75.41,87.29-75.41S227.81,87.22,227.81,121.85Z',
           'M256.68,157.76c0,44-45.62,69.22-99.41,69.06-34.55-.1-101.12,1.61-108.33-70.16C41.76,85.09,114.6,58.17,159.71,79.77,220.13,108.69,256.68,134.12,256.68,157.76Z'
         ]
+      },
+      gradientColors: {
+        start: {
+          start: '#000000',
+          end: '#e6e6e6'
+        },
+        scroll: {
+          start: '#F40000',
+          end: '#FF0098'
+        },
+        hover: {
+          start: '#EE3F00',
+          end: '#FF8B00'
+        },
+        click: {
+          start: '#001F44',
+          end: '#1808EF'
+        }
       }
     }
   },
@@ -54,6 +73,11 @@ export default {
     const s = Snap(bubbleTwo);
     this.grey = Snap.select('.grey-one');
     this.pink = Snap.select('.pink-one');
+  },
+  created () {
+    Event.$on('activeState', clickedNavItem => {
+      this.activeState = clickedNavItem;
+    });
   }
 }
 </script>
