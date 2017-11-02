@@ -3,8 +3,8 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 2152.21">
       <defs>
         <linearGradient id="linear-gradient" :x1="shadowAnimation.gradients[0].x1" :y1="shadowAnimation.gradients[0].y1" :x2="shadowAnimation.gradients[0].x2" :y2="shadowAnimation.gradients[0].y2" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#001f44"/>
-          <stop offset="1" stop-color="#1808ef"/>
+          <stop offset="0" :stop-color="gradientColors[activeState].start"/>
+          <stop offset="1" :stop-color="gradientColors[activeState].end"/>
         </linearGradient>
         <linearGradient id="linear-gradient-2" x1="258.69" y1="1749.48" x2="224.35" y2="1852.48" xlink:href="#linear-gradient"/>
         <filter id="blurMe">
@@ -30,6 +30,8 @@ export default {
   name: 'background',
   data () {
     return {
+      activeState: 'start',
+      animating: false,
       pathAnimation: {
         durations: [3000, 3000],
         shapes: [
@@ -55,7 +57,24 @@ export default {
           { x1: '1027.77', y1: '465.2', x2: '1043.57', y2: '791.91' }
         ]
       },
-      animating: false
+      gradientColors: {
+        start: {
+          start: '#000000',
+          end: '#e6e6e6'
+        },
+        scroll: {
+          start: '#F40000',
+          end: '#FF0098'
+        },
+        hover: {
+          start: '#EE3F00',
+          end: '#FF8B00'
+        },
+        click: {
+          start: '#001F44',
+          end: '#1808EF'
+        }
+      }
     }
   },
   methods: {
@@ -88,6 +107,12 @@ export default {
     this.path = Snap.select('.path-one');
     this.line = Snap.select('.line-one');
     this.gradient = Snap.select('#linear-gradient');
+  },
+  created () {
+    Event.$on('sectionClicked', clickedNavItem => {
+      this.activeState = clickedNavItem;
+      console.log(this.activeState);
+    });
   }
 }
 </script>

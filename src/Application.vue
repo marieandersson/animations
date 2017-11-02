@@ -28,12 +28,12 @@ export default {
         { name: 'hover' },
         { name: 'click' }
       ],
-      activeItem: 'start'
+      activeState: 'start'
     }
   },
   methods: {
     setActive(navItem) {
-      this.activeItem = navItem;
+      this.activeState = navItem;
       let slug = navItem;
       if (navItem === 'start') {
         slug = '/';
@@ -42,7 +42,7 @@ export default {
       Event.$emit('sectionClicked', navItem);
     },
     isActive(menuItem) {
-      return this.activeItem === menuItem;
+      return this.activeState === menuItem;
     }
   }
 }
