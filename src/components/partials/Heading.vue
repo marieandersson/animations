@@ -33,7 +33,7 @@ export default {
     transition: all .3s linear;
   }
 }
-.front .header {
+.start .header {
   h1 {
     text-shadow: -5px 5px 0 #000;
   }

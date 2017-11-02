@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <nav>
-      <div v-for="item in navItems" :data-state="item.state" v-on:click="openSection(item.name)" :class="['nav-item', item.class, isActive(item.name) ? 'active' : '']" >
-        <p :data-state="item.state">{{ item.name }}</p>
+      <div v-for="item in navItems" v-on:click="setActive(item.name)" :class="['nav-item', `${item.name}-nav`, isActive(item.name) ? 'active' : '']" >
+        <p>{{ item.name }}</p>
       </div>
     </nav>
     <background></background>
@@ -14,8 +14,6 @@
 import background from './components/animations/Background.vue';
 import mainSection from './components/Main.vue';
 
-const slugs = ['/', 'scroll', 'hover', 'click'];
-
 export default {
   name: 'app',
   components: {
@@ -24,46 +22,28 @@ export default {
   },
   data () {
     return {
-      navItems: {
-        start: {
-          name: 'start',
-          class: 'start-nav',
-          state: 0
-        },
-        scroll: {
-          name: 'scroll',
-          class: 'scroll-nav',
-          state: 1
-        },
-        hover: {
-          name: 'hover',
-          class: 'hover-nav',
-          state: 2
-        },
-        click: {
-          name: 'click',
-          class: 'click-nav',
-          state: 3
-        },
-      },
+      navItems: [
+        { name: 'start' },
+        { name: 'scroll' },
+        { name: 'hover' },
+        { name: 'click' }
+      ],
       activeItem: 'start'
     }
   },
   methods: {
-    openSection(navItem) {
+    setActive(navItem) {
       this.activeItem = navItem;
-      const clickedSection = event.target.dataset.state;
-      window.history.pushState(clickedSection, null, `${slugs[clickedSection]}`);
-      Event.$emit('sectionClicked', clickedSection);
+      let slug = navItem;
+      if (navItem === 'start') {
+        slug = '/';
+      }
+      window.history.pushState(navItem, null, slug);
+      Event.$emit('sectionClicked', navItem);
     },
     isActive(menuItem) {
       return this.activeItem === menuItem;
     }
-  },
-  created () {
-    Event.$on('sectionClicked', clickedSection => {
-        this.activeState = clickedSection;
-    });
   }
 }
 </script>

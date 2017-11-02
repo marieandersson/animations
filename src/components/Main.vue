@@ -31,10 +31,10 @@ export default {
   },
   data () {
     return {
-      activeState: 'front',
+      activeState: 'start',
       states: [
         {
-          name: 'front',
+          name: 'start',
           stateNo: 0,
           active: true
         },
@@ -60,7 +60,7 @@ export default {
     Event.$on('sectionClicked', sectionClicked => {
       let self = this;
       self.states.map(function(state) {
-        if (state.stateNo == sectionClicked) {
+        if (state.name === sectionClicked) {
           state.active = true;
           self.activeState = state.name;
         } else {
