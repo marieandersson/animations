@@ -12,27 +12,16 @@ new Vue({
 
 // check initial url/state
 const subUrl = location.pathname.substring(1).toLowerCase();
-if (subUrl === 'scroll') {
-  Event.$emit('sectionClicked', 1);
-} else if (subUrl === 'hover') {
-  Event.$emit('sectionClicked', 2);
-} else if (subUrl === 'click') {
-  Event.$emit('sectionClicked', 3);
+if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
+  Event.$emit('sectionClicked', subUrl);
 } else {
   // if sub url is unvalid, redirect to root
-  window.history.replaceState(0, '', '/');
+  window.history.replaceState('start', '', '/');
 }
 
 // handle user going back and forward in history
 window.onpopstate = function (event) {
   let section = event.state;
-  if (!section) section = 0;
+  if (!section) section = 'start';
   Event.$emit('sectionClicked', section);
 }
-
-// document.querySelectorAll('.section').forEach(section => {
-//   console.log(section);
-//   section.addEventListener('transitionend', function (event) {
-//     console.log('end');
-//   });
-// })

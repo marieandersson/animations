@@ -31,42 +31,12 @@ export default {
   },
   data () {
     return {
-      activeState: 'start',
-      states: [
-        {
-          name: 'start',
-          stateNo: 0,
-          active: true
-        },
-        {
-          name: 'scroll',
-          stateNo: 1,
-          active: false
-        },
-        {
-          name: 'hover',
-          stateNo: 2,
-          active: false
-        },
-        {
-          name: 'click',
-          stateNo: 3,
-          active: false
-        }
-      ]
+      activeState: 'start'
     }
   },
   created () {
-    Event.$on('sectionClicked', sectionClicked => {
-      let self = this;
-      self.states.map(function(state) {
-        if (state.name === sectionClicked) {
-          state.active = true;
-          self.activeState = state.name;
-        } else {
-          state.active = false;
-        }
-      });
+    Event.$on('sectionClicked', clickedNavItem => {
+      this.activeState = clickedNavItem;
     });
   }
 }
