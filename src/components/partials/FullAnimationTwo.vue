@@ -1,5 +1,5 @@
 <template>
-  <div class="hover-full-animation-two">
+  <div class="full-animation-two">
 
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style lang="scss">
-.hover-full-animation-two {
+.full-animation-two {
   border-bottom: 1px solid black;
   width: 100%;
   height: 100vh;

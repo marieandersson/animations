@@ -125,11 +125,10 @@ export default {
   z-index: 10;
   .polygon-one {
     fill: url(#linear-gradient-2);
-    transition: all .3s linear;
   }
   .polygon-two {
     fill: url(#linear-gradient);
-    transition: all .3s linear;
+    transition: fill 1s linear;
   }
   .path-one {
     fill: #fff;
@@ -139,11 +138,10 @@ export default {
     stroke-linecap:round;
     stroke-miterlimit:10;
     stroke-width:3px;
-    transition: all .3s linear;
   }
 }
 .start .line-one, .start .line-two {
-  stroke: #e6e6e6;
+  stroke: #c2c2c2;
 }
 .scroll .line-one, .scroll .line-two {
   stroke: #FF0098;
