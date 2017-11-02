@@ -1,17 +1,8 @@
 <template>
   <div id="app">
     <nav>
-      <div data-state="0" v-on:click="openSection" class="nav-item start-nav" v-bind:class="activeState == 0 ? 'active' : '' ">
-        <p data-state="0">Start</p>
-      </div>
-      <div data-state="1" v-on:click="openSection" class="nav-item scroll-nav" v-bind:class="activeState == 1 ? 'active' : '' ">
-        <p data-state="1">Scroll</p>
-      </div>
-      <div data-state="2" v-on:click="openSection" class="nav-item hover-nav" v-bind:class="activeState == 2 ? 'active' : '' ">
-        <p data-state="2">Hover</p>
-      </div>
-      <div data-state="3" v-on:click="openSection" class="nav-item click-nav" v-bind:class="activeState == 3 ? 'active' : '' ">
-        <p data-state="3">Click</p>
+      <div v-for="item in navItems" :data-state="item.state" v-on:click="openSection(item.name)" :class="['nav-item', item.class, isActive(item.name) ? 'active' : '']" >
+        <p :data-state="item.state">{{ item.name }}</p>
       </div>
     </nav>
     <background></background>
@@ -33,14 +24,40 @@ export default {
   },
   data () {
     return {
-      activeState: 0
+      navItems: {
+        start: {
+          name: 'start',
+          class: 'start-nav',
+          state: 0
+        },
+        scroll: {
+          name: 'scroll',
+          class: 'scroll-nav',
+          state: 1
+        },
+        hover: {
+          name: 'hover',
+          class: 'hover-nav',
+          state: 2
+        },
+        click: {
+          name: 'click',
+          class: 'click-nav',
+          state: 3
+        },
+      },
+      activeItem: 'start'
     }
   },
   methods: {
-    openSection() {
+    openSection(navItem) {
+      this.activeItem = navItem;
       const clickedSection = event.target.dataset.state;
       window.history.pushState(clickedSection, null, `${slugs[clickedSection]}`);
       Event.$emit('sectionClicked', clickedSection);
+    },
+    isActive(menuItem) {
+      return this.activeItem === menuItem;
     }
   },
   created () {
@@ -74,6 +91,9 @@ nav {
     p {
       transform: rotate(-90deg);
       margin: 0;
+      &::first-letter {
+        text-transform: uppercase;
+      }
     }
   }
   .start-nav p {
