@@ -8,8 +8,8 @@
           <stop offset="1" stop-color="#f40000"/>
         </linearGradient>
       </defs>
-      <path class="cls-1 grey-two" :d="this.greyAnimation.paths[0]" />
-      <path class="cls-2 pink-two" :d="this.pinkAnimation.paths[0]" />
+      <path class="cls-1 grey-two" :d="greyAnimation.paths[0]" />
+      <path class="cls-2 pink-two" :d="pinkAnimation.paths[0]" />
     </svg>
 
   </div>

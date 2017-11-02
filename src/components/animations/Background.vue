@@ -2,7 +2,7 @@
   <div class="background">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 2152.21">
       <defs>
-        <linearGradient id="linear-gradient" x1="1118.25" y1="375.35" x2="1121.79" y2="288.56" gradientUnits="userSpaceOnUse">
+        <linearGradient id="linear-gradient" :x1="shadowAnimation.gradients[0].x1" :y1="shadowAnimation.gradients[0].y1" :x2="shadowAnimation.gradients[0].x2" :y2="shadowAnimation.gradients[0].y2" gradientUnits="userSpaceOnUse">
           <stop offset="0" stop-color="#001f44"/>
           <stop offset="1" stop-color="#1808ef"/>
         </linearGradient>
@@ -14,10 +14,10 @@
       <title>1_Bakgrund copy 3@2x100</title>
       <g id="Layer_3" data-name="Layer 3">
         <polygon class="cls-1 polygon-one" points="270.3 1742.7 355.64 1887.3 123.62 1872.72 114 1754.86 270.3 1742.7"/>
-        <polygon class="cls-1 polygon-two" points="1095.54 403.43 992.03 271.22 1161.26 226.65 1248.9 370.95 1095.54 403.43"/>
-        <path v-on:click="toggleAnimation" class="cls-2 path-one" d="M1366,995.74h-.76v313h-1l-330.37,192.78s-401.66,209.58-758.73,247.37c-161.46,17.08-122.66,83.67-118,89.77s20.94,33,103.21,21.82c72-9.82,98.89,24.86,103.69,37.3s25.71,57.14-129.77,137.27C61.81,2123.92,0,2108.53,0,2108.53V984.17H-.19L.18,864.86C440.63,917,742.72,482,1091.76,397.74c157.82-38.11,110.63-99,105.17-104.47s-25.09-30-105.17-8.1c-70.08,19.17-101.3-11.68-107.69-23.39s-33-53.27,110.65-153.09C1254.08-2.07,1365.24,0,1365.24,0Z"/>
-        <line class="cls-3 line-one" x1="1203.71" y1="308.52" x2="1366" y2="768" filter="url(#blurMe)"/>
-        <line class="cls-3 line-two" x1="152.51" y1="1824.04" x2="48.93" y2="1347.87" filter="url(#blurMe)"/>
+        <polygon class="cls-1 polygon-two" :points="shadowAnimation.points[0]"/>
+        <path v-on:click="toggleAnimation" class="cls-2 path-one" :d="pathAnimation.shapes[0]"/>
+        <line class="cls-3 line-one" :x1="lineAnimation.points[0].x1" :y1="lineAnimation.points[0].y1" :x2="lineAnimation.points[0].x2" :y2="lineAnimation.points[0].y2" />
+        <line class="cls-3 line-two" x1="152.51" y1="1824.04" x2="48.93" y2="1347.87" />
       </g>
     </svg>
   </div>
@@ -43,7 +43,10 @@ export default {
           [1095.54, 403.43, 992.03, 271.22, 1161.26, 226.65, 1248.9, 370.95, 1095.54, 403.43],
           [907.01, 522.52, 868.63, 350.07, 1084.31, 430.4, 1025.13, 576.86, 907.01, 522.52]
         ],
-        gradients: []
+        gradients: [
+          {x1: '1118.25', y1: '375.35', x2: '1121.79', y2: '288.56'},
+          {x1: '925.43', y1: '511.47', x2: '966.5', y2: '419.56'}
+        ]
       },
       lineAnimation: {
         durations: [2855, 3145],
@@ -74,6 +77,7 @@ export default {
     runAnimation (index, callback) {
       this.line.animate(this.lineAnimation.points[index], this.lineAnimation.durations[index], mina.easeinout);
       this.shadow.animate({ points: this.shadowAnimation.points[index] }, this.shadowAnimation.durations[index], mina.easeinout);
+      this.gradient.animate(this.shadowAnimation.gradients[index], this.shadowAnimation.durations[index], mina.easeinout);
       this.path.animate({ d: this.pathAnimation.shapes[index] }, this.pathAnimation.durations[index], mina.easeinout, callback);
     }
   },
@@ -83,6 +87,7 @@ export default {
     this.shadow = Snap.select('.polygon-two');
     this.path = Snap.select('.path-one');
     this.line = Snap.select('.line-one');
+    this.gradient = Snap.select('#linear-gradient');
   }
 }
 </script>
@@ -93,7 +98,7 @@ export default {
   width: 100vw;
   position: absolute;
   top: 0;
-  z-index: 10;
+  z-index: 18;
   .polygon-one {
     fill: url(#linear-gradient-2);
   }
@@ -111,7 +116,7 @@ export default {
     stroke-width:3px;
   }
   .line-one {
-    filter: url(#blurMe);
+    // filter: url(#blurMe);
   }
 }
 </style>
