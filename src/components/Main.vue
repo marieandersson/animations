@@ -35,7 +35,7 @@ export default {
     }
   },
   created () {
-    Event.$on('sectionClicked', clickedNavItem => {
+    Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
     });
   }

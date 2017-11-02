@@ -13,7 +13,7 @@ new Vue({
 // check initial url/state
 const subUrl = location.pathname.substring(1).toLowerCase();
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
-  Event.$emit('sectionClicked', subUrl);
+  Event.$emit('activeState', subUrl);
 } else {
   // if sub url is unvalid, redirect to root
   window.history.replaceState('start', '', '/');
@@ -23,5 +23,5 @@ if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
 window.onpopstate = function (event) {
   let section = event.state;
   if (!section) section = 'start';
-  Event.$emit('sectionClicked', section);
+  Event.$emit('activeState', section);
 }

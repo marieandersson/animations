@@ -39,11 +39,16 @@ export default {
         slug = '/';
       }
       window.history.pushState(navItem, null, slug);
-      Event.$emit('sectionClicked', navItem);
+      Event.$emit('activeState', navItem);
     },
     isActive(menuItem) {
       return this.activeState === menuItem;
     }
+  },
+  created () {
+    Event.$on('activeState', clickedNavItem => {
+      this.activeState = clickedNavItem;
+    });
   }
 }
 </script>

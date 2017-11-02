@@ -109,9 +109,8 @@ export default {
     this.gradient = Snap.select('#linear-gradient');
   },
   created () {
-    Event.$on('sectionClicked', clickedNavItem => {
+    Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
-      console.log(this.activeState);
     });
   }
 }
@@ -123,12 +122,14 @@ export default {
   width: 100vw;
   position: absolute;
   top: 0;
-  z-index: 18;
+  z-index: 10;
   .polygon-one {
     fill: url(#linear-gradient-2);
+    transition: all .3s linear;
   }
   .polygon-two {
     fill: url(#linear-gradient);
+    transition: all .3s linear;
   }
   .cls-2 {
     fill: #fff;
@@ -139,6 +140,7 @@ export default {
     stroke-linecap:round;
     stroke-miterlimit:10;
     stroke-width:3px;
+    transition: all .3s linear;
   }
   .line-one {
     // filter: url(#blurMe);
