@@ -8,7 +8,7 @@
         </linearGradient>
         <linearGradient id="linear-gradient-2" x1="258.69" y1="1749.48" x2="224.35" y2="1852.48" xlink:href="#linear-gradient"/>
         <filter id="blurMe">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+          <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
         </filter>
       </defs>
       <title>1_Bakgrund copy 3@2x100</title>
@@ -16,7 +16,7 @@
         <polygon class="cls-1 polygon-one" points="270.3 1742.7 355.64 1887.3 123.62 1872.72 114 1754.86 270.3 1742.7"/>
         <polygon class="cls-1 polygon-two" :points="shadowAnimation.points[0]"/>
         <path v-on:click="toggleAnimation" class="cls-2 path-one" :d="pathAnimation.shapes[0]"/>
-        <line class="cls-3 line-one" :x1="lineAnimation.points[0].x1" :y1="lineAnimation.points[0].y1" :x2="lineAnimation.points[0].x2" :y2="lineAnimation.points[0].y2" />
+        <line class="cls-3 line-one" :x1="lineAnimation.points[0].x1" :y1="lineAnimation.points[0].y1" :x2="lineAnimation.points[0].x2" :y2="lineAnimation.points[0].y2"/>
         <line class="cls-3 line-two" x1="152.51" y1="1824.04" x2="48.93" y2="1347.87" />
       </g>
     </svg>
@@ -49,10 +49,10 @@ export default {
         ]
       },
       lineAnimation: {
-        durations: [2855, 3145],
+        durations: [3070, 2940],
         points: [
-          { x1: '1197.71', y1: '300.52', x2: '1366', y2: '768' },
-          { x1: '1011.77', y1: '494.2', x2: '1043.57', y2: '791.91' }
+          { x1: '1201.71', y1: '302.52', x2: '1366', y2: '768' },
+          { x1: '1027.77', y1: '465.2', x2: '1043.57', y2: '791.91' }
         ]
       },
       animating: false
