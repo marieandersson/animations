@@ -3,6 +3,12 @@
 body {
   background: #f6f6f6;
 }
+// default fonts
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'bitter';
+  font-family: 'Poppins';
+  font-weight: 300;
+}
+a, p {
+  font-family: 'Open sans';
+  font-weight: 300;
 }

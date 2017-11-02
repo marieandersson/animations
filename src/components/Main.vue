@@ -3,10 +3,10 @@
     <div class="content-wrap">
       <heading></heading>
       <about></about>
-      <how></how>
       <fullAnimationOne></fullAnimationOne>
+      <how></how>
+      <fullAnimationTwo></fullAnimationTwo>
       <ux></ux>
-      <!-- <fullAnimationTwo></fullAnimationTwo> -->
     </div>
   </main>
 </template>

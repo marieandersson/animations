@@ -71,6 +71,9 @@ nav {
     p {
       transform: rotate(-90deg);
       margin: 0;
+      text-transform: uppercase;
+      font-family: 'Poppins' !important;
+      font-weight: 300;
       &::first-letter {
         text-transform: uppercase;
       }
