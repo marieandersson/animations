@@ -119,9 +119,10 @@ export default {
 <style lang="scss">
 .background {
   height: 100vh;
-  width: 100vw;
+  width: calc(100% - 60px);
   position: absolute;
   top: 0;
+  left: 60px;
   z-index: 10;
   .polygon-one {
     fill: url(#linear-gradient-2);
@@ -151,5 +152,16 @@ export default {
 }
 .click .line-one, .click .line-two {
   stroke: #1808EF;
+}
+@media screen and (max-width: 1100px) {
+  .background {
+    padding-top: 150px;
+  }
+}
+@media screen and (max-width:600px) {
+  .background {
+    width: calc(100% - 40px);
+    left: 40px;
+  }
 }
 </style>

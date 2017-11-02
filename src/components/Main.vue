@@ -57,5 +57,10 @@ main {
     width: 100%;
   }
 }
-
+@media screen and (max-width:600px) {
+  main {
+    width: calc(100% - 40px);
+    left: 40px;
+  }
+}
 </style>

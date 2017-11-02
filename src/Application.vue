@@ -122,4 +122,9 @@ nav {
     }
   }
 }
+@media screen and (max-width:600px) {
+  nav {
+    width: 40px;
+  }
+}
 </style>
