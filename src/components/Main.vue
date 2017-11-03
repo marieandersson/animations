@@ -5,7 +5,7 @@
       <about></about>
       <fullAnimationOne></fullAnimationOne>
       <how></how>
-      <fullAnimationTwo></fullAnimationTwo>
+      <videoSection></videoSection>
       <ux></ux>
     </div>
   </main>
@@ -17,7 +17,7 @@ import about from './partials/About.vue';
 import how from './partials/How.vue';
 import fullAnimationOne from './partials/FullAnimationOne.vue';
 import ux from './partials/Ux.vue';
-import fullAnimationTwo from './partials/FullAnimationTwo.vue';
+import videoSection from './partials/Video.vue';
 
 export default {
   name: 'mainSection',
@@ -27,7 +27,7 @@ export default {
     how,
     fullAnimationOne,
     ux,
-    fullAnimationTwo
+    videoSection
   },
   data () {
     return {
