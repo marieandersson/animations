@@ -59,8 +59,8 @@ export default {
       },
       gradientColors: {
         start: {
-          start: '#000000',
-          end: '#e6e6e6'
+          start: '#ccc',
+          end: '#e5e5e5'
         },
         scroll: {
           start: '#F40000',
@@ -123,7 +123,7 @@ export default {
   position: absolute;
   top: 0;
   left: 60px;
-  z-index: 10;
+  z-index: 18;
   .polygon-one {
     fill: url(#linear-gradient-2);
   }

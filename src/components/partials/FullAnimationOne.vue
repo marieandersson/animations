@@ -1,10 +1,6 @@
 <template>
   <div class="full-animation-one">
-    <video src="/assets/video/animationfree3.mp4" autoplay>
-      Sorry, your browser doesn't support embedded videos,
-      but don't worry, you can <a href="/assets/video/animationfree3.mp4">download it</a>
-      and watch it with your favorite video player!
-    </video>
+  
   </div>
 </template>
 

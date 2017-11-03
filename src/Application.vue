@@ -64,7 +64,7 @@ nav {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  background: #f6f6f6;
+  background: #e6e6e6;
   .nav-item {
     width: 100%;
     flex: 1;
