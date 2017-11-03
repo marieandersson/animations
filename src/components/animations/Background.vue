@@ -123,7 +123,7 @@ export default {
   position: absolute;
   top: 0;
   left: 60px;
-  z-index: 18;
+  z-index: 10;
   .polygon-one {
     fill: url(#linear-gradient-2);
   }

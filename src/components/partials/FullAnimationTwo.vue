@@ -2,7 +2,7 @@
   <div class="full-animation-two">
     <video src="/assets/video/pinkbubble.mp4" autoplay>
       Sorry, your browser doesn't support embedded videos,
-      but don't worry, you can <a href="/assets/video/pinkbubble.mp4">download it</a>
+      but don't worry, you can <a href="/assets/video/pinkbubble_two.mp4">download it</a>
       and watch it with your favorite video player!
     </video>
   </div>
