@@ -51,7 +51,7 @@ export default {
     // scale canvas to look good on retina
     const scale = window.devicePixelRatio || 1;
     canvas.height = window.innerHeight * scale / 1.5;
-    canvas.width = window.innerWidth * scale / 2;
+    canvas.width = window.innerWidth * scale;
     context.scale(scale, scale);
 
     if (window.devicePixelRatio > 1) {

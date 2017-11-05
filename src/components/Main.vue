@@ -49,6 +49,7 @@ main {
   flex-direction: column;
   width: calc(100% - 60px);
   position: absolute;
+  overflow: hidden;
   left: 60px;
   z-index: 11;
   .content-wrap {

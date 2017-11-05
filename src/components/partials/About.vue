@@ -30,7 +30,7 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding: 4em 0 6em;
+  padding: 4em 5em 6em;
   .about-text {
     width: 500px;
     margin: 0 5em;
