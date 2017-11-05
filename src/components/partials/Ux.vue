@@ -21,7 +21,6 @@ export default {
 .ux {
   width: 100%;
   height: 100vh;
-  border-bottom: 1px solid black;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -19,7 +19,6 @@ export default {
 header {
   width: 100%;
   height: 100vh;
-  border-bottom: 1px solid black;
   margin: 0;
 }
 

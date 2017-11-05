@@ -24,7 +24,6 @@ export default {
 
 <style lang="scss">
 .about {
-  border-bottom: 1px solid black;
   width: 100%;
   height: 100vh;
   display: flex;

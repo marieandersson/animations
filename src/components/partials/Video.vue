@@ -33,7 +33,6 @@ export default {
 
 <style lang="scss">
 .full-animation-two {
-  border-bottom: 1px solid black;
   width: 100%;
   video {
     margin: 0;
