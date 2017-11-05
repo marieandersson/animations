@@ -104,7 +104,7 @@ nav {
     }
   }
   .active.scroll-nav {
-    background: linear-gradient(#F40000, #FF0098);
+    background: linear-gradient(#FF0098, #F40000);
     p {
       color: #fff;
     }

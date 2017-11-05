@@ -8,14 +8,19 @@
     <div class="github-button">
       <a href="#">GitHub</a>
     </div>
+    <hand></hand>
 
   </div>
 </template>
 
 <script>
+import hand from '../animations/Hand.vue';
 
 export default {
   name: 'how',
+  components: {
+    hand
+  }
 
 }
 </script>
@@ -31,7 +36,9 @@ export default {
   justify-content: space-between;
   padding: 0 10%;
   .how-text {
-    width: 500px;
+    color: #fff;
+    width: 50%;
+    z-index: 2;
     h3 {
       font-size: 26px;
     }
@@ -42,6 +49,7 @@ export default {
     }
   }
   .github-button {
+    z-index: 2;
     width: 150px;
     height: 50px;
     background: lightgrey;
@@ -55,5 +63,16 @@ export default {
     }
   }
 }
-
+.start .how {
+  background: linear-gradient(#e6e6e6, #000000);
+}
+.scroll .how {
+  background: linear-gradient(#FF0098, #F40000);
+}
+.hover .how {
+  background: linear-gradient(#FF8B00, #EE3F00);
+}
+.click .how {
+  background: linear-gradient(#1808EF, #001F44);
+}
 </style>

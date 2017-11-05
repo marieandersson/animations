@@ -69,7 +69,7 @@ export default {
     }
   },
   mounted () {
-    const bubbleTwo = document.querySelector('.bubble-two-svg');
+    const bubbleTwo = this.$el.querySelector('.bubble-two-svg');
     const s = Snap(bubbleTwo);
     this.grey = Snap.select('.grey-one');
     this.pink = Snap.select('.pink-one');
