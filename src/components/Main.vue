@@ -5,8 +5,8 @@
       <about></about>
       <fullAnimationOne></fullAnimationOne>
       <how></how>
-      <videoSection></videoSection>
       <ux></ux>
+      <videoSection></videoSection>
     </div>
   </main>
 </template>

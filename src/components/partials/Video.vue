@@ -1,6 +1,6 @@
 <template>
   <div class="full-animation-two">
-    <video src="/assets/video/pinkbubble.mp4" autoplay>
+    <video :src="`/assets/video/${videoSources[activeState]}.mp4`" autoplay>
       Sorry, your browser doesn't support embedded videos,
       but don't worry, you can <a href="/assets/video/pinkbubble_two.mp4">download it</a>
       and watch it with your favorite video player!
@@ -12,7 +12,22 @@
 
 export default {
   name: 'videoSection',
-
+  data () {
+    return {
+      activeState: 'scroll',
+      videoSources: {
+        start: '',
+        scroll: 'pinkbubblemov',
+        hover: 'orangebubblemov',
+        click: 'bluebubblemov'
+      }
+    }
+  },
+  created () {
+    Event.$on('activeState', clickedNavItem => {
+      this.activeState = clickedNavItem;
+    });
+  }
 }
 </script>
 
@@ -20,12 +35,9 @@ export default {
 .full-animation-two {
   border-bottom: 1px solid black;
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
   video {
-    max-height: 100%;
-    max-width: 100%;
+    margin: 0;
+    width: 100%;
   }
 }
 
