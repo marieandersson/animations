@@ -1,7 +1,7 @@
 <template>
   <header>
-    <h1>animations</h1>
-   <!-- <headingText></headingText> -->
+    <!-- <h1>animations</h1> -->
+   <headingText></headingText>
   </header>
 </template>
 
