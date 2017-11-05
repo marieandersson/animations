@@ -21,7 +21,7 @@ header {
   height: 100vh;
   margin: 0;
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1440px) {
   header {
     height: 75vh;
   }
