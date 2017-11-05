@@ -84,8 +84,10 @@ export default {
 
 <style lang="scss">
 .bubble-two {
-  width: 20%;
-  align-self: flex-start;
+  width: 240px;
+  position: absolute;
+  right: 70px;
+  top: 0;
   svg {
     .grey-one {
       fill:#d8d2d2;
@@ -93,6 +95,11 @@ export default {
     .pink-one {
       fill:url(#bubble-two-gradient);
     }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .bubble-two {
+    width: 200px;
   }
 }
 </style>

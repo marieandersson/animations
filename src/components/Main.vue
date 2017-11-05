@@ -6,7 +6,7 @@
       <fullAnimationOne></fullAnimationOne>
       <how></how>
       <ux></ux>
-      <videoSection v-if="activeState != 'start'"></videoSection>
+      <videoSection></videoSection>
     </div>
   </main>
 </template>

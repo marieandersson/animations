@@ -27,6 +27,11 @@ export default {
   padding: 0 10%;
   .ux-text {
     width: 500px;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+    justify-content: center;
   }
 }
 

@@ -1,8 +1,9 @@
 <template>
   <div class="full-animation-two">
-    <video :src="`/assets/video/${videoSources[activeState]}.mp4`" autoplay>
+    <img v-if="activeState === 'start'" src="/images/blackbubble7.png" alt="Black Bubble">
+    <video v-else :src="`/video/${videoSources[activeState]}.mp4`" autoplay>
       Sorry, your browser doesn't support embedded videos,
-      but don't worry, you can <a :href="`/assets/video/${videoSources[activeState]}.mp4`">download it</a>
+      but don't worry, you can <a :href="`/video/${videoSources[activeState]}.mp4`">download it</a>
       and watch it with your favorite video player!
     </video>
   </div>

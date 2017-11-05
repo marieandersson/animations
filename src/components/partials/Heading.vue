@@ -1,6 +1,7 @@
 <template>
   <header>
-   <headingText></headingText>
+    <h1>animations</h1>
+   <!-- <headingText></headingText> -->
   </header>
 </template>
 
@@ -18,12 +19,26 @@ export default {
 <style lang="scss">
 header {
   width: 100%;
-  height: 100vh;
-  margin: 0;
+  margin: 0 0 370px;
 }
 @media screen and (max-width: 1440px) {
   header {
-    height: 75vh;
+    margin-bottom: 270px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  header {
+    margin-bottom: 180px;
+  }
+}
+@media screen and (max-width: 1150px) {
+  header {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  header {
+    margin-bottom: 0;
   }
 }
 </style>

@@ -35,6 +35,11 @@ export default {
   justify-content: space-between;
   padding: 0 10%;
   .how-text {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    width: 100%;
+    justify-content: center;
     color: #fff;
     width: 50%;
     z-index: 2;

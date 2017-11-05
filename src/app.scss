@@ -4,18 +4,21 @@ body {
   background: #e6e6e6;
 }
 // default fonts
+h1 {
+  font-family: 'Poppins';
+}
 h2 {
   font-family: 'Poppins';
   font-size: 36px;
   font-weight: 300;
   margin: 0;
-  transform: rotate(-90deg) translateX(60px);
+  transform: rotate(-90deg) translateX(72px);
   transform-origin: right;
 }
 a, p {
   font-family: 'Open sans';
   font-size: 18px;
   font-weight: 300;
-  line-height: 1.4;
+  line-height: 1.8;
   margin: 0;
 }
