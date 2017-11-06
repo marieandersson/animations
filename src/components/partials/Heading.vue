@@ -19,7 +19,9 @@ export default {
 <style lang="scss">
 header {
   width: 100%;
-  margin: 0 0 370px;
+  height: 70vh;
+  margin: 0 0 50px;
+  padding-left: 5em;
 }
 @media screen and (max-width: 1440px) {
   header {
