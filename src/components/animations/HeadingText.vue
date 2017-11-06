@@ -30,9 +30,10 @@ export default {
 
 <style lang="scss">
 .heading-wrap {
-  margin: 5em;
-
+  margin: 4em 5em;
+  display: flex;
 }
+
 .start {
   h1 {
     color: #000;
@@ -82,6 +83,13 @@ export default {
     -1px 1px 0 #ccc, -2px 2px 0 #ccc, -3px 3px 0 #ccc, -4px 4px 0 #ccc,
     -5px 5px 0 #ccc, -6px 6px 0 #ccc, -7px 7px 0 #ccc, -8px 8px 0 #ccc, -8px 8px 0 #ccc,
     -9px 9px 0 #ccc, -10px 10px 0 #ccc, -11px 11px 0 #ccc, -12px 12px 0 #ccc;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .heading-wrap {
+    margin: 3em 1em;
+    justify-content: center;
   }
 }
 

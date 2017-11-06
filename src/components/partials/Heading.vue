@@ -18,19 +18,18 @@ export default {
 <style lang="scss">
 header {
   width: 100%;
-  height: 100vh;
+  height: 900px;
   margin: 0;
-  padding-left: 5em;
 }
 @media screen and (max-width: 1440px) {
   header {
-    height: 60vh;
+    height: 540px;
     margin-bottom: 100px;
   }
 }
 @media screen and (max-width: 1250px) {
   header {
-    height: 55vh;
+    height: 495px;
   }
 }
 @media screen and (max-width: 1000px) {
@@ -40,32 +39,28 @@ header {
 }
 @media screen and (max-width: 900px) {
   header {
-    height: 45vh;
+    height: 350px;
   }
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 690px) {
   header {
-    height: 90vh;
-  }
-}
-@media screen and (max-width: 680px) {
-  header {
-    height: 85vh;
+    height: 750px;
   }
 }
 @media screen and (max-width: 520px) {
   header {
-    height: 80vh;
+    height: 650px;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 400px) {
   header {
-    height: 90vh;
+    height: 600px;
   }
 }
 @media screen and (max-width: 320px) {
   header {
-    height: 100vh;
+    height: 550px;
   }
 }
+
 </style>

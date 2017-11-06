@@ -163,21 +163,12 @@ export default {
     padding-top: 200px;
   }
 }
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 690px) {
   .background {
     padding-top: 250px;
     width: 200vw;
     left: auto;
     right: 0;
-  }
-}
-@media screen and (max-width:600px) {
-  .background {
-  }
-}
-@media screen and (max-width: 560px) {
-  .background {
-    padding-top: 300px;
   }
 }
 </style>
