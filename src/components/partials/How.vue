@@ -2,11 +2,8 @@
   <div class="how">
 
     <div class="how-text">
-      <h2>How to</h2>
+      <h2>How to?</h2>
       <p> {{ texts[activeState] }} </p>
-    </div>
-    <div class="github-button">
-      <a href="#">GitHub</a>
     </div>
     <hand></hand>
 
@@ -44,35 +41,63 @@ export default {
 <style lang="scss">
 .how {
   width: 100%;
-  height: 100vh;
+  height: 700px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 10%;
+  padding: 0;
   .how-text {
     display: flex;
     flex-direction: row;
-    margin: 0;
-    width: 100%;
+    margin: 100px 0 150px;
     justify-content: center;
     color: #fff;
-    width: 50%;
-    z-index: 2;
-  }
-  .github-button {
-    z-index: 2;
-    width: 150px;
-    height: 50px;
-    background: lightgrey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    a {
-      text-decoration: none;
-      color: #000;
+    p {
+      width: 500px;
     }
+  }
+}
+@media screen and (max-width: 1270px) {
+  .how {
+    height: 600px;
+    .how-text {
+      align-self: flex-end;
+    }
+  }
+}
+@media screen and (max-width: 1050px) {
+  .how {
+    height: 700px;
+    .how-text {
+      align-self: flex-start;
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .how {
+    justify-content: center;
+    height: 650px;
+    .how-text {
+      margin-top: 70px;
+      flex-direction: column;
+    }
+  }
+}
+@media screen and (max-width: 690px) {
+  .how {
+    padding: 0 3em;
+    .how-text {
+      h2, p {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 430px) {
+  .how {
+    height: 550px;
+    padding: 0 1em;
   }
 }
 .start .how {

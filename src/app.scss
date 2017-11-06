@@ -17,7 +17,7 @@ h2 {
   margin: 0;
   transform: rotate(-90deg) translate(72px, 15px);
   transform-origin: right;
-   white-space: nowrap;
+  white-space: nowrap;
 }
 a, p {
   font-family: 'Open sans';
@@ -32,7 +32,6 @@ a, p {
     transform: rotate(0) translate(0, 0);
   }
 }
-
 @media screen and (max-width: 650px) {
   h2 {
     font-size: 30px;

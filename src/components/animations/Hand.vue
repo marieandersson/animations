@@ -40,28 +40,32 @@ export default {
 <style lang="scss">
 .hand {
   position: absolute;
-  height: 100vh;
-  width: calc(50% + 200px);
+  width: calc(50% + 100px);
   right: 0;
-  transform: translate(200px, 150px);
-  z-index: 1;
+  transform: translate(100px, 0);
   .hand-path {
     fill: transparent;
     stroke-linecap:round;
     stroke-linejoin:round;
-    stroke: rgba(255, 255, 255, 0.8);
+    stroke: rgba(255, 255, 255, 0.7);
   }
 }
-// .start .hand .hand-path {
-//   stroke: rgba(255, 255, 255, 0.8);
-// }
-// .scroll .hand .hand-path {
-//   stroke: rgba(255, 255, 255, 0.5);
-// }
-// .hover .hand .hand-path {
-//   stroke: #EE3F00;
-// }
-// .click .hand .hand-path {
-//   stroke: #001F44;
-// }
+@media screen and (max-width: 1270px) {
+  .hand {
+    transform: translate(100px, -110px);
+    width: 700px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .hand {
+    transform: translate(100px, 110px);
+    width: 800px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .hand {
+    transform: translate(100px, 150px);
+    width: calc(100% + 100px);
+  }
+}
 </style>
