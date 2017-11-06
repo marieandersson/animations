@@ -34,7 +34,6 @@ export default {
       this.activeState = clickedNavItem;
     });
   }
-
 }
 </script>
 
