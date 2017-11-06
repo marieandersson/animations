@@ -64,7 +64,7 @@ export default {
 @media screen and (max-width: 1000px) {
   .about {
     padding: 0 2em 0 0;
-    height: 100vh;
+    height: 870px;
     .about-text {
       justify-content: flex-start;
     }
