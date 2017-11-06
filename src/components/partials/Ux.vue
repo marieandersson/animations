@@ -61,6 +61,59 @@ export default {
     }
     &:hover {
       transform: translate(2px, 2px);
+      transition: 0.1s ease-out;
+    }
+  }
+}
+@media screen and (max-width: 1150px) {
+  .ux {
+    width: calc(100% - 100px);
+    margin: 50px;
+    height: 600px;
+    .ux-text {
+      justify-content: flex-start;
+    }
+  }
+}
+@media screen and (max-width: 980px) {
+  .ux {
+    .ux-text {
+      p {
+        width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 750px) {
+  .ux {
+    height: 400px;
+    .ux-text {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0 2em;
+      h2 {
+        transform: rotate(0) translate(0, 0);
+      }
+    }
+  }
+}
+@media screen and (max-width: 550px) {
+  .ux {
+    width: calc(100% - 40px);
+    margin: 20px;
+     height: 450px;
+    .ux-text {
+      padding: 1em;
+    }
+  }
+}
+@media screen and (max-width: 420px) {
+  .ux {
+
+    height: 540px;
+    .ux-text {
+      padding: 1em;
     }
   }
 }
