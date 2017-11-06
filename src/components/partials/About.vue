@@ -40,17 +40,16 @@ export default {
 
 <style lang="scss">
 .about {
-  width: 100%;
   height: 650px;
-  padding: 0 5em;
+  padding: 0 5em 0 0;
   position: relative;
+  display: flex;
+  align-items: center;
   .about-text {
     display: flex;
     flex-direction: row;
-    margin: 200px 0 0;
     width: 100%;
     justify-content: center;
-    transform: translateX(-50px);
     p {
       width: 500px;
     }
@@ -58,37 +57,76 @@ export default {
 }
 @media screen and (max-width: 1440px) {
   .about {
-    height: 550px;
-    .about-text {
-      margin-top: 140px;
-    }
-  }
-}
-@media screen and (max-width: 1150px) {
-  .about {
-    height: 620px;
-    .about-text {
-      margin-top: 200px;
-    }
+    height: 750px;
+
   }
 }
 @media screen and (max-width: 1000px) {
   .about {
-    height: 620px;
+    padding: 0 2em 0 0;
+    height: 100vh;
     .about-text {
-      margin-top: 200px;
+      justify-content: flex-start;
+    }
+    p {
+      width: 100%;
     }
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 820px) {
+  .about {
+    height: 750px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .about {
+    height: 750px;
+    padding: 0 3em;
+    .about-text {
+      align-items: center;
+      flex-direction: column;
+      h2 {
+        width: 500px;
+      }
+    }
+
+  }
+}
+@media screen and (max-width: 690px) {
   .about {
     height: 580px;
-    padding: 1em;
     .about-text {
-      p {
+      h2, p {
         width: 100%;
       }
     }
   }
 }
+@media screen and (max-width: 480px) {
+  .about {
+    align-items: flex-start;
+    height: 400px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .about {
+    padding: 0 1em;
+  }
+}
+@media screen and (max-width: 320px) {
+  .about {
+      height: 500px;
+  }
+}
+// @media screen and (max-width: 900px) {
+//   .about {
+//     height: 580px;
+//     padding: 1em;
+//     .about-text {
+//       p {
+//         width: 100%;
+//       }
+//     }
+//   }
+// }
 </style>

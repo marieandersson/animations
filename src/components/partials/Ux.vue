@@ -1,6 +1,5 @@
 <template>
   <div class="ux">
-
     <div class="ux-text">
       <h2>What not to</h2>
       <p> {{ texts[activeState] }} </p>

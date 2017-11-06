@@ -105,6 +105,14 @@ export default {
 @media screen and (max-width: 1000px) {
   .bubble-one {
     width: 200px;
+    left: auto;
+    right: 20px;
   }
 }
+@media screen and (max-width: 580px) {
+  .bubble-one {
+    width: 150px;
+  }
+}
+
 </style>

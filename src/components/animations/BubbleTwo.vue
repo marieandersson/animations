@@ -100,6 +100,18 @@ export default {
 @media screen and (max-width: 1000px) {
   .bubble-two {
     width: 200px;
+    right: auto;
+    left: 20px;
+  }
+}
+@media screen and (max-width: 580px) {
+  .bubble-two {
+    width: 150px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .bubble-two {
+    display: none;
   }
 }
 </style>
