@@ -59,7 +59,7 @@ export default {
       },
       gradientColors: {
         start: {
-          start: '#ccc',
+          start: '#808080',
           end: '#e5e5e5'
         },
         scroll: {
@@ -123,7 +123,7 @@ export default {
   position: absolute;
   top: 0;
   left: 60px;
-  z-index: 10;
+  z-index: 18;
   .polygon-one {
     fill: url(#linear-gradient-2);
   }
@@ -142,7 +142,7 @@ export default {
   }
 }
 .start .line-one, .start .line-two {
-  stroke: #c2c2c2;
+  stroke: #d2d2d2;
 }
 .scroll .line-one, .scroll .line-two {
   stroke: #FF0098;
