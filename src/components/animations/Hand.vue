@@ -47,7 +47,8 @@ export default {
     fill: transparent;
     stroke-linecap:round;
     stroke-linejoin:round;
-    stroke: rgba(255, 255, 255, 0.7);
+    stroke-width : 4px;
+    stroke: rgba(255, 255, 255, 0.9);
   }
 }
 @media screen and (max-width: 1270px) {

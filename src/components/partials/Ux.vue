@@ -1,5 +1,6 @@
 <template>
   <div class="ux">
+    <roll></roll>
     <div class="ux-text">
       <h2>What not to!</h2>
       <p> {{ texts[activeState] }} </p>
@@ -12,9 +13,13 @@
 </template>
 
 <script>
+import roll from '../animations/Roll.vue';
 
 export default {
   name: 'ux',
+  components: {
+    roll
+  },
   data () {
     return {
       activeState: 'start',
@@ -37,12 +42,10 @@ export default {
 
 <style lang="scss">
 .ux {
-  width: calc(100% - 300px);
-  background: #fff;
+  width: 100%;
   height: 700px;
   position: relative;
-  margin: 150px;
-  border: solid 10px;
+  padding: 100px 0;
   .ux-text {
     position: absolute;
     width: 100%;
@@ -50,11 +53,11 @@ export default {
     display: flex;
     flex-direction: row;
     margin: 0;
-    justify-content: center;
-    align-items: center;
-    padding-right: 8em;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 10em 10em 0 0;
     h2 {
-      transform: rotate(-90deg) translate(105px, -30px);
+      transform: rotate(-90deg) translate(20px, -30px);
     }
     p {
       width: 500px;
