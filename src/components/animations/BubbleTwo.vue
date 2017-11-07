@@ -60,37 +60,36 @@ export default {
     }
   },
   methods: {
-    runAnimation (index) {
-      this.grey.animate({ d: this.greyAnimation.paths[index] }, 2000, mina.linear);
-      this.pink.animate({ d: this.pinkAnimation.paths[index] }, 2000, mina.easeinout);
+    runAnimation (index, duration) {
+      this.grey.animate({ d: this.greyAnimation.paths[index] }, duration, mina.linear);
+      this.pink.animate({ d: this.pinkAnimation.paths[index] }, duration, mina.easeinout);
     },
-    scrollAnimate() {
-      // this.lastScrollTime = Date.now();
-      if (this.animating) {
-        return;
+    scrollAnimate(index) {
+      this.currentScrollPosition = window.scrollY;
+      if (this.currentScrollPosition > this.lastScrollPosition) {
+        this.runAnimation(1, 1000);
+      } else {
+        this.runAnimation(0, 1000);
       }
-      // this.scrollPosition = window.scrollY;
-      // console.log(this.scrollPosition);
-      this.animating = true;
-      // this.animateIn();
+      this.lastScrollPosition = this.currentScrollPosition;
     },
     hoverAnimateIn () {
       if (this.activeState === 'hover') {
-        this.runAnimation(1);
+        this.runAnimation(1, 2000);
       }
     },
     hoverAnimateOut () {
       if (this.activeState === 'hover') {
-        this.runAnimation(0);
+        this.runAnimation(0, 2000);
       }
     },
     clickAnimate() {
       if (this.activeState === 'click') {
         this.animateIn = !this.animateIn;
         if (this.animateIn) {
-          this.runAnimation(1);
+          this.runAnimation(1, 2000);
         } else {
-          this.runAnimation(0);
+          this.runAnimation(0, 2000);
         }
       }
     }

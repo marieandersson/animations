@@ -91,11 +91,9 @@ export default {
         this.runAnimation(0, () => {
           if (this.activeState === 'scroll' && (Date.now() - this.lastScrollTime) >= 500) {
             this.animating = false;
-            return;
           }
           if (this.activeState === 'click' || this.activeState === 'hover') {
             this.animating = false;
-            return;
           }
           requestAnimationFrame(this.animateBackground);
         })
