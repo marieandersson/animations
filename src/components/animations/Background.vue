@@ -13,14 +13,11 @@
             <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
           </filter>
         </defs>
-        <title>1_Bakgrund copy 3@2x100</title>
-        <g id="Layer_3" data-name="Layer 3">
-          <polygon class="cls-1 polygon-one" points="270.3 1742.7 355.64 1887.3 123.62 1872.72 114 1754.86 270.3 1742.7"/>
-          <polygon class="cls-1 polygon-two" :points="shadowAnimation.points[0]"/>
-          <path class="cls-2 path-one" :d="pathAnimation.shapes[0]"/>
-          <line class="cls-3 line-one" :x1="lineAnimation.points[0].x1" :y1="lineAnimation.points[0].y1" :x2="lineAnimation.points[0].x2" :y2="lineAnimation.points[0].y2"/>
-          <line class="cls-3 line-two" x1="152.51" y1="1824.04" x2="48.93" y2="1347.87" />
-        </g>
+        <polygon class="cls-1 polygon-one" points="270.3 1742.7 355.64 1887.3 123.62 1872.72 114 1754.86 270.3 1742.7"/>
+        <polygon class="cls-1 polygon-two" :points="shadowAnimation.points[0]"/>
+        <path class="cls-2 path-one" :d="pathAnimation.shapes[0]"/>
+        <line class="cls-3 line-one" :x1="lineAnimation.points[0].x1" :y1="lineAnimation.points[0].y1" :x2="lineAnimation.points[0].x2" :y2="lineAnimation.points[0].y2"/>
+        <line class="cls-3 line-two" x1="152.51" y1="1824.04" x2="48.93" y2="1347.87" />
       </svg>
     </div>
   </div>
@@ -84,6 +81,9 @@ export default {
   },
   methods: {
     animateBackground () {
+      if (this.activeState === 'start') {
+        this.animating = false;
+      }
       if (!this.animating) {
         return;
       }
@@ -93,8 +93,9 @@ export default {
             this.animating = false;
             return;
           }
-          if (this.activeState === "click") {
+          if (this.activeState === 'click' || this.activeState === 'hover') {
             this.animating = false;
+            return;
           }
           requestAnimationFrame(this.animateBackground);
         })
@@ -115,7 +116,7 @@ export default {
       this.animateBackground();
     },
     hoverAnimate () {
-      if (this.activeState != 'hover') {
+      if (this.activeState != 'hover' || this.animating) {
         return;
       }
       this.animating = true;
@@ -124,7 +125,7 @@ export default {
     },
     clickAnimate() {
       console.log('clicked');
-      if (this.activeState != 'click') {
+      if (this.activeState != 'click' || this.animating) {
         return;
       }
       this.animating = true;
@@ -156,8 +157,8 @@ export default {
 
 <style lang="scss">
 .activate {
-  height: 400px;
-  width: 300px;
+  height: 600px;
+  width: 500px;
   background: rgba(0,0,0,0.5);
   position: absolute;
   right: 50px;
