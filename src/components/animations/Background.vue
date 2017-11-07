@@ -159,7 +159,6 @@ export default {
 .activate {
   height: 600px;
   width: 500px;
-  background: rgba(0,0,0,0.5);
   position: absolute;
   right: 50px;
   top: 120px;
@@ -201,22 +200,77 @@ export default {
 .click .line-one, .click .line-two {
   stroke: #1808EF;
 }
+@media screen and (max-width: 1500px) {
+  .activate {
+    height: 450px;
+    width: 400px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .activate {
+    height: 350px;
+    width: 300px;
+  }
+}
 @media screen and (max-width: 1100px) {
+  .activate {
+    top: 230px;
+  }
   .background {
     padding-top: 150px;
   }
 }
+@media screen and (max-width: 900px) {
+  .activate {
+    height: 250px;
+    width: 200px;
+  }
+}
 @media screen and (max-width: 740px) {
+  .activate {
+    height: 200px;
+    width: 170px;
+    right: 30px;
+    top: 250px;
+  }
   .background {
     padding-top: 200px;
   }
 }
 @media screen and (max-width: 690px) {
+  .activate {
+    height: 300px;
+    width: 300px;
+    right: 100px;
+    top: 450px;
+  }
   .background {
     padding-top: 250px;
     width: 200vw;
     left: auto;
     right: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .activate {
+    height: 250px;
+    width: 250px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .activate {
+    top: 370px;
+    right: 70px;
+    height: 220px;
+    width: 220px;
+  }
+}
+@media screen and (max-width: 400px) {
+  .activate {
+    top: 350px;
+    right: 50px;
+    height: 170px;
+    width: 170px;
   }
 }
 </style>
