@@ -53,8 +53,8 @@ export default {
       lineAnimation: {
         durations: [3070, 2940],
         points: [
-          { x1: '1198.71', y1: '302.52', x2: '1366', y2: '768' },
-          { x1: '1027.77', y1: '465.2', x2: '1043.57', y2: '791.91' }
+          { x1: '1198.71', y1: '302.52', x2: '1366', y2: '720' },
+          { x1: '1027.77', y1: '465.2', x2: '1043.57', y2: '761.91' }
         ]
       },
       gradientColors: {
@@ -123,7 +123,6 @@ export default {
       this.animateBackground();
     },
     clickAnimate() {
-      console.log('clicked');
       if (this.activeState != 'click' || this.animating) {
         return;
       }

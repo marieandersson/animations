@@ -1,6 +1,6 @@
 <template>
   <div class="heading-wrap">
-    <h1>{{ headings[activeState ]}}<br>Animations</h1>
+    <h1>{{ headings[activeState ] }}<span v-if="activeState === 'start'"><br>animations</span></h1>
   </div>
 </template>
 
@@ -44,55 +44,43 @@ export default {
 }
 
 .heading-wrap {
-  margin: 4em 5em;
-  display: flex;
-}
-
-.start {
   h1 {
-    color: #000;
-    @include longShadow(darken(#ccc, 10%), 100);
-    // text-shadow:
-    // -1px 1px 0 #ccc, -2px 2px 0 #ccc, -3px 3px 0 #ccc, -4px 4px 0 #ccc,
-    // -5px 5px 0 #ccc, -6px 6px 0 #ccc, -7px 7px 0 #ccc, -8px 8px 0 #ccc, -8px 8px 0 #ccc,
-    // -9px 9px 0 #ccc, -10px 10px 0 #ccc, -11px 11px 0 #ccc, -12px 12px 0 #ccc;
-  }
-
-}
-.scroll {
-  h1 {
-    color: #F40000;
-    text-shadow:
-    -1px 1px 0 #FF0098, -2px 2px 0 #FF0098, -3px 3px 0 #FF0098, -4px 4px 0 #FF0098,
-    -5px 5px 0 #FF0098, -6px 6px 0 #FF0098, -7px 7px 0 #FF0098, -8px 8px 0 #FF0098, -8px 8px 0 #FF0098,
-    -9px 9px 0 #FF0098, -10px 10px 0 #FF0098, -11px 11px 0 #FF0098, -12px 12px 0 #FF0098;
-  }
-}
-.hover {
-  h1 {
-    color: #000;
-    text-shadow:
-    -1px 1px 0 #ccc, -2px 2px 0 #ccc, -3px 3px 0 #ccc, -4px 4px 0 #ccc,
-    -5px 5px 0 #ccc, -6px 6px 0 #ccc, -7px 7px 0 #ccc, -8px 8px 0 #ccc, -8px 8px 0 #ccc,
-    -9px 9px 0 #ccc, -10px 10px 0 #ccc, -11px 11px 0 #ccc, -12px 12px 0 #ccc;
-  }
-}
-.click {
-  h1 {
-    color: #000;
-    text-shadow:
-    -1px 1px 0 #ccc, -2px 2px 0 #ccc, -3px 3px 0 #ccc, -4px 4px 0 #ccc,
-    -5px 5px 0 #ccc, -6px 6px 0 #ccc, -7px 7px 0 #ccc, -8px 8px 0 #ccc, -8px 8px 0 #ccc,
-    -9px 9px 0 #ccc, -10px 10px 0 #ccc, -11px 11px 0 #ccc, -12px 12px 0 #ccc;
+    margin: 250px 0 0 250px;
+    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke-width: 2px;
   }
 }
 
-@media screen and (max-width: 520px) {
-  .heading-wrap {
-    margin: 3em 1em;
-    justify-content: center;
+.start .heading-wrap {
+  h1 {
+    margin: 150px 0 0 150px;
+    -webkit-text-stroke-color: #000;
+  //  @include longShadow(darken(#ccc, 10%), 100);
+  }
+
+}
+.scroll .heading-wrap {
+  h1 {
+    -webkit-text-stroke-color: #FF0098;
   }
 }
+.hover .heading-wrap {
+  h1 {
+    -webkit-text-stroke-color: #FF8B00;
+  }
+}
+.click .heading-wrap {
+  h1 {
+    -webkit-text-stroke-color: #1808EF;
+  }
+}
+
+// @media screen and (max-width: 520px) {
+//   .heading-wrap {
+//     margin: 3em 1em;
+//     justify-content: center;
+//   }
+// }
 
 
 

@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     detectScrolling() {
-      this.lastScrollTime = Date.now();
+      // this.lastScrollTime = Date.now();
       Event.$emit('scrolling');
     }
   },

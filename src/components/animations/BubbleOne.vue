@@ -66,13 +66,17 @@ export default {
     },
     scrollAnimate() {
       // this.lastScrollTime = Date.now();
+
       if (this.animating) {
         return;
       }
       // this.scrollPosition = window.scrollY;
       // console.log(this.scrollPosition);
       this.animating = true;
-      // this.animateIn();
+      // if down
+      this.runAnimation(1);
+      // else
+      // this.runAnimation(0);
     },
     hoverAnimateIn () {
       if (this.activeState === 'hover') {
@@ -91,7 +95,7 @@ export default {
           this.runAnimation(1);
         } else {
           this.runAnimation(0);
-        }    
+        }
       }
     }
   },
