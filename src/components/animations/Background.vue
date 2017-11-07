@@ -1,25 +1,28 @@
 <template>
-  <div :class="['background', activeState]">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 2152.21">
-      <defs>
-        <linearGradient id="linear-gradient" :x1="shadowAnimation.gradients[0].x1" :y1="shadowAnimation.gradients[0].y1" :x2="shadowAnimation.gradients[0].x2" :y2="shadowAnimation.gradients[0].y2" gradientUnits="userSpaceOnUse">
-          <stop offset="0" :stop-color="gradientColors[activeState].start"/>
-          <stop offset="1" :stop-color="gradientColors[activeState].end"/>
-        </linearGradient>
-        <linearGradient id="linear-gradient-2" x1="258.69" y1="1749.48" x2="224.35" y2="1852.48" xlink:href="#linear-gradient"/>
-        <filter id="blurMe">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
-        </filter>
-      </defs>
-      <title>1_Bakgrund copy 3@2x100</title>
-      <g id="Layer_3" data-name="Layer 3">
-        <polygon class="cls-1 polygon-one" points="270.3 1742.7 355.64 1887.3 123.62 1872.72 114 1754.86 270.3 1742.7"/>
-        <polygon class="cls-1 polygon-two" :points="shadowAnimation.points[0]"/>
-        <path v-on:click="toggleAnimation" class="cls-2 path-one" :d="pathAnimation.shapes[0]"/>
-        <line class="cls-3 line-one" :x1="lineAnimation.points[0].x1" :y1="lineAnimation.points[0].y1" :x2="lineAnimation.points[0].x2" :y2="lineAnimation.points[0].y2"/>
-        <line class="cls-3 line-two" x1="152.51" y1="1824.04" x2="48.93" y2="1347.87" />
-      </g>
-    </svg>
+  <div>
+    <div v-on:click="clickAnimate" v-on:mouseover="hoverAnimate" class="activate"></div>
+    <div :class="['background', activeState]">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 2152.21">
+        <defs>
+          <linearGradient id="linear-gradient" :x1="shadowAnimation.gradients[0].x1" :y1="shadowAnimation.gradients[0].y1" :x2="shadowAnimation.gradients[0].x2" :y2="shadowAnimation.gradients[0].y2" gradientUnits="userSpaceOnUse">
+            <stop offset="0" :stop-color="gradientColors[activeState].start"/>
+            <stop offset="1" :stop-color="gradientColors[activeState].end"/>
+          </linearGradient>
+          <linearGradient id="linear-gradient-2" x1="258.69" y1="1749.48" x2="224.35" y2="1852.48" xlink:href="#linear-gradient"/>
+          <filter id="blurMe">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="1" />
+          </filter>
+        </defs>
+        <title>1_Bakgrund copy 3@2x100</title>
+        <g id="Layer_3" data-name="Layer 3">
+          <polygon class="cls-1 polygon-one" points="270.3 1742.7 355.64 1887.3 123.62 1872.72 114 1754.86 270.3 1742.7"/>
+          <polygon class="cls-1 polygon-two" :points="shadowAnimation.points[0]"/>
+          <path class="cls-2 path-one" :d="pathAnimation.shapes[0]"/>
+          <line class="cls-3 line-one" :x1="lineAnimation.points[0].x1" :y1="lineAnimation.points[0].y1" :x2="lineAnimation.points[0].x2" :y2="lineAnimation.points[0].y2"/>
+          <line class="cls-3 line-two" x1="152.51" y1="1824.04" x2="48.93" y2="1347.87" />
+        </g>
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -74,30 +77,58 @@ export default {
           start: '#001F44',
           end: '#1808EF'
         }
-      }
+      },
+      animating: false,
+      lastScrollTime: null
     }
   },
   methods: {
-    toggleAnimation() {
-      this.animating = !this.animating;
-      if (this.animating) {
-        this.animateBackground();
-      }
-    },
     animateBackground () {
-      if (this.animating) {
-        this.runAnimation(1, () => {
-          this.runAnimation(0, () => {
-            requestAnimationFrame(this.animateBackground);
-          })
-        })
+      if (!this.animating) {
+        return;
       }
+      this.runAnimation(1, () => {
+        this.runAnimation(0, () => {
+          if (this.activeState === 'scroll' && (Date.now() - this.lastScrollTime) >= 500) {
+            this.animating = false;
+            return;
+          }
+          if (this.activeState === "click") {
+            this.animating = false;
+          }
+          requestAnimationFrame(this.animateBackground);
+        })
+      })
     },
     runAnimation (index, callback) {
       this.line.animate(this.lineAnimation.points[index], this.lineAnimation.durations[index], mina.easeinout);
       this.shadow.animate({ points: this.shadowAnimation.points[index] }, this.shadowAnimation.durations[index], mina.easeinout);
       this.gradient.animate(this.shadowAnimation.gradients[index], this.shadowAnimation.durations[index], mina.easeinout);
       this.path.animate({ d: this.pathAnimation.shapes[index] }, this.pathAnimation.durations[index], mina.easeinout, callback);
+    },
+    scrollAnimate () {
+      this.lastScrollTime = Date.now();
+      if (this.animating) {
+        return;
+      }
+      this.animating = true;
+      this.animateBackground();
+    },
+    hoverAnimate () {
+      if (this.activeState != 'hover') {
+        return;
+      }
+      this.animating = true;
+      this.animateBackground();
+      console.log('hovering');
+    },
+    clickAnimate() {
+      console.log('clicked');
+      if (this.activeState != 'click') {
+        return;
+      }
+      this.animating = true;
+      this.animateBackground();
     }
   },
   mounted () {
@@ -111,12 +142,28 @@ export default {
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+
+      if (this.activeState === 'scroll') {
+        window.addEventListener('scroll', this.scrollAnimate);
+      } else {
+        window.removeEventListener('scroll', this.scrollAnimate);
+      }
+
     });
   }
 }
 </script>
 
 <style lang="scss">
+.activate {
+  height: 400px;
+  width: 300px;
+  background: rgba(0,0,0,0.5);
+  position: absolute;
+  right: 50px;
+  top: 120px;
+  z-index: 100;
+}
 .background {
   height: 100vh;
   width: calc(100% - 60px);
