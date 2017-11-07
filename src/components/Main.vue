@@ -31,12 +31,24 @@ export default {
   },
   data () {
     return {
-      activeState: 'start'
+      activeState: 'start',
+      lastScrollTime: null
+    }
+  },
+  methods: {
+    detectScrolling() {
+      this.lastScrollTime = Date.now();
+      Event.$emit('scrolling');
     }
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+      if (this.activeState === 'scroll') {
+        window.addEventListener('scroll', this.detectScrolling);
+      } else {
+        window.removeEventListener('scroll', this.detectScrolling);
+      }
     });
   }
 }

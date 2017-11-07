@@ -121,7 +121,6 @@ export default {
       }
       this.animating = true;
       this.animateBackground();
-      console.log('hovering');
     },
     clickAnimate() {
       console.log('clicked');
@@ -143,13 +142,9 @@ export default {
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
-
-      if (this.activeState === 'scroll') {
-        window.addEventListener('scroll', this.scrollAnimate);
-      } else {
-        window.removeEventListener('scroll', this.scrollAnimate);
-      }
-
+    });
+    Event.$on('scrolling', () => {
+      this.scrollAnimate();
     });
   }
 }
