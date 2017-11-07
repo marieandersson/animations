@@ -1,6 +1,6 @@
 <template>
   <div class="heading-wrap">
-    <h1>{{ headings[activeState ] }}<span v-if="activeState === 'start'"><br>animations</span></h1>
+    <h1 v-for="n in 30">{{ headings[activeState ] }}<span v-if="activeState === 'start'"><br>animations</span></h1>
   </div>
 </template>
 
@@ -29,49 +29,63 @@ export default {
 </script>
 
 <style lang="scss">
-@function setLongShadow($color, $length) {
-  $value: 0 0 $color;
 
-  @for $i from 1 through $length {
-    $value: #{$value}, #{-$i}px #{$i/2}px #{$color};
+.start .heading-wrap, .scroll .heading-wrap, .hover .heading-wrap, .click .heading-wrap {
+  @mixin mixin-loop($iterations) {
+    @for $i from 1 through $iterations {
+      h1:nth-child(#{$i}) {
+        font-size: 30px+$i*3;
+        opacity: 0.033*$i;
+      }
+    }
   }
-
-  @return $value;
-}
-
-@mixin longShadow($color, $length:200) {
-  text-shadow: setLongShadow($color, $length);
-}
-
-.heading-wrap {
+  @include mixin-loop(30);
   h1 {
+    text-align: center;
     margin: 250px 0 0 250px;
-    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke-color: #fff;
     -webkit-text-stroke-width: 2px;
+    letter-spacing: 5px;
+    position: absolute;
+    transform: translate(-50%);
+    &:nth-child(30) {
+      -webkit-text-fill-color: #fff;
+    }
   }
 }
 
 .start .heading-wrap {
   h1 {
     margin: 150px 0 0 150px;
-    -webkit-text-stroke-color: #000;
-  //  @include longShadow(darken(#ccc, 10%), 100);
+    -webkit-text-fill-color: #000;
+    &:nth-child(30) {
+      -webkit-text-stroke-color: #000;
+    }
   }
 
 }
 .scroll .heading-wrap {
   h1 {
-    -webkit-text-stroke-color: #FF0098;
+    -webkit-text-fill-color: #FF0098;
+    &:nth-child(30) {
+      -webkit-text-stroke-color: #FF0098;
+    }
   }
 }
 .hover .heading-wrap {
   h1 {
-    -webkit-text-stroke-color: #FF8B00;
+    -webkit-text-fill-color: #FF8B00;
+    &:nth-child(30) {
+      -webkit-text-stroke-color: #FF8B00;
+    }
   }
 }
 .click .heading-wrap {
   h1 {
-    -webkit-text-stroke-color: #1808EF;
+    -webkit-text-fill-color: #1808EF;
+    &:nth-child(30) {
+      -webkit-text-stroke-color: #1808EF;
+    }
   }
 }
 

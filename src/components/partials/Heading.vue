@@ -20,6 +20,7 @@ header {
   width: 100%;
   height: 900px;
   margin: 0;
+  transform: translateX(20%);
 }
 @media screen and (max-width: 1440px) {
   header {
