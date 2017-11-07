@@ -1,7 +1,7 @@
 <template>
   <div class="bubble-two">
 
-    <svg v-on:mouseover="animateIn" v-on:mouseleave="animateOut" class="bubble-two-svg" viewBox="0 0 299 278" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <svg v-on:click="clickAnimate" v-on:mouseover="hoverAnimateIn" v-on:mouseleave="hoverAnimateOut" class="bubble-two-svg" viewBox="0 0 299 278" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
       <defs>
         <linearGradient id="bubble-two-gradient" x1="110.27" y1="53.02" x2="213.5" y2="200.69" gradientUnits="userSpaceOnUse">
           <stop offset="0" :stop-color="gradientColors[activeState].start" />
@@ -53,19 +53,46 @@ export default {
           start: '#001F44',
           end: '#1808EF'
         }
-      }
+      },
+      animating: false,
+      lastScrollTime: null,
+      animateIn: false
     }
   },
   methods: {
-    animateIn () {
-      this.runAnimation(1);
-    },
-    animateOut () {
-      this.runAnimation(0);
-    },
     runAnimation (index) {
       this.grey.animate({ d: this.greyAnimation.paths[index] }, 2000, mina.linear);
       this.pink.animate({ d: this.pinkAnimation.paths[index] }, 2000, mina.easeinout);
+    },
+    scrollAnimate() {
+      // this.lastScrollTime = Date.now();
+      if (this.animating) {
+        return;
+      }
+      // this.scrollPosition = window.scrollY;
+      // console.log(this.scrollPosition);
+      this.animating = true;
+      // this.animateIn();
+    },
+    hoverAnimateIn () {
+      if (this.activeState === 'hover') {
+        this.runAnimation(1);
+      }
+    },
+    hoverAnimateOut () {
+      if (this.activeState === 'hover') {
+        this.runAnimation(0);
+      }
+    },
+    clickAnimate() {
+      if (this.activeState === 'click') {
+        this.animateIn = !this.animateIn;
+        if (this.animateIn) {
+          this.runAnimation(1);
+        } else {
+          this.runAnimation(0);
+        }
+      }
     }
   },
   mounted () {
@@ -77,6 +104,11 @@ export default {
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+    });
+    Event.$on('scrolling', () => {
+      if (window.isElementInViewport(this.$el)) {
+        this.scrollAnimate();
+      }
     });
   }
 }
