@@ -18,49 +18,56 @@ export default {
 <style lang="scss">
 header {
   width: 100%;
-  height: 900px;
-  margin: 0;
-  transform: translateX(20%);
+  height: 400px;
+  margin:0 0 500px 0;
+  transform: translateX(30%);
 }
 @media screen and (max-width: 1440px) {
   header {
-    height: 540px;
-    margin-bottom: 100px;
+    height: 340px;
+    margin-bottom: 300px;
   }
 }
 @media screen and (max-width: 1250px) {
   header {
-    height: 495px;
-  }
-}
-@media screen and (max-width: 1000px) {
-  header {
-    margin-bottom: 0;
+    height: 345px;
+    margin-bottom: 180px;
   }
 }
 @media screen and (max-width: 900px) {
   header {
-    height: 350px;
+    height: 320px;
+    margin-bottom: 130px;
+    transform: translateX(40%);
+  }
+}
+@media screen and (max-width: 800px) {
+  header {
+    height: 250px;
+    margin-bottom: 100px;
+    transform: translateX(45%);
   }
 }
 @media screen and (max-width: 690px) {
   header {
-    height: 750px;
+    margin-bottom: 500px;
   }
 }
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 570px) {
   header {
-    height: 650px;
+    margin-bottom: 420px;
+    transform: translateX(50%);
   }
 }
 @media screen and (max-width: 400px) {
   header {
-    height: 600px;
+    height: 170px;
+    margin-bottom: 430px;
   }
 }
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   header {
-    height: 550px;
+    margin-bottom: 350px;
   }
 }
 
