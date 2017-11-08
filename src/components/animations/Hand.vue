@@ -27,10 +27,12 @@ export default {
       this.handPath.animate({ d: this.handPaths[index] }, 1000, mina.linear, callback);
     },
     hoverAnimate() {
-      event.target.classList.add('active-hover-hand');
-      event.target.addEventListener('animationend', () => {
-        event.target.classList.remove('active-hover-hand');
-      })
+      if (this.activeState === 'hover') {
+        event.target.classList.add('active-hover-hand');
+        event.target.addEventListener('animationend', () => {
+          event.target.classList.remove('active-hover-hand');
+        })
+      }
     },
     clickAnimate() {
       if (this.activeState === 'click') {
