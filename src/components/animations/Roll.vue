@@ -81,6 +81,9 @@ export default {
   width: 95%;
   right: 0;
   transition: all 1s linear;
+  svg {
+    position: absolute;
+  }
   .cls-1 {
     fill: #fff;
   }
@@ -98,5 +101,40 @@ export default {
 }
 .scroll .active-scroll-roll {
   transform: translateX(0);
+}
+@media screen and (max-width: 1150px) {
+  .roll {
+    width: 140%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .roll {
+    width: 180%;
+  }
+}
+@media screen and (max-width: 690px) {
+  .roll {
+    width: 220%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .roll {
+    width: 280%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .roll {
+    width: 350%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .roll {
+    width: 350%;
+  }
+}
+@media screen and (max-width: 380px) {
+  .roll {
+    width: 450%;
+  }
 }
 </style>

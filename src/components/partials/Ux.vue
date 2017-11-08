@@ -55,7 +55,7 @@ export default {
     margin: 0;
     justify-content: flex-end;
     align-items: flex-start;
-    padding: 10em 10em 0 0;
+    padding: 240px 280px 0 0;
     h2 {
       transform: rotate(-90deg) translate(20px, -30px);
     }
@@ -68,63 +68,86 @@ export default {
     }
   }
 }
+@media screen and (max-width: 1400px) {
+  .ux {
+    .ux-text {
+      padding: 200px 240px 0 0;
+    }
+  }
+}
 @media screen and (max-width: 1250px) {
   .ux {
     margin-top: 100px;
     height: 600px;
+    .ux-text {
+      padding: 150px 150px 0 0;
+    }
   }
 }
 @media screen and (max-width: 1150px) {
   .ux {
+    margin-top: 0;
+    height: 800px;
     .ux-text {
-      justify-content: flex-start;
+      padding: 130px 50px 0 0;
     }
   }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1150px) {
   .ux {
-    .ux-text {
-      p {
-        width: 100%;
-      }
-    }
+    height: 650px;
   }
 }
-@media screen and (max-width: 750px) {
-  .ux {
-    .ux-text {
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 0 2em;
-      h2 {
-        transform: rotate(0) translate(0, 0);
-      }
-    }
-  }
-}
-@media screen and (max-width: 700px) {
-    .ux {
-      margin-top: 50px;
-    }
-}
-@media screen and (max-width: 550px) {
-  .ux {
-     height: 450px;
-    .ux-text {
-      padding: 1em;
-    }
-  }
-}
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 850px) {
   .ux {
 
-    height: 540px;
-    .ux-text {
-      padding: 1em;
-    }
   }
 }
+//     height: 700px;
+//     .ux-text {
+//       justify-content: flex-start;
+//       padding: 0;
+//     }
+//   }
+// }
+// @media screen and (max-width: 750px) {
+//   .ux {
+//     .ux-text {
+//       flex-direction: column;
+//       justify-content: center;
+//       align-items: flex-start;
+//       h2 {
+//         transform: rotate(0) translate(0, 0);
+//       }
+//     }
+//   }
+// }
+// @media screen and (max-width: 690px) {
+//     .ux {
+//       .ux-text {
+//         p {
+//           width: 100%;
+//         }
+//       }
+//     }
+// }
+// @media screen and (max-width: 550px) {
+//   .ux {
+//      height: 450px;
+//     .ux-text {
+//       padding: 1em;
+//     }
+//   }
+// }
+// @media screen and (max-width: 420px) {
+//   .ux {
+//
+//     height: 540px;
+//     .ux-text {
+//       padding: 1em;
+//     }
+//   }
+// }
 .start .ux {
   border-color: #000;
 }
