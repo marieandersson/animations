@@ -106,19 +106,28 @@ export default {
 }
 
 @media screen and (max-width: 1270px) {
-  .hand {
+  .scroll .hand {
+    transform: translate(1000px, -110px);
+  }
+  .hand, .scroll .active-scroll-hand {
     transform: translate(100px, -110px);
     width: 700px;
   }
 }
 @media screen and (max-width: 1050px) {
-  .hand {
+  .scroll .hand {
+    transform: translate(1000px, 110px);
+  }
+  .hand, .scroll .active-scroll-hand {
     transform: translate(100px, 110px);
     width: 800px;
   }
 }
 @media screen and (max-width: 750px) {
-  .hand {
+  .scroll .hand {
+    transform: translate(1000px, 150px);
+  }
+  .hand, .scroll .active-scroll-hand {
     transform: translate(100px, 150px);
     width: calc(100% + 100px);
   }
