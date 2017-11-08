@@ -1,8 +1,8 @@
 <template>
   <div class="hand">
-    <svg v-on:click="clickAnimate" class="svg-hand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 523 227">
+    <svg class="svg-hand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 523 227">
       <title>1_Hand@2x100</title>
-      <path class="hand-path" :d="handPaths[0]"/>
+      <path v-on:mouseover="hoverAnimate" v-on:click="clickAnimate" class="hand-path" :d="handPaths[0]"/>
     </svg>
   </div>
 </template>
@@ -25,6 +25,12 @@ export default {
   methods: {
     runAnimation(index, callback) {
       this.handPath.animate({ d: this.handPaths[index] }, 1000, mina.linear, callback);
+    },
+    hoverAnimate() {
+      event.target.classList.add('active-hover-hand');
+      event.target.addEventListener('animationend', () => {
+        event.target.classList.remove('active-hover-hand');
+      })
     },
     clickAnimate() {
       if (this.activeState === 'click') {
@@ -51,6 +57,27 @@ export default {
 </script>
 
 <style lang="scss">
+@keyframes movehand {
+  0% {
+		transform: rotate(0deg)
+		           translate(0)
+		           rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg)
+		           translate(-20px)
+		           rotate(-180deg);
+	}
+  100% {
+		transform: rotate(270deg)
+		           translate(0)
+		           rotate(-270deg);
+	}
+
+}
+.active-hover-hand {
+  animation: movehand 3s linear;
+}
 .hand {
   position: absolute;
   width: calc(50% + 100px);
