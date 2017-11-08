@@ -1,7 +1,7 @@
 <template>
-  <div class="full-animation-two">
+  <div v-on:click="toggleVideoPlay" v-on:mouseover="playVideo" v-on:mouseleave="pauseVideo" class="full-animation-two">
     <img v-if="activeState === 'start'" src="/images/blackbubble7.png" alt="Black Bubble">
-    <video v-else :src="`/video/${videoSources[activeState]}.mp4`">
+    <video v-else :src="`/video/${videoSources[activeState]}.mp4`" loop>
       Sorry, your browser doesn't support embedded videos,
       but don't worry, you can <a :href="`/video/${videoSources[activeState]}.mp4`">download it</a>
       and watch it with your favorite video player!
@@ -21,6 +21,40 @@ export default {
         scroll: 'pinkbubblemov',
         hover: 'orangebubblemov',
         click: 'bluebubblemov'
+      },
+      playing: false
+    }
+  },
+  methods: {
+    playVideoOnScroll() {
+      if (this.activeState === 'scroll') {
+        const rect = this.$el.getBoundingClientRect();
+        const windowheight = (window.innerHeight || document.documentElement.clientHeight);
+        if (rect.top <  windowheight * 0.8) {
+          this.$el.querySelector('video').play();
+        } else {
+          this.$el.querySelector('video').pause();
+        }
+      }
+    },
+    playVideo() {
+      if (this.activeState === 'hover') {
+        this.$el.querySelector('video').play();
+      }
+    },
+    pauseVideo() {
+      if (this.activeState === 'hover') {
+        this.$el.querySelector('video').pause();
+      }
+    },
+    toggleVideoPlay() {
+      if (this.activeState === 'click') {
+        this.playing = !this.playing;
+        if (this.playing) {
+          this.$el.querySelector('video').play();
+        } else {
+          this.$el.querySelector('video').pause();
+        }      
       }
     }
   },
@@ -28,15 +62,7 @@ export default {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
       Event.$on('scrolling', () => {
-        if (this.activeState === 'scroll') {
-          const rect = this.$el.getBoundingClientRect();
-          const windowheight = (window.innerHeight || document.documentElement.clientHeight);
-          if (rect.top <  windowheight * 0.8) {
-            this.$el.querySelector('video').play();
-          } else {
-            this.$el.querySelector('video').pause();
-          }
-        }
+        this.playVideoOnScroll();
       });
     });
   }
