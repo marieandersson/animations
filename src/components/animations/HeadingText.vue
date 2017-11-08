@@ -18,26 +18,24 @@ export default {
         hover: 'Hover',
         click: 'Click'
       },
-      lastScrollPosition: 0
     }
   },
   methods: {
     scrollAnimate() {
       const rect = this.$el.parentElement.getBoundingClientRect();
       const windowheight = (window.innerHeight || document.documentElement.clientHeight);
-      if (rect.bottom > 0) {
-        this.currentScrollPosition = window.scrollY;
-        if (this.currentScrollPosition > this.lastScrollPosition) {
-          this.$el.querySelectorAll('h1').forEach(header => {
-            header.classList.add('animate-heading');
-          });
-        } else {
-          this.$el.querySelectorAll('h1').forEach(header => {
-            header.classList.remove('animate-heading');
-          });
-        }
-        this.lastScrollPosition = this.currentScrollPosition;
+      const scrollPercent = (window.scrollY / (rect.height * 1.5)) * 100;
+      const translateY = scrollPercent;
+      // if element is in viewport
+      if (translateY <= 150) {
+        this.$el.querySelectorAll('h1').forEach(header => {
+          header.style.transform = `translate(-50%, ${translateY}%)`;
+        });
       }
+    },
+    hoverAnimate() {
+      console.log('hovering');
+
     }
   },
   created () {
@@ -46,8 +44,12 @@ export default {
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
-
     });
+    Event.$on('headerHover', () => {
+      if (this.activeState === 'hover') {
+        this.hoverAnimate();
+      }
+    })
   }
 }
 
@@ -72,14 +74,9 @@ export default {
     position: absolute;
     bottom: 0;
     transform: translate(-50%);
-    transition: all 0.5s linear;
     &:nth-child(25) {
       -webkit-text-fill-color: #fff;
     }
-  }
-  .animate-heading {
-    transform: translate(-50%, 120%);
-    transition: all 0.5s linear;
   }
 }
 

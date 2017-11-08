@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header v-on:mouseover="animate">
    <headingText></headingText>
   </header>
 </template>
@@ -11,6 +11,11 @@ export default {
   name: 'heading',
   components: {
     headingText
+  },
+  methods: {
+    animate() {
+      Event.$emit('headerHover');
+    }
   }
 }
 </script>
