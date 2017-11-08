@@ -45,9 +45,29 @@ export default {
       },
     }
   },
+  methods: {
+    scrollAnimate() {
+      const rect = this.$el.getBoundingClientRect();
+      const windowheight = (window.innerHeight || document.documentElement.clientHeight);
+      // if more than half the element is in viewport
+      if (rect.top <  windowheight * 0.5) {
+        this.$el.classList.add('active-scroll-roll');
+      } else {
+        this.$el.classList.remove('active-scroll-roll');
+      }
+    }
+  },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+      const rect = this.$el.getBoundingClientRect();
+      const windowheight = (window.innerHeight || document.documentElement.clientHeight);
+      if (rect.top <  windowheight * 0.5) {
+        this.$el.classList.add('active-scroll-roll');
+      }
+    });
+    Event.$on('scrolling', () => {
+      this.scrollAnimate();
     });
   }
 }
@@ -60,7 +80,7 @@ export default {
   height: 100%;
   width: 95%;
   right: 0;
-
+  transition: all 1s linear;
   .cls-1 {
     fill: #fff;
   }
@@ -72,5 +92,11 @@ export default {
   .cls-3 {
     fill: url(#roll-gradient-2);
   }
+}
+.scroll .roll {
+  transform: translateX(1000px);
+}
+.scroll .active-scroll-roll {
+  transform: translateX(0);
 }
 </style>
