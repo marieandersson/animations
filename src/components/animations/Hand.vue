@@ -66,13 +66,13 @@ export default {
     const hand = this.$el.querySelector('.svg-hand');
     const s = Snap(hand);
     this.handPath = Snap.select('.hand-path');
-    if (window.isElementInViewport(this.$el)) {
-      this.$el.classList.add('active-scroll-hand');
-    }
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+      // if (window.isElementInViewport(this.$el)) {
+      //   this.$el.classList.add('active-scroll-hand');
+      // }
     });
     Event.$on('scrolling', () => {
       if (window.isElementInViewport(this.$el)) {
