@@ -34,7 +34,7 @@ export default {
         }
         this.animating = true;
         this.$el.classList.add('active-scroll-hand');
-        this.$el.addEventListener('transitionend', () => {
+        this.$el.addEventListener('transitionend', () => { // TODO: remove eventlistner when done
           // use requestAnimationFrame ?
           this.runAnimation(2, () => {
             this.runAnimation(1, () => {

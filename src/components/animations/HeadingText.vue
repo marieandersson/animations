@@ -1,7 +1,7 @@
 <template>
   <div class="heading-wrap">
     <h1 v-if="activeState === 'start'">Inspiring<br>Animations</h1>
-    <h1 v-else v-for="n in 25">{{ headings[activeState ] }}<span v-if="activeState === 'start'"><br>animations</span></h1>
+    <h1 v-else v-for="n in 25" v-on:click="clickAnimate">{{ headings[activeState ] }}<span v-if="activeState === 'start'"><br>animations</span></h1>
   </div>
 </template>
 
@@ -28,41 +28,73 @@ export default {
       const translateY = scrollPercent;
       // if element is in viewport
       if (translateY <= 150) {
-        this.$el.querySelectorAll('h1').forEach(header => {
-          header.style.transform = `translate(-50%, ${translateY}%)`;
+        this.$el.querySelectorAll('h1').forEach(heading => {
+          heading.style.transform = `translate(-50%, ${translateY}%)`;
         });
       }
     },
     hoverAnimate() {
-      // console.log(window.event.clientX);
-      // console.log(window.event.clientY);
+
+      console.log(window.event.clientX);
+      console.log(window.event.clientY);
 
 
-    }
+    },
+    clickAnimate() {
+      if (this.activeState === 'click') {
+        this.$el.querySelectorAll('h1').forEach(heading => {
+          heading.classList.add('h1-clicked');
+          heading.addEventListener('animationend', () => {
+            heading.classList.remove('h1-clicked');
+          })
+        });
+      }
+    },
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+      if (this.activeState != 'scroll') {
+        this.$el.querySelectorAll('h1').forEach(heading => {
+          heading.style.transform = `translate(-50%)`;
+        });
+      }
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
     });
     Event.$on('headerHover', () => {
       if (this.activeState === 'hover') {
-        this.hoverAnimate();
+        document.body.addEventListener('mousemove', this.hoverAnimate);
       }
-    })
+    });
+    Event.$on('headerLeave', () => {
+      if (this.activeState === 'hover') {
+        document.body.removeEventListener('mousemove', this.hoverAnimate);
+      }
+    });
   }
 }
 
 </script>
 
 <style lang="scss">
+@keyframes jump {
+  from {
+    bottom: 0;
+  }
+  to {
+    bottom: 40px;
+  }
+}
 @mixin mixin-loop($iterations, $size, $opacity) {
   @for $i from 1 through $iterations {
     h1:nth-child(#{$i}) {
       font-size: $size+$i*3;
       opacity: $opacity*$i;
+    }
+    .h1-clicked:nth-child(#{$i}) {
+      animation: .5s ease-in-out #{$i/100}s 2 alternate jump;
     }
   }
 }
