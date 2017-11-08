@@ -2,7 +2,7 @@
   <div class="hand">
     <svg class="svg-hand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 523 227">
       <title>1_Hand@2x100</title>
-      <path v-on:mouseover="hoverAnimate" v-on:click="clickAnimate" class="hand-path" :d="handPaths[0]"/>
+      <path v-on:mouseover="hoverAnimate" v-on:click="clickAnimate" class="hand-path" :d="activeState === 'scroll' ? handPaths[1] : handPaths[0]"/>
     </svg>
   </div>
 </template>
@@ -26,6 +26,10 @@ export default {
     runAnimation(index, callback) {
       this.handPath.animate({ d: this.handPaths[index] }, 1000, mina.linear, callback);
     },
+    scrollAnimate() {
+      this.$el.classList.add('active-scroll-hand');
+
+    },
     hoverAnimate() {
       if (this.activeState === 'hover') {
         event.target.classList.add('active-hover-hand');
@@ -46,13 +50,20 @@ export default {
     const hand = this.$el.querySelector('.svg-hand');
     const s = Snap(hand);
     this.handPath = Snap.select('.hand-path');
+    if (window.isElementInViewport(this.$el)) {
+      this.$el.classList.add('active-scroll-hand');
+    }
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
     });
     Event.$on('scrolling', () => {
-      console.log('scrolling');
+      if (window.isElementInViewport(this.$el)) {
+        this.scrollAnimate();
+      } else {
+        this.$el.classList.remove('active-scroll-hand');
+      }
     });
   }
 }
@@ -61,21 +72,14 @@ export default {
 <style lang="scss">
 @keyframes movehand {
   0% {
-		transform: rotate(0deg)
-		           translate(0)
-		           rotate(0deg);
+		transform: rotate(0deg) translate(0) rotate(0deg);
 	}
 	50% {
-		transform: rotate(180deg)
-		           translate(-20px)
-		           rotate(-180deg);
+		transform: rotate(180deg) translate(-20px) rotate(-180deg);
 	}
   100% {
-		transform: rotate(270deg)
-		           translate(0)
-		           rotate(-270deg);
+		transform: rotate(270deg) translate(0) rotate(-270deg);
 	}
-
 }
 .active-hover-hand {
   animation: movehand 3s linear;
@@ -85,6 +89,7 @@ export default {
   width: calc(50% + 100px);
   right: 0;
   transform: translate(100px, 0);
+  transition: all 1s linear;
   .hand-path {
     fill: transparent;
     stroke-linecap:round;
@@ -93,6 +98,13 @@ export default {
     stroke: rgba(255, 255, 255, 0.9);
   }
 }
+.scroll .hand {
+  transform: translate(1000px, 0);
+}
+.scroll .active-scroll-hand {
+  transform: translate(100px, 0);
+}
+
 @media screen and (max-width: 1270px) {
   .hand {
     transform: translate(100px, -110px);
