@@ -43,9 +43,9 @@ export default {
 <style lang="scss">
 .ux {
   width: 100%;
-  height: 700px;
+  height: 750px;
   position: relative;
-  padding: 100px 0;
+  margin-top: 200px;
   .ux-text {
     position: absolute;
     width: 100%;
@@ -68,11 +68,14 @@ export default {
     }
   }
 }
+@media screen and (max-width: 1250px) {
+  .ux {
+    margin-top: 100px;
+    height: 600px;
+  }
+}
 @media screen and (max-width: 1150px) {
   .ux {
-    width: calc(100% - 100px);
-    margin: 50px;
-    height: 600px;
     .ux-text {
       justify-content: flex-start;
     }
@@ -89,7 +92,6 @@ export default {
 }
 @media screen and (max-width: 750px) {
   .ux {
-    height: 400px;
     .ux-text {
       flex-direction: column;
       align-items: flex-start;
@@ -101,10 +103,13 @@ export default {
     }
   }
 }
+@media screen and (max-width: 700px) {
+    .ux {
+      margin-top: 50px;
+    }
+}
 @media screen and (max-width: 550px) {
   .ux {
-    width: calc(100% - 40px);
-    margin: 20px;
      height: 450px;
     .ux-text {
       padding: 1em;

@@ -34,7 +34,9 @@ export default {
       }
     },
     hoverAnimate() {
-      console.log('hovering');
+      // console.log(window.event.clientX);
+      // console.log(window.event.clientY);
+
 
     }
   },
