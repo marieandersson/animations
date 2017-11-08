@@ -1,11 +1,7 @@
 <template>
   <div class="ux">
     <roll></roll>
-    <div class="ux-text">
-      <h2>What not to!</h2>
-      <p> {{ texts[activeState] }} </p>
-    </div>
-    <div class="ux-text">
+    <div v-for="n in 2" class="ux-text">
       <h2>What not to!</h2>
       <p> {{ texts[activeState] }} </p>
     </div>
@@ -47,6 +43,7 @@ export default {
   position: relative;
   margin-top: 200px;
   .ux-text {
+    transition: all 1s linear;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -56,18 +53,31 @@ export default {
     justify-content: flex-end;
     align-items: flex-start;
     padding: 240px 280px 0 0;
+    color: #fff;
     h2 {
       transform: rotate(-90deg) translate(20px, -30px);
     }
     p {
       width: 500px;
     }
+    // &:nth-child(2) {
+    //   color: #000;
+    // }
     &:hover {
-      transform: translate(2px, 2px);
+      transform: translate(-4px, 4px);
       transition: 0.1s ease-out;
     }
   }
 }
+.scroll .ux {
+  .ux-text {
+    transform: translateX(1000px);
+  }
+  .active-ux-text {
+  transform: translateX(0);
+  }
+}
+
 @media screen and (max-width: 1400px) {
   .ux {
     .ux-text {
