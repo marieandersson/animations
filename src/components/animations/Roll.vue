@@ -1,18 +1,17 @@
 <template>
   <div class="roll">
-    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1286 557">
-      <defs>
-        <linearGradient id="linear-gradient" x1="-154.36" y1="3.45" x2="-154.36" y2="4.46" gradientTransform="translate(177950 -1745.28) scale(1148 516.57)" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stop-color="#ff0098"/>
-          <stop offset="1" stop-color="#f40000"/>
-        </linearGradient>
-        <linearGradient id="linear-gradient-2" x1="-153.91" y1="4.5" x2="-153.91" y2="5.5" gradientTransform="translate(40974.44 -374.34) scale(265.29 160.65)" xlink:href="#linear-gradient"/>
-      </defs>
-      <title>rollstart</title>
-      <rect class="cls-1" x="-22.4" y="-27.3" width="1359.8" height="656.1"/>
-      <path id="path-2" class="cls-2" d="M313.9,82.4c47.2,4.5,131,17.2,251.4,12.8,180.6-6.7,229-58.3,359.3-58.3,86.9,0,218,30.5,393.3,76.2v448c-168.4-48.7-298.8-81.4-391-82.7-143-2-325.3,55.7-447,55-108.4-.3-204.4-14.4-310-21.3,62-4.7,100.9-24.9,110.9-62.2C287.3,412.9,294.6,289.5,313.9,82.4Z"/>
-      <path id="Stroke-1" class="cls-3" d="M54.6,55.8A33.06,33.06,0,0,1,65,35.4C81,20.7,119.8-3.5,197.6,5.5c79.3,9.2,105.1,40.7,113.3,57.4a31.47,31.47,0,0,1,3,17.1L276.2,452a31.87,31.87,0,0,1-2.2,9.1c-6.5,16.4-31.9,55.7-129.8,49.2-106-7-129.5-66.4-133.7-80.9-.6-1.9-1.4-12.6-1.2-14.5Z"/>
-      <path id="Path-3" class="cls-4" d="M10.4,416.7c5-42,36-77,139-65s128,67,126,95-47,74-141,61S7.4,440.7,10.4,416.7Z"/>
+    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1737.8 838.3"><defs>
+      <linearGradient id="roll-gradient" x1="244.95" y1="617.25" x2="184.68" y2="839.23" gradientTransform="translate(69.12 -139.39) rotate(9.65)" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#ff0098"/>
+        <stop offset="1" stop-color="#f40000"/>
+      </linearGradient>
+      <linearGradient id="roll-gradient-2" x1="1043.96" y1="688.09" x2="966.87" y2="99.57" gradientTransform="matrix(1, 0, 0, -1, 0, 838)" gradientUnits="userSpaceOnUse">
+        <stop offset="0.2" stop-color="#ff0098"/>
+        <stop offset="1" stop-color="#f40000"/>
+      </linearGradient>
+    </defs>
+    <title>rollstart5</title>
+    <path class="cls-1" d="M87.1,271.7l49.3-204s8.2-46.2,68.6-52.6,102.6,1.8,151,40.7,56.8,73.2,52.1,102.4S296.5,683.1,296.5,683.1s-20.9,52.5-68.1,64.3c-52.8,13.2-134-21.9-170.5-45.6C26,681.1-6.2,635.9,17.8,547.5S87.1,271.7,87.1,271.7Z"/><path class="cls-2" d="M20.2,563c4.9-22.3,33.4-102.7,154.2-69,143.7,40.1,142.7,116.8,119.8,184.1-9.2,26.9-57.6,75.1-125.5,59.4C23.2,704.1,3.9,636.8,20.2,563Z"/><path class="cls-3" d="M685.2,196.1c163.6-22.3,403-101.5,624.9-71.1,218.4,29.9,316.4,58.1,427.7,89.7V838.3s-340.5-105.5-461.5-127.8c-171.7-31.6-364.1,48.3-566.2,88.4-198.5,39.4-528.1-54-528.1-54,10.2-1.2,101.8,4.7,120.7-79.5,13.4-59.9,26.7-125,46.1-220.7,23.7-117,56.1-286.4,56.1-286.4S513.9,219.5,685.2,196.1Z"/>
     </svg>
   </div>
 </template>
@@ -28,25 +27,19 @@ name: 'roll'
 .roll {
   position: absolute;
   height: 100%;
-  width: 80%;
+  width: 100%;
   right: 0;
 
   .cls-1 {
-    fill:#e6e6e6;
-  }
-  .cls-2,.cls-3 {
-    stroke:#fff;
+    fill:#fff;
   }
   .cls-2 {
-    stroke-width:5px;
-    fill:url(#linear-gradient);
+    fill:url(#roll-gradient);
   }
   .cls-3 {
-    fill:#fff;
-    stroke-width:7px;
-  }
-  .cls-4 {
-    fill:url(#linear-gradient-2);
+    stroke:#fff;
+    stroke-width:6.53px;
+    fill:url(#roll-gradient-2);
   }
 }
 </style>

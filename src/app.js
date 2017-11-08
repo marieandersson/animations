@@ -8,7 +8,7 @@ new Vue({
   el: '#app',
   template: '<Application/>',
   components: { Application }
-})
+});
 
 // check initial url/state
 const subUrl = location.pathname.substring(1).toLowerCase();
@@ -24,7 +24,7 @@ window.onpopstate = function (event) {
   let section = event.state;
   if (!section) section = 'start';
   Event.$emit('activeState', section);
-}
+};
 
 window.isElementInViewport = function (el) {
   var rect = el.getBoundingClientRect();
@@ -34,4 +34,4 @@ window.isElementInViewport = function (el) {
     rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) // &&
   //  rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
-}
+};

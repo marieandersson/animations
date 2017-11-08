@@ -27,15 +27,14 @@ export default {
   },
   methods: {
     playVideoOnScroll() {
-      if (this.activeState === 'scroll') {
-        const rect = this.$el.getBoundingClientRect();
-        const windowheight = (window.innerHeight || document.documentElement.clientHeight);
-        if (rect.top <  windowheight * 0.8) {
-          this.$el.querySelector('video').play();
-        } else {
-          this.$el.querySelector('video').pause();
-        }
+      const rect = this.$el.getBoundingClientRect();
+      const windowheight = (window.innerHeight || document.documentElement.clientHeight);
+      if (rect.top <  windowheight * 0.8) {
+        this.$el.querySelector('video').play();
+      } else {
+        this.$el.querySelector('video').pause();
       }
+
     },
     playVideo() {
       if (this.activeState === 'hover') {
@@ -54,7 +53,7 @@ export default {
           this.$el.querySelector('video').play();
         } else {
           this.$el.querySelector('video').pause();
-        }      
+        }
       }
     }
   },

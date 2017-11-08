@@ -17,12 +17,36 @@ export default {
         scroll: 'Scroll',
         hover: 'Hover',
         click: 'Click'
+      },
+      lastScrollPosition: 0
+    }
+  },
+  methods: {
+    scrollAnimate() {
+      const rect = this.$el.parentElement.getBoundingClientRect();
+      const windowheight = (window.innerHeight || document.documentElement.clientHeight);
+      if (rect.bottom > 0) {
+        this.currentScrollPosition = window.scrollY;
+        if (this.currentScrollPosition > this.lastScrollPosition) {
+          this.$el.querySelectorAll('h1').forEach(header => {
+            header.classList.add('animate-heading');
+          });
+        } else {
+          this.$el.querySelectorAll('h1').forEach(header => {
+            header.classList.remove('animate-heading');
+          });
+        }
+        this.lastScrollPosition = this.currentScrollPosition;
       }
     }
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+    });
+    Event.$on('scrolling', () => {
+      this.scrollAnimate();
+
     });
   }
 }
@@ -43,15 +67,19 @@ export default {
   @include mixin-loop(25, 30px, 0.04);
   h1 {
     text-align: center;
-    -webkit-text-stroke-color: #fff;
     -webkit-text-stroke-width: 2px;
     letter-spacing: 5px;
     position: absolute;
     bottom: 0;
     transform: translate(-50%);
+    transition: all 0.5s linear;
     &:nth-child(25) {
       -webkit-text-fill-color: #fff;
     }
+  }
+  .animate-heading {
+    transform: translate(-50%, 120%);
+    transition: all 0.5s linear;
   }
 }
 
@@ -70,6 +98,7 @@ export default {
 .scroll .heading-wrap {
   h1 {
     -webkit-text-fill-color: #FF0098;
+    -webkit-text-stroke-color: #f40000;
     &:nth-child(25) {
       -webkit-text-fill-color: #fff;
       -webkit-text-stroke-color: #FF0098;
@@ -79,6 +108,7 @@ export default {
 .hover .heading-wrap {
   h1 {
     -webkit-text-fill-color: #FF8B00;
+    -webkit-text-stroke-color: #EE3F00;
     &:nth-child(25) {
       -webkit-text-fill-color: #fff;
       -webkit-text-stroke-color: #FF8B00;
@@ -88,6 +118,7 @@ export default {
 .click .heading-wrap {
   h1 {
     -webkit-text-fill-color: #1808EF;
+    -webkit-text-stroke-color: #001F44;
     &:nth-child(25) {
       -webkit-text-fill-color: #fff;
       -webkit-text-stroke-color: #1808EF;
