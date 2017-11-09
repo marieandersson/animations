@@ -62,8 +62,8 @@ export default {
       }
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
 
-      const transX = (vector.x / distance) * 50;
-      const transY = (vector.y /distance) * 50;
+      const transX = Math.round(-50 + ((vector.x / distance) * 10));
+      const transY = Math.round((vector.y /distance) * 10);
       console.log('transX: ' + transX);
       console.log('transY: ' + transY);
 
