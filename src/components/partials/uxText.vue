@@ -32,10 +32,11 @@ export default {
       }, 66);
     },
     clickAnimate() {
+      const uxText = this.$el.querySelector('.ux-text');
       if (this.activeState === 'click') {
-      this.uxText.classList.add('blur-text');
-      this.uxText.addEventListener('animationend', () => {
-        this.uxText.classList.remove('blur-text');
+      uxText.classList.add('blur-text');
+      uxText.addEventListener('animationend', () => {
+        uxText.classList.remove('blur-text');
       });
       }
     }

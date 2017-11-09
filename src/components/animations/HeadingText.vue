@@ -18,6 +18,16 @@ export default {
         hover: 'Hover',
         click: 'Click'
       },
+      hoverHeader: {
+        center: {
+          x: 0,
+          y: 0
+        },
+        vector: {
+          x: 0,
+          y: 0
+        }
+      }
     }
   },
   methods: {
@@ -34,11 +44,32 @@ export default {
       }
     },
     hoverAnimate() {
+      const headers = this.$el.querySelectorAll('h1');
+      const headerFront = headers[headers.length - 1];
+      const rect = headerFront.getBoundingClientRect();
+      const headerCenter = {
+        // calculating with elements whole width since its translated x -50%
+        x: rect.x + (rect.width / 2),
+        y: rect.y + (rect.height / 2)
+      }
+      const cursor = {
+        x: window.event.clientX,
+        y: window.event.clientY
+      }
+      const vector = {
+        x: cursor.x - headerCenter.x,
+        y: cursor.y - headerCenter.y
+      }
+      const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
 
-      console.log(window.event.clientX);
-      console.log(window.event.clientY);
+      const transX = (vector.x / distance) * 50;
+      const transY = (vector.y /distance) * 50;
+      console.log('transX: ' + transX);
+      console.log('transY: ' + transY);
 
-
+      headers.forEach(heading => {
+        heading.style.transform = `translate(${transX}%, ${transY}%)`;
+      });
     },
     clickAnimate() {
       if (this.activeState === 'click') {
@@ -75,7 +106,6 @@ export default {
     });
   }
 }
-
 </script>
 
 <style lang="scss">
