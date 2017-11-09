@@ -64,8 +64,11 @@ export default {
 
       const transX = Math.round(-50 + ((vector.x / distance) * 10));
       const transY = Math.round((vector.y /distance) * 10);
-      console.log('transX: ' + transX);
-      console.log('transY: ' + transY);
+
+      // only check if cursor y is near headercenter y ?
+      if (cursor.x >= rect.x && cursor.x <= rect.x + rect.width && cursor.y >= rect.y && cursor.y <= rect.y + rect.height) {
+        return;
+      }
 
       headers.forEach(heading => {
         heading.style.transform = `translate(${transX}%, ${transY}%)`;
