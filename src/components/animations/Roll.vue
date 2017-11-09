@@ -52,8 +52,10 @@ export default {
       // if more than half the element is in viewport
       if (rect.top <  windowheight * 0.5) {
         this.$el.classList.add('active-scroll-roll');
+        Event.$emit('rollInView');
       } else {
         this.$el.classList.remove('active-scroll-roll');
+        Event.$emit('rollOutOfView');
       }
     }
   },
@@ -62,7 +64,7 @@ export default {
       this.activeState = clickedNavItem;
       const rect = this.$el.getBoundingClientRect();
       const windowheight = (window.innerHeight || document.documentElement.clientHeight);
-      if (rect.top <  windowheight * 0.5) {
+      if (rect.top <  windowheight * 0.2) {
         this.$el.classList.add('active-scroll-roll');
       }
     });
@@ -96,7 +98,7 @@ export default {
   }
 }
 .scroll .roll {
-  transform: translateX(1000px);
+  transform: translateX(100%);
 }
 .scroll .active-scroll-roll {
   transform: translateX(0);
@@ -119,11 +121,6 @@ export default {
 @media screen and (max-width: 550px) {
   .roll {
     width: 280%;
-  }
-}
-@media screen and (max-width: 450px) {
-  .roll {
-    width: 350%;
   }
 }
 @media screen and (max-width: 450px) {

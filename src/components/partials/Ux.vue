@@ -1,9 +1,11 @@
 <template>
   <div class="ux">
-    <roll></roll>
-    <div v-for="n in 2" class="ux-text">
-      <h2>What not to!</h2>
-      <p> {{ texts[activeState] }} </p>
+    <div class="ux-wrap">
+      <roll></roll>
+      <div v-for="n in 2" class="ux-text">
+        <h2>What not to!</h2>
+        <p> {{ texts[activeState] }} </p>
+      </div>
     </div>
   </div>
 </template>
@@ -31,6 +33,16 @@ export default {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
     });
+    Event.$on('rollInView', () => {
+      this.$el.querySelectorAll('.ux-text').forEach(text => {
+        text.classList.add('active-ux-text');
+      });
+    });
+    Event.$on('rollOutOfView', () => {
+      this.$el.querySelectorAll('.ux-text').forEach(text => {
+        text.classList.remove('active-ux-text');
+      });
+    });
   }
 
 }
@@ -42,6 +54,10 @@ export default {
   height: 750px;
   position: relative;
   margin-top: 200px;
+  .ux-wrap {
+    height: 100%;
+    width: 100%;
+  }
   .ux-text {
     transition: all 1s linear;
     position: absolute;
@@ -71,10 +87,11 @@ export default {
 }
 .scroll .ux {
   .ux-text {
-    transform: translateX(1000px);
+    transform: translateX(100%);
   }
   .active-ux-text {
   transform: translateX(0);
+  transition: all 1s linear;
   }
 }
 
