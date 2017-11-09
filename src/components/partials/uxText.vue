@@ -21,9 +21,23 @@ export default {
       }
     }
   },
+  methods: {
+    clickAnimate() {
+      if (this.activeState === 'click') {
+        const uxText = this.$el.querySelector('.ux-text');
+        uxText.classList.add('blur-text');
+        uxText.addEventListener('animationend', () => {
+          uxText.classList.remove('blur-text');
+        });
+      }
+    }
+  },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+    });
+    Event.$on('rollClicked', () => {
+      this.clickAnimate();
     });
   }
 }
@@ -53,11 +67,25 @@ export default {
   /*// &:nth-child(2) {
   //   color: #000;
   // } */
+}
+.hover .ux-text {
   &:hover {
     transform: translate(-4px, 4px);
     transition: 0.1s ease-out;
   }
 }
+@keyframes blur {
+  from {
+    transform: translate(-4px, 4px);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+.blur-text {
+  animation: .5s ease-in-out blur;
+}
+
 @media screen and (max-width: 1350px) {
   .ux-text {
     padding: 180px 100px 0 0;

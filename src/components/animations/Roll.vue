@@ -1,6 +1,6 @@
 <template>
-  <div class="roll">
-    <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1817.84 838.3">
+  <div v-on:click="clickAnimate" class="roll">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1817.84 838.3">
       <defs>
         <linearGradient id="roll-gradient" x1="1123.04" y1="680.72" x2="1047.24" y2="102.13" gradientTransform="matrix(1, 0, 0, -1, 0, 838)" gradientUnits="userSpaceOnUse">
           <stop offset="0.2" :stop-color="gradientColors[activeState].end"/>
@@ -63,6 +63,9 @@ export default {
         this.$el.classList.remove('active-scroll-roll');
         Event.$emit('rollOutOfView');
       }
+    },
+    clickAnimate() {
+      Event.$emit('rollClicked');
     }
   },
   created () {
