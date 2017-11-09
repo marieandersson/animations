@@ -18,17 +18,25 @@ export default {
         scroll: 'Scroll: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet.',
         hover: 'Hover: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.',
         click: 'Click: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.'
-      }
+      },
+      scrolling: false
     }
   },
   methods: {
+    scrollAnimate() {
+      const uxText = this.$el.querySelector('.ux-text');
+      window.clearTimeout( this.scrolling );
+      uxText.classList.add('scroll-blur');
+      this.scrolling = setTimeout(function() {
+        uxText.classList.remove('scroll-blur');
+      }, 66);
+    },
     clickAnimate() {
       if (this.activeState === 'click') {
-        const uxText = this.$el.querySelector('.ux-text');
-        uxText.classList.add('blur-text');
-        uxText.addEventListener('animationend', () => {
-          uxText.classList.remove('blur-text');
-        });
+      this.uxText.classList.add('blur-text');
+      this.uxText.addEventListener('animationend', () => {
+        this.uxText.classList.remove('blur-text');
+      });
       }
     }
   },
@@ -39,6 +47,10 @@ export default {
     Event.$on('rollClicked', () => {
       this.clickAnimate();
     });
+    Event.$on('scrolling', () => {
+      this.scrollAnimate();
+
+    });
   }
 }
 
@@ -46,7 +58,7 @@ export default {
 
 <style lang="scss">
 .ux-text {
-  transition: all 1s linear;
+  transition: all 0.2s linear;
   position: absolute;
   width: calc(100vw - 60px);
   height: 100%;
@@ -71,7 +83,7 @@ export default {
 .hover .ux-text {
   &:hover {
     transform: translate(-4px, 4px);
-    transition: 0.1s ease-out;
+    transition: 0.2s ease-out;
   }
 }
 @keyframes blur {
@@ -84,6 +96,9 @@ export default {
 }
 .blur-text {
   animation: .5s ease-in-out blur;
+}
+.scroll .scroll-blur {
+  transform: translate(-4px, 4px);
 }
 
 @media screen and (max-width: 1350px) {
