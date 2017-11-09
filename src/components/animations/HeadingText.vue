@@ -44,17 +44,20 @@ export default {
       }
     },
     hoverAnimate() {
+      if (this.activeState != 'hover') {
+        return;
+      }
       const headers = this.$el.querySelectorAll('h1');
       const headerFront = headers[headers.length - 1];
       const rect = headerFront.getBoundingClientRect();
       const headerCenter = {
-        // calculating with elements whole width since its translated x -50%
         x: rect.x + (rect.width / 2),
         y: rect.y + (rect.height / 2)
       }
+
       const cursor = {
-        x: window.event.clientX,
-        y: window.event.clientY
+        x: event.clientX,
+        y: event.clientY
       }
       const vector = {
         x: cursor.x - headerCenter.x,
@@ -62,16 +65,19 @@ export default {
       }
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
 
-      const transX = Math.round(-50 + ((vector.x / distance) * 10));
-      const transY = Math.round((vector.y /distance) * 10);
-
-      // only check if cursor y is near headercenter y ?
-      if (cursor.x >= rect.x && cursor.x <= rect.x + rect.width && cursor.y >= rect.y && cursor.y <= rect.y + rect.height) {
+      const trans = {
+        x: Math.round(-50 + ((vector.x / distance) * 10)),
+        y: Math.round((vector.y /distance) * 10)
+      }
+      console.log(distance);
+      console.log(trans);
+      //only check if cursor y is near headercenter y ?
+      if (Math.abs(vector.x) < 30 && Math.abs(vector.y) < 30) {
         return;
       }
 
       headers.forEach(heading => {
-        heading.style.transform = `translate(${transX}%, ${transY}%)`;
+        heading.style.transform = `translate(${trans.x}%, ${trans.y}%)`;
       });
     },
     clickAnimate() {
@@ -88,11 +94,11 @@ export default {
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
-      if (this.activeState != 'scroll') {
-        this.$el.querySelectorAll('h1').forEach(heading => {
-          heading.style.transform = `translate(-50%)`;
-        });
-      }
+      // set header back in original position
+      this.$el.querySelectorAll('h1').forEach(heading => {
+        heading.style.transform = `translate(-50%)`;
+      });
+
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();

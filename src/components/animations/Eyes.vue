@@ -1,10 +1,12 @@
 <template>
-  <div class="eyes">
-    <div class="eye">
+
+    <div class="eyes">
+      <div v-for="n in 2" class="eye">
+        <div class="inner-eye">
+        </div>
+      </div>
     </div>
-    <div class="eye">
-    </div>
-  </div>
+
 </template>
 
 <script>
@@ -19,6 +21,7 @@ name: 'eyes'
 .eyes {
   display: flex;
   flex-direction: row;
+  position: absolute;
   .eye {
     width: 200px;
     height: 200px;
@@ -28,28 +31,35 @@ name: 'eyes'
     background-clip: content-box, border-box;
     transform: rotate(45deg);
     margin: 50px;
-    &::before {
-      content: '';
+    .inner-eye {
       display: block;
       position: absolute;
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      top: 3px;
       margin: 30px;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 28px;
+        height: 28px;
+        background: #090909;
+        border-radius: 50%;
+        margin: 45px;
+      }
     }
     &::after {
       content: '';
-      display: block;
       position: absolute;
-      width: 30px;
-      height: 30px;
-      background: #000;
-      border: solid 1px #000;
-      border-radius: 50%;
-      left: 3px;
-      top: 3px;
-      margin: 70px;
+      width: 200px;
+      height: 200px;
+      border: double 10px transparent;
+      border-radius: 75% 1%;
+      opacity: 1;
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      margin: -10px;
     }
   }
   // .eye2 {
@@ -68,26 +78,35 @@ name: 'eyes'
 }
 .start .eyes .eye {
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #e6e6e6, #000000);
-  &::before {
+  .inner-eye {
     background: radial-gradient(circle at top left, #e6e6e6, #000000);
   }
 }
 .scroll .eyes .eye {
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #FF0098, #F40000);
-  &::before {
+  .inner-eye {
     background: radial-gradient(circle at top left, #FF0098, #F40000);
+  }
+  &::after {
+    background-image: radial-gradient(circle at top left, #ff0098,#f40000);
   }
 }
 .hover .eyes .eye {
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #FF8B00, #EE3F00);
-  &::before {
+  .inner-eye{
     background: radial-gradient(circle at top left, #FF8B00, #EE3F00);
+  }
+  &::after {
+    background-image: radial-gradient(circle at top left, #FF8B00, #EE3F00);
   }
 }
 .click .eyes .eye {
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #1808EF, #001F44);
-  &::before {
+  .inner-eye {
     background: radial-gradient(circle at top left, #1808EF, #001F44);
+  }
+  &::after {
+    background-image: radial-gradient(circle at top left, #1808EF, #001F44);
   }
 }
 @media screen and (max-width: 780px) {

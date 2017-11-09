@@ -64,8 +64,6 @@ main {
   left: 60px;
   z-index: 11;
   .content-wrap {
-    display: flex;
-    flex-direction: column;
     width: 100%;
   }
 }
