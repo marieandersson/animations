@@ -1,6 +1,6 @@
 <template>
 
-    <div class="eyes">
+    <div v-on:click="clickAnimate" class="eyes">
       <div v-for="n in 2" class="eye">
         <div class="inner-eye">
         </div>
@@ -24,9 +24,23 @@ methods: {
     } else {
       this.$el.classList.remove('closed-eyes');
     }
+  },
+  clickAnimate() {
+    if (this.activeState === 'click') {
+      this.$el.classList.add('blink');
+      this.$el.addEventListener('animationend', () => {
+        this.$el.classList.remove('blink');
+      });
+    }
   }
 },
 created () {
+  Event.$on('activeState', clickedNavItem => {
+    this.activeState = clickedNavItem;
+    if (this.activeState != 'scroll') {
+      this.$el.classList.remove('closed-eyes');
+    }
+  });
   Event.$on('scrolling', () => {
     this.scrollAnimate();
   });
@@ -84,6 +98,21 @@ created () {
     }
   }
 }
+@keyframes blink {
+  from {
+    border-radius: 0;
+    transform: translate(-250px, -250px) rotate(45deg);
+  }
+  to {
+    border-radius: 0 50% 50% 0;
+    transform: translate(-50px, -50px) rotate(45deg);
+  }
+}
+.blink {
+  .eye::after {
+  animation: .5s ease-in-out 2 alternate blink;
+  }
+}
 .closed-eyes {
   .eye::after {
     border-radius: 0 50% 50% 0;
@@ -91,6 +120,7 @@ created () {
   }
 }
 
+// color set per state
 .start .eyes .eye {
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #e6e6e6, #000000);
   .inner-eye {
