@@ -11,7 +11,26 @@
 
 <script>
 export default {
-name: 'eyes'
+name: 'eyes',
+data () {
+  return {
+    activeState: 'start'
+  }
+},
+methods: {
+  scrollAnimate() {
+    if (this.$el.getBoundingClientRect().top < window.innerHeight / 3) {
+      this.$el.classList.add('closed-eyes');
+    } else {
+      this.$el.classList.remove('closed-eyes');
+    }
+  }
+},
+created () {
+  Event.$on('scrolling', () => {
+    this.scrollAnimate();
+  });
+}
 }
 
 </script>
@@ -60,12 +79,12 @@ name: 'eyes'
       border-radius: 0;
       background-origin: border-box;
       background-clip: content-box, border-box;
-      transition: transform .5s linear, border-radius .4s ease-in;
+      transition: transform .4s linear, border-radius .3s ease-in;
       transform: translate(-250px, -250px) rotate(45deg);
     }
   }
 }
-.eyes:hover {
+.closed-eyes {
   .eye::after {
     border-radius: 0 50% 50% 0;
     transform: translate(-50px, -50px) rotate(45deg);
