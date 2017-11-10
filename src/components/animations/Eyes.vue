@@ -31,6 +31,7 @@ name: 'eyes'
     background-clip: content-box, border-box;
     transform: rotate(45deg);
     margin: 50px;
+    overflow: hidden;
     .inner-eye {
       display: block;
       position: absolute;
@@ -42,40 +43,35 @@ name: 'eyes'
         content: '';
         display: block;
         position: absolute;
-        width: 28px;
-        height: 28px;
+        width: 30px;
+        height: 30px;
         background: #090909;
         border-radius: 50%;
-        margin: 45px;
+        margin: 44px;
       }
     }
     &::after {
       content: '';
       position: absolute;
-      width: 200px;
-      height: 200px;
-      border: double 10px transparent;
-      border-radius: 75% 1%;
+      width: 300px;
+      height: 500px;
+      margin: -130px 0 0 -30px;
       opacity: 1;
+      border-radius: 0;
       background-origin: border-box;
       background-clip: content-box, border-box;
-      margin: -10px;
+      transition: transform .5s linear, border-radius .4s ease-in;
+      transform: translate(-250px, -250px) rotate(45deg);
     }
   }
-  // .eye2 {
-  //   position: absolute;
-  //   width: 300px;
-  //   height: 300px;
-  //   border: double 10px transparent;
-  //   border-radius: 75% 1%;
-  //   background-image: radial-gradient(circle at top left, #ff0098,#f40000);
-  //   transform: rotate(45deg);
-  //   opacity: 0.0;
-  // }
-  // .eye:hover + .eye2 {
-  //     opacity: 1.0;
-  // }
 }
+.eyes:hover {
+  .eye::after {
+    border-radius: 0 50% 50% 0;
+    transform: translate(-50px, -50px) rotate(45deg);
+  }
+}
+
 .start .eyes .eye {
   background-image: linear-gradient(white, white), radial-gradient(circle at top left, #e6e6e6, #000000);
   .inner-eye {
@@ -88,7 +84,7 @@ name: 'eyes'
     background: radial-gradient(circle at top left, #FF0098, #F40000);
   }
   &::after {
-    background-image: radial-gradient(circle at top left, #ff0098,#f40000);
+    background-image: linear-gradient(to left, #f40000, #ff0098 50%);
   }
 }
 .hover .eyes .eye {
@@ -97,7 +93,7 @@ name: 'eyes'
     background: radial-gradient(circle at top left, #FF8B00, #EE3F00);
   }
   &::after {
-    background-image: radial-gradient(circle at top left, #FF8B00, #EE3F00);
+    background-image: linear-gradient(to left,#EE3F00, #FF8B00);
   }
 }
 .click .eyes .eye {
@@ -106,7 +102,7 @@ name: 'eyes'
     background: radial-gradient(circle at top left, #1808EF, #001F44);
   }
   &::after {
-    background-image: radial-gradient(circle at top left, #1808EF, #001F44);
+    background-image: linear-gradient(to left, #001F44, #1808EF);
   }
 }
 @media screen and (max-width: 780px) {
