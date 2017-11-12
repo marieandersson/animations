@@ -55,9 +55,10 @@ export default {
       }
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
       const trans = {
-        x: Math.round(-50 + ((vector.x / distance) * 10)),
-        y: Math.round((vector.y /distance) * 10)
+        x: Math.round(-50 + ((vector.x / distance) * 20)),
+        y: Math.round((vector.y /distance) * 20)
       }
+    //  console.log(trans);
       for (let i = 0; i < this.headings.length; i++) {
        this.headings[i].style.transform = `translate(${trans.x}%, ${trans.y}%)`;
       }
@@ -79,18 +80,18 @@ export default {
 
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
-      // set header back in original position
-      if (clickedNavItem != 'hover') {
-        document.body.removeEventListener('mousemove', this.hoverAnimate);
-        for (let i = 0; i < this.headings.length; i++) {
-         this.headings[i].style.transform = `translate(-50%)`;
+      if (clickedNavItem === 'hover') {
+        this.headingCenter = {
+          x: this.rect.x + (this.rect.width / 2),
+          y: this.rect.y + (this.rect.height / 2)
         }
+        document.body.addEventListener('mousemove', this.hoverAnimate);
        } else {
-         this.headingCenter = {
-           x: this.rect.x + (this.rect.width / 2),
-           y: this.rect.y + (this.rect.height / 2)
+         document.body.removeEventListener('mousemove', this.hoverAnimate);
+         // set header back in original position
+         for (let i = 0; i < this.headings.length; i++) {
+           this.headings[i].style.transform = `translate(-50%)`;
          }
-         document.body.addEventListener('mousemove', this.hoverAnimate);
       }
 
     });
