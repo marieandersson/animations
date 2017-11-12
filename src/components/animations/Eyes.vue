@@ -11,40 +11,69 @@
 
 <script>
 export default {
-name: 'eyes',
-data () {
-  return {
-    activeState: 'start'
-  }
-},
-methods: {
-  scrollAnimate() {
-    if (this.$el.getBoundingClientRect().top < window.innerHeight / 3) {
-      this.$el.classList.add('closed-eyes');
-    } else {
-      this.$el.classList.remove('closed-eyes');
+  name: 'eyes',
+  data () {
+    return {
+      activeState: 'start'
     }
   },
-  clickAnimate() {
-    if (this.activeState === 'click') {
-      this.$el.classList.add('blink');
-      this.$el.addEventListener('animationend', () => {
-        this.$el.classList.remove('blink');
-      });
+  methods: {
+    scrollAnimate() {
+      if (this.$el.getBoundingClientRect().top < window.innerHeight / 3) {
+        this.$el.classList.add('closed-eyes');
+      } else {
+        this.$el.classList.remove('closed-eyes');
+      }
+    },
+    hoverAnimate() {
+      const cursor = {
+        x: event.clientX,
+        y: event.clientY
+      }
+      for (let i = 0; i < this.eyes.length; i++) {
+        const eye = this.eyes[i];
+        const rect = eye.getBoundingClientRect();
+        const eyeCenter = {
+          x: rect.x + (rect.width / 2),
+          y: rect.y + (rect.height / 2)
+        }
+        const vector = {
+          x: cursor.x - eyeCenter.x,
+          y: cursor.y - eyeCenter.y
+        }
+        const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
+        console.log(distance);
+      }
+    },
+    clickAnimate() {
+      if (this.activeState === 'click') {
+        this.$el.classList.add('blink');
+        this.$el.addEventListener('animationend', () => {
+          this.$el.classList.remove('blink');
+        });
+      }
     }
+  },
+  created () {
+    Event.$on('activeState', clickedNavItem => {
+      this.activeState = clickedNavItem;
+      if (clickedNavItem != 'scroll') {
+        this.$el.classList.remove('closed-eyes');
+      }
+      if (clickedNavItem === 'hover') {
+
+        document.body.addEventListener('mousemove', this.hoverAnimate);
+      } else {
+        document.body.removeEventListener('mousemove', this.hoverAnimate);
+      }
+    });
+    Event.$on('scrolling', () => {
+      this.scrollAnimate();
+    });
+  },
+  mounted () {
+    this.eyes = this.$el.children;
   }
-},
-created () {
-  Event.$on('activeState', clickedNavItem => {
-    this.activeState = clickedNavItem;
-    if (this.activeState != 'scroll') {
-      this.$el.classList.remove('closed-eyes');
-    }
-  });
-  Event.$on('scrolling', () => {
-    this.scrollAnimate();
-  });
-}
 }
 
 </script>
