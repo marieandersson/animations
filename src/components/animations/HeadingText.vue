@@ -45,7 +45,6 @@ export default {
       }
     },
     hoverAnimate() {
-      console.log(this.headingCenter);
       const cursor = {
         x: event.clientX,
         y: event.clientY
@@ -81,7 +80,7 @@ export default {
       this.activeState = clickedNavItem;
       // set header back in original position
       for (let i = 0; i < this.headings.length; i++) {
-        this.headings[i].style.transform = `translate(-50%, 0)`;
+        this.headings[i].style.transform = 'translate(-50%, 0)';
       }
       if (clickedNavItem === 'hover') {
         document.body.addEventListener('mousemove', this.hoverAnimate);

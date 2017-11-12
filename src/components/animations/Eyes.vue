@@ -2,8 +2,10 @@
 
     <div v-on:click="clickAnimate" class="eyes">
       <div v-for="n in 2" class="eye">
-        <div class="inner-eye">
-          <div class="pupil">
+        <div class="eye-rotate">
+          <div class="inner-eye">
+            <div class="pupil">
+            </div>
           </div>
         </div>
       </div>
@@ -45,7 +47,7 @@ export default {
 
       const norm = {  x: vector.x / distance, y: vector.y / distance };
       const transInnerEye = {
-        x: norm.x * 20,
+        x: norm.x * 50,
         y: norm.y * 10
       }
       const transPupil = {
@@ -57,7 +59,7 @@ export default {
         const innerEye = eye.querySelector('.inner-eye');
         const pupil = eye.querySelector('.pupil');
 
-        innerEye.style.transform = `translate(${transInnerEye.x}%, ${transInnerEye.y}%)`;
+        innerEye.style.transform = `translate(${transInnerEye.x}%, ${transInnerEye.y}%) `;
         pupil.style.transform = `translate(${transPupil.x}%, ${transPupil.y}%)`;
       }
     },
@@ -79,6 +81,14 @@ export default {
       if (clickedNavItem === 'hover') {
         document.body.addEventListener('mousemove', this.hoverAnimate);
       } else {
+        for (let i = 0; i < this.eyes.length; i++) {
+          const eye = this.eyes[i];
+          const innerEye = eye.querySelector('.inner-eye');
+          const pupil = eye.querySelector('.pupil');
+
+          innerEye.style.transform = 'translate(0, 0)';
+          pupil.style.transform = 'translate(0,0)';
+        }
         document.body.removeEventListener('mousemove', this.hoverAnimate);
       }
     });
@@ -109,6 +119,13 @@ export default {
     transform: rotate(45deg);
     margin: 50px;
     overflow: hidden;
+    // add div with no rotation to give inner eye the right x and y axel on hover animation
+    .eye-rotate {
+      height: 100%;
+      width: 100%;
+      transform: rotate(-45deg);
+      position: absolute;
+    }
     .inner-eye {
       display: block;
       position: absolute;
