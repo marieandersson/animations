@@ -1,7 +1,7 @@
 <template>
   <div class="heading-wrap">
     <h1 v-if="activeState === 'start'">Inspiring<br>Animations</h1>
-    <h1 v-else v-for="n in 25" v-on:click="clickAnimate">{{ headings[activeState ] }}<span v-if="activeState === 'start'"><br>animations</span></h1>
+    <h1 v-else v-for="n in 25" v-on:click="clickAnimate" class="heading">{{ headingTexts[activeState ] }}</h1>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   data () {
     return {
       activeState: 'start',
-      headings: {
+      headingTexts: {
         start: 'Inspiring',
         scroll: 'Scroll',
         hover: 'Hover',
@@ -27,7 +27,8 @@ export default {
           x: 0,
           y: 0
         }
-      }
+      },
+      hoverActive: false
     }
   },
   methods: {
@@ -38,81 +39,78 @@ export default {
       const translateY = scrollPercent;
       // if element is in viewport
       if (translateY <= 150) {
-        this.$el.querySelectorAll('h1').forEach(heading => {
-          heading.style.transform = `translate(-50%, ${translateY}%)`;
-        });
+        for (let i = 0; i < this.headings.length; i++) {
+          this.headings[i].style.transform = `translate(-50%, ${translateY}%)`;
+        }
       }
     },
     hoverAnimate() {
-      if (this.activeState != 'hover') {
-        return;
-      }
-      const headers = this.$el.querySelectorAll('h1');
-      const headerFront = headers[headers.length - 1];
-      const rect = headerFront.getBoundingClientRect();
-      const headerCenter = {
-        x: rect.x + (rect.width / 2),
-        y: rect.y + (rect.height / 2)
-      }
-
       const cursor = {
         x: event.clientX,
         y: event.clientY
       }
       const vector = {
-        x: cursor.x - headerCenter.x,
-        y: cursor.y - headerCenter.y
+        x: cursor.x - this.headingCenter.x,
+        y: cursor.y - this.headingCenter.y
       }
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
-
       const trans = {
         x: Math.round(-50 + ((vector.x / distance) * 10)),
         y: Math.round((vector.y /distance) * 10)
       }
-      console.log(distance);
-      console.log(trans);
-      //only check if cursor y is near headercenter y ?
-      if (Math.abs(vector.x) < 30 && Math.abs(vector.y) < 30) {
-        return;
+      for (let i = 0; i < this.headings.length; i++) {
+       this.headings[i].style.transform = `translate(${trans.x}%, ${trans.y}%)`;
       }
 
-      headers.forEach(heading => {
-        heading.style.transform = `translate(${trans.x}%, ${trans.y}%)`;
-      });
     },
     clickAnimate() {
-      if (this.activeState === 'click') {
-        this.$el.querySelectorAll('h1').forEach(heading => {
-          heading.classList.add('h1-clicked');
-          heading.addEventListener('animationend', () => {
-            heading.classList.remove('h1-clicked');
-          })
-        });
+      if (this.activeState != 'click') {
+        return;
       }
+      this.$el.querySelectorAll('.heading').forEach(heading => {
+        heading.classList.add('h1-clicked');
+        heading.addEventListener('animationend', () => {
+          heading.classList.remove('h1-clicked');
+        })
+      });
     },
   },
   created () {
+
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
       // set header back in original position
-      this.$el.querySelectorAll('h1').forEach(heading => {
-        heading.style.transform = `translate(-50%)`;
-      });
-
+      for (let i = 0; i < this.headings.length; i++) {
+       this.headings[i].style.transform = `translate(-50%)`;
+      }
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
     });
     Event.$on('headerHover', () => {
       if (this.activeState === 'hover') {
+        if (this.hoverActive) {
+          return;
+        }
+        this.hoverActive = true;
+        this.headingCenter = {
+          x: this.rect.x + (this.rect.width / 2),
+          y: this.rect.y + (this.rect.height / 2)
+        }
         document.body.addEventListener('mousemove', this.hoverAnimate);
       }
     });
     Event.$on('headerLeave', () => {
       if (this.activeState === 'hover') {
+        this.hoverActive = false;
         document.body.removeEventListener('mousemove', this.hoverAnimate);
       }
     });
+  },
+  mounted () {
+    this.headings = this.$el.children;
+    this.headingFront = this.headings[this.headings.length - 1];
+    this.rect = this.headingFront.getBoundingClientRect();
   }
 }
 </script>
