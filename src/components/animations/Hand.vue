@@ -28,23 +28,24 @@ export default {
       this.handPath.animate({ d: this.handPaths[index] }, 1000, mina.linear, callback);
     },
     scrollAnimate() {
-      if (this.activeState === 'scroll') {
-        if (this.animating) {
-          return;
-        }
-        this.animating = true;
-        this.$el.classList.add('active-scroll-hand');
-        this.$el.addEventListener('transitionend', () => { // TODO: remove eventlistner when done
-          // use requestAnimationFrame ?
-          this.runAnimation(2, () => {
-            this.runAnimation(1, () => {
-              this.runAnimation(2, () => {
-                this.runAnimation(1);
-              })
+      if (this.activeState != 'scroll') {
+        return;
+      }
+      if (this.animating) {
+        return;
+      }
+      this.animating = true;
+      this.$el.classList.add('active-scroll-hand');
+      this.$el.addEventListener('transitionend', () => { // TODO: remove eventlistner when done
+        // use requestAnimationFrame ?
+        this.runAnimation(2, () => {
+          this.runAnimation(1, () => {
+            this.runAnimation(2, () => {
+              this.runAnimation(1);
             });
           });
-        })
-      }
+        });
+      });
     },
     hoverAnimate() {
       if (this.activeState === 'hover') {
@@ -60,7 +61,14 @@ export default {
           this.runAnimation(0);
         });
       }
-    }
+    },
+    isElInViewport () {
+      const rect = this.$el.getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      );
+    },
   },
   mounted () {
     const hand = this.$el.querySelector('.svg-hand');
@@ -70,12 +78,17 @@ export default {
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
-      // if (window.isElementInViewport(this.$el)) {
-      //   this.$el.classList.add('active-scroll-hand');
-      // }
+      if (clickedNavItem != 'scroll') {
+
+          this.handPath.node.setAttribute('d', this.handPaths[0]);
+
+      }
+      if (this.isElInViewport()) {
+        this.$el.classList.add('active-scroll-hand');
+      }
     });
     Event.$on('scrolling', () => {
-      if (window.isElementInViewport(this.$el)) {
+      if (this.isElInViewport()) {
         this.scrollAnimate();
       } else {
         this.$el.classList.remove('active-scroll-hand');

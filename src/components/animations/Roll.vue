@@ -56,7 +56,7 @@ export default {
       const rect = this.$el.getBoundingClientRect();
       const windowheight = (window.innerHeight || document.documentElement.clientHeight);
       // if more than half the element is in viewport
-      if (rect.top <  windowheight * 0.5) {
+      if (rect.top < windowheight * 0.5) {
         this.$el.classList.add('active-scroll-roll');
         Event.$emit('rollInView');
       } else {

@@ -42,6 +42,10 @@ export default {
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
+      // this.$el.firstChild.classList.add('page-trans');
+      // this.$el.firstChild.addEventListener('animationend', () => {
+      //   this.$el.firstChild.classList.remove('page-trans');
+      // })
       this.activeState = clickedNavItem;
       if (this.activeState === 'scroll') {
         window.addEventListener('scroll', this.detectScrolling);
@@ -54,8 +58,18 @@ export default {
 </script>
 
 <style lang="scss">
+@keyframes pageTrans {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 main {
   display: flex;
+  opacity: 1;
+  transition: .5s linear;
   align-items: center;
   flex-direction: column;
   width: calc(100% - 60px);
@@ -66,6 +80,9 @@ main {
   .content-wrap {
     width: 100%;
   }
+}
+.page-trans {
+  animation: 1s ease-in-out pageTrans;
 }
 @media screen and (max-width:600px) {
   main {

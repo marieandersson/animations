@@ -66,6 +66,7 @@ export default {
     },
     scrollAnimate(index) {
       this.currentScrollPosition = window.scrollY;
+      // check if scroll goes up or down
       if (this.currentScrollPosition > this.lastScrollPosition) {
         this.runAnimation(1, 1000);
         this.animateIn = true;
