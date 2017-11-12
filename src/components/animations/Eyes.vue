@@ -32,27 +32,33 @@ export default {
         x: event.clientX,
         y: event.clientY
       }
+      const rect = this.$el.getBoundingClientRect();
+      const eyesCenter = {
+        x: rect.x + (rect.width / 2),
+        y: rect.y + (rect.height / 2)
+      }
+      const vector = {
+        x: cursor.x - eyesCenter.x,
+        y: cursor.y - eyesCenter.y
+      }
+      const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
+
+      const norm = {  x: vector.x / distance, y: vector.y /distance };
+      const transInnerEye = {
+        x: norm.x * 20,
+        y: norm.y * 10
+      }
+      const transPupil = {
+        x: norm.x * 80,
+        y: norm.y * 80
+      }
       for (let i = 0; i < this.eyes.length; i++) {
         const eye = this.eyes[i];
         const innerEye = eye.querySelector('.inner-eye');
         const pupil = eye.querySelector('.pupil');
 
-        const rect = eye.getBoundingClientRect();
-        const eyeCenter = {
-          x: rect.x + (rect.width / 2),
-          y: rect.y + (rect.height / 2)
-        }
-        const vector = {
-          x: cursor.x - eyeCenter.x,
-          y: cursor.y - eyeCenter.y
-        }
-        const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
-      //  console.log(distance);
-        const trans = {
-          x: Math.round((vector.x / distance) * 10),
-          y: Math.round((vector.y /distance) * 10)
-        }
-        innerEye.style.transform = `translate(${trans.x}%, ${trans.y}%)`;
+        innerEye.style.transform = `translate(${transInnerEye.x}%, ${transInnerEye.y}%)`;
+        pupil.style.transform = `translate(${transPupil.x}%, ${transPupil.y}%)`;
       }
     },
     clickAnimate() {

@@ -81,10 +81,12 @@ export default {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
       if (clickedNavItem === 'hover') {
+        this.rect = this.headingFront.getBoundingClientRect();
         this.headingCenter = {
-          x: this.rect.x + (this.rect.width / 2),
-          y: this.rect.y + (this.rect.height / 2)
+          x: this.$el.offsetTop + (this.rect.width / 2),
+          y: this.$el.offsetLeft + (this.rect.height / 2)
         }
+        console.log(this.rect);
         document.body.addEventListener('mousemove', this.hoverAnimate);
        } else {
          document.body.removeEventListener('mousemove', this.hoverAnimate);
@@ -102,7 +104,6 @@ export default {
   mounted () {
     this.headings = this.$el.children;
     this.headingFront = this.headings[this.headings.length - 1];
-    this.rect = this.headingFront.getBoundingClientRect();
   }
 }
 </script>
