@@ -3,6 +3,8 @@
     <div v-on:click="clickAnimate" class="eyes">
       <div v-for="n in 2" class="eye">
         <div class="inner-eye">
+          <div class="pupil">
+          </div>
         </div>
       </div>
     </div>
@@ -32,6 +34,9 @@ export default {
       }
       for (let i = 0; i < this.eyes.length; i++) {
         const eye = this.eyes[i];
+        const innerEye = eye.querySelector('.inner-eye');
+        const pupil = eye.querySelector('.pupil');
+
         const rect = eye.getBoundingClientRect();
         const eyeCenter = {
           x: rect.x + (rect.width / 2),
@@ -42,7 +47,12 @@ export default {
           y: cursor.y - eyeCenter.y
         }
         const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
-        console.log(distance);
+      //  console.log(distance);
+        const trans = {
+          x: Math.round((vector.x / distance) * 10),
+          y: Math.round((vector.y /distance) * 10)
+        }
+        innerEye.style.transform = `translate(${trans.x}%, ${trans.y}%)`;
       }
     },
     clickAnimate() {
@@ -61,7 +71,6 @@ export default {
         this.$el.classList.remove('closed-eyes');
       }
       if (clickedNavItem === 'hover') {
-
         document.body.addEventListener('mousemove', this.hoverAnimate);
       } else {
         document.body.removeEventListener('mousemove', this.hoverAnimate);
@@ -101,8 +110,7 @@ export default {
       height: 120px;
       border-radius: 50%;
       margin: 30px;
-      &::after {
-        content: '';
+      .pupil {
         display: block;
         position: absolute;
         width: 30px;
