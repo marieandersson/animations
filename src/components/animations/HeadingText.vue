@@ -80,31 +80,22 @@ export default {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
       // set header back in original position
-      for (let i = 0; i < this.headings.length; i++) {
-       this.headings[i].style.transform = `translate(-50%)`;
+      if (clickedNavItem != 'hover') {
+        document.body.removeEventListener('mousemove', this.hoverAnimate);
+        for (let i = 0; i < this.headings.length; i++) {
+         this.headings[i].style.transform = `translate(-50%)`;
+        }
+       } else {
+         this.headingCenter = {
+           x: this.rect.x + (this.rect.width / 2),
+           y: this.rect.y + (this.rect.height / 2)
+         }
+         document.body.addEventListener('mousemove', this.hoverAnimate);
       }
+
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
-    });
-    Event.$on('headerHover', () => {
-      if (this.activeState === 'hover') {
-        if (this.hoverActive) {
-          return;
-        }
-        this.hoverActive = true;
-        this.headingCenter = {
-          x: this.rect.x + (this.rect.width / 2),
-          y: this.rect.y + (this.rect.height / 2)
-        }
-        document.body.addEventListener('mousemove', this.hoverAnimate);
-      }
-    });
-    Event.$on('headerLeave', () => {
-      if (this.activeState === 'hover') {
-        this.hoverActive = false;
-        document.body.removeEventListener('mousemove', this.hoverAnimate);
-      }
     });
   },
   mounted () {

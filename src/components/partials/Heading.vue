@@ -1,5 +1,5 @@
 <template>
-  <div v-on:mouseover="hoverAnimate" v-on:mouseleave="stopAnimate" class="header-wrap">
+  <div class="header-wrap">
     <header>
      <headingText></headingText>
     </header>
@@ -14,14 +14,6 @@ export default {
   components: {
     headingText
   },
-  methods: {
-    hoverAnimate() {
-      Event.$emit('headerHover');
-    },
-    stopAnimate() {
-      Event.$emit('headerLeave');
-    }
-  }
 }
 </script>
 
