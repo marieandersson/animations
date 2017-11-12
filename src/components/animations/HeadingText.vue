@@ -45,6 +45,7 @@ export default {
       }
     },
     hoverAnimate() {
+      console.log(this.headingCenter);
       const cursor = {
         x: event.clientX,
         y: event.clientY
@@ -53,18 +54,14 @@ export default {
         x: cursor.x - this.headingCenter.x,
         y: cursor.y - this.headingCenter.y
       }
-
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
       const trans = {
         x: -50 + ((vector.x / distance) * 20),
         y: (vector.y /distance) * 20
       }
-
-    //  console.log(trans);
       for (let i = 0; i < this.headings.length; i++) {
        this.headings[i].style.transform = `translate(${trans.x}%, ${trans.y}%)`;
       }
-
     },
     clickAnimate() {
       if (this.activeState != 'click') {
@@ -97,14 +94,17 @@ export default {
     });
   },
   mounted () {
+    console.log(this.$el.querySelectorAll('.heading'));
     this.headings = this.$el.children;
     this.headingFront = this.headings[this.headings.length - 1];
     this.rect = this.headingFront.getBoundingClientRect();
+    this.scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     this.headingCenter = {
-      x: this.$el.offsetTop + (this.rect.width / 2),
-      y: this.$el.offsetLeft + (this.rect.height / 2)
+      x: this.rect.left + (this.rect.width / 2),
+      y: this.rect.top +  this.scrollTop + (this.rect.height / 2)
     }
   }
+
 }
 </script>
 
