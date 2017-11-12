@@ -43,7 +43,7 @@ export default {
       }
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
 
-      const norm = {  x: vector.x / distance, y: vector.y /distance };
+      const norm = {  x: vector.x / distance, y: vector.y / distance };
       const transInnerEye = {
         x: norm.x * 20,
         y: norm.y * 10
