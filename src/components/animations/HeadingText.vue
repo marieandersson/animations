@@ -93,7 +93,6 @@ export default {
     });
   },
   mounted () {
-    console.log(this.$el.querySelectorAll('.heading'));
     this.headings = this.$el.children;
     this.headingFront = this.headings[this.headings.length - 1];
     this.rect = this.headingFront.getBoundingClientRect();

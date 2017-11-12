@@ -68,8 +68,10 @@ export default {
       this.currentScrollPosition = window.scrollY;
       if (this.currentScrollPosition > this.lastScrollPosition) {
         this.runAnimation(1, 1000);
+        this.animateIn = true;
       } else {
         this.runAnimation(0, 1000);
+        this.animateIn = false;
       }
       this.lastScrollPosition = this.currentScrollPosition;
     },

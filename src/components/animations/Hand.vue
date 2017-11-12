@@ -2,7 +2,7 @@
   <div class="hand">
     <svg class="svg-hand" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 523 227">
       <title>1_Hand@2x100</title>
-      <path v-on:mouseover="hoverAnimate" v-on:click="clickAnimate" class="hand-path" :d="activeState === 'scroll' ? handPaths[1] : handPaths[0]"/>
+      <path v-on:mouseover="hoverAnimate" v-on:click="clickAnimate" class="hand-path" v-bind:d="activeState === 'scroll' ? handPaths[1] : handPaths[0]"/>
     </svg>
   </div>
 </template>
