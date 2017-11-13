@@ -1,5 +1,6 @@
 <template>
   <main v-bind:class="activeState">
+    <div v-if="activeState === 'hover' && isTouchScreen" class="hover-alert">Oh no! Hover wont work on this device. Get the whole expericnce on your computer.</div>
     <div class="content-wrap">
       <heading></heading>
       <about></about>
@@ -32,15 +33,27 @@ export default {
   data () {
     return {
       activeState: 'start',
-      lastScrollTime: null
+      lastScrollTime: null,
+      isTouchScreen: false
     }
   },
   methods: {
-    detectScrolling() {
+    detectScrolling () {
       Event.$emit('scrolling');
+    },
+    getScreen () {
+      if (navigator.userAgent.match(/mobile/i)) {
+        this.isTouchScreen = true;
+      } else if (navigator.userAgent.match(/iPad|Android|Touch/i)) {
+        this.isTouchScreen = true;
+      } else {
+        this.isTouchScreen = false;
+      }
     }
   },
   created () {
+    this.getScreen();
+    console.log(this.isTouchScreen);
     Event.$on('activeState', clickedNavItem => {
       // this.$el.firstChild.classList.add('page-trans');
       // this.$el.firstChild.addEventListener('animationend', () => {
@@ -79,6 +92,16 @@ main {
   z-index: 11;
   .content-wrap {
     width: 100%;
+  }
+  .hover-alert {
+    position: fixed;
+    height: 80%;
+    width: 80%;
+    top: 10%;
+    right: 5%;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+    border: 5px solid #FF8B00;
   }
 }
 .page-trans {
