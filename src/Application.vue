@@ -73,6 +73,7 @@ nav {
     justify-content: center;
     transition: all .3s linear;
     background: transparent;
+    position: relative;
     p {
       transform: rotate(-90deg);
       margin: 0;
@@ -83,18 +84,52 @@ nav {
         text-transform: uppercase;
       }
     }
+    &::after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      right: 0;
+      width: 5px;
+      z-index: -1;
+      transform: scaleY(0);
+      transition: .5s linear;
+    }
+    &:hover::after {
+      transform: scaleY(1);
+    }
   }
-  .start-nav p {
-    color: #000;
+
+  .start-nav {
+    p {
+      color: #000;
+    }
+    &::after {
+      background: linear-gradient(#e6e6e6, #000000);
+    }
   }
-  .scroll-nav p {
-    color: #FF0098;
+  .scroll-nav {
+    p {
+      color: #FF0098;
+    }
+    &::after {
+      background: linear-gradient(#FF0098, #F40000);
+    }
   }
-  .hover-nav p {
-    color: #EE3F00;
+  .hover-nav {
+    p {
+      color: #EE3F00;
+    }
+    &::after {
+      background: linear-gradient(#FF8B00, #EE3F00);
+    }
   }
-  .click-nav p {
-    color: #1808EF;
+  .click-nav {
+    p {
+      color: #1808EF;
+    }
+    &::after {
+      background: linear-gradient(#1808EF, #001F44);
+    }
   }
   .active.start-nav {
     transition: all .3s linear;

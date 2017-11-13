@@ -110,7 +110,7 @@ export default {
   // }
 }
 .blur-text {
-  animation: 1.8s ease-in-out infinite reverse blur;
+  animation: 3.8s ease-in-out infinite reverse blur;
 }
 .scroll .scroll-blur {
   transform: translate(-4px, 4px);
