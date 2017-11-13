@@ -42,10 +42,10 @@ export default {
     Event.$on('rollReady', () => {
       this.$el.querySelector('.ux-text').classList.remove('skew-text-click');
     });
-    Event.$on('rollHover', () => {
+    Event.$on('rollActive', () => {
       this.$el.querySelector('.ux-text').classList.add('skew-text');
     });
-    Event.$on('rollHoverOut', () => {
+    Event.$on('rollDone', () => {
       this.$el.querySelector('.ux-text').classList.remove('skew-text');
     });
     Event.$on('scrolling', () => {

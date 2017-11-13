@@ -93,13 +93,11 @@ export default {
       // if more than half the element is in viewport
       if (rect.top < windowheight * 0.5) {
         this.$el.classList.add('active-scroll-roll');
-        Event.$emit('rollInView');
         this.runAnimation(1, 1000, () => {
           this.runAnimation(0, 1000);
-          });
+        });
       } else {
         this.$el.classList.remove('active-scroll-roll');
-        Event.$emit('rollOutOfView');
       }
     },
     hoverAnimate() {
@@ -108,7 +106,7 @@ export default {
           return;
         }
         this.animating = true;
-        Event.$emit('rollHover');
+        Event.$emit('rollActive');
         this.runAnimation(1, 1000, () => {
           this.animating = false;
         });
@@ -116,7 +114,7 @@ export default {
     },
     hoverOut() {
       if (this.activeState === 'hover') {
-        Event.$emit('rollHoverOut');
+        Event.$emit('rollDone');
         this.runAnimation(0, 1000);
       }
     },
@@ -141,6 +139,7 @@ export default {
       }
     });
     Event.$on('scrolling', () => {
+      Event.$emit('rollActive');
       this.scrollAnimate();
     });
   },
