@@ -1,6 +1,8 @@
 <template>
   <main v-bind:class="activeState">
-    <div v-if="activeState === 'hover' && isTouchScreen" class="hover-alert">Oh no! Hover wont work on this device. Get the whole expericnce on your computer.</div>
+    <div v-if="activeState === 'hover' && isTouchScreen" class="hover-alert">
+      <p>Oh crap! Hover interactions doesn't work on this device. Get the whole experience on your computer.</p>
+    </div>
     <div class="content-wrap">
       <heading></heading>
       <about></about>
@@ -110,9 +112,13 @@ main {
     width: 80%;
     top: 10%;
     right: 5%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     z-index: 1000;
     border: 5px solid #FF8B00;
+    padding: 1em;
+    p {
+      font-size: 20px;
+    }
   }
 }
 .fade-in {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="n in 2" class="ux-text">
+    <div class="ux-text">
       <h2>What not to!</h2>
       <p v-html="texts[activeState]"></p>
     </div>
@@ -26,35 +26,27 @@ export default {
     scrollAnimate() {
       const uxText = this.$el.querySelector('.ux-text');
       window.clearTimeout( this.scrolling );
-      uxText.classList.add('scroll-blur');
+      uxText.classList.add('skew-text');
       this.scrolling = setTimeout(function() {
-        uxText.classList.remove('scroll-blur');
+        uxText.classList.remove('skew-text');
       }, 66);
     },
-    clickAnimate() {
-      const uxText = this.$el.querySelector('.ux-text');
-      if (this.activeState === 'click') {
-      uxText.classList.add('blur-text');
-      uxText.addEventListener('animationend', () => {
-        uxText.classList.remove('blur-text');
-      });
-      }
-    }
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
     });
     Event.$on('rollClicked', () => {
-    //  this.clickAnimate();
-      if (this.activeState === 'click') {
-        this.$el.querySelectorAll('.ux-text').forEach(text => text.classList.add('blur-text'));
-      }
+      this.$el.querySelector('.ux-text').classList.add('skew-text-click');
     });
     Event.$on('rollReady', () => {
-    // this.clickAnimate();
-      this.$el.querySelectorAll('.ux-text').forEach(text => text.classList.remove('blur-text'));
-
+      this.$el.querySelector('.ux-text').classList.remove('skew-text-click');
+    });
+    Event.$on('rollHover', () => {
+      this.$el.querySelector('.ux-text').classList.add('skew-text');
+    });
+    Event.$on('rollHoverOut', () => {
+      this.$el.querySelector('.ux-text').classList.remove('skew-text');
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
@@ -67,7 +59,7 @@ export default {
 
 <style lang="scss">
 .ux-text {
-  transition: all 0.2s linear;
+  transition: all 0.5s linear;
   position: absolute;
   width: calc(100vw - 60px);
   height: 100%;
@@ -81,6 +73,7 @@ export default {
   color: #fff;
   h2 {
     transform: rotate(-90deg) translate(20px, -30px);
+    transition: all 0.5s linear;
   }
   p {
     width: 500px;
@@ -89,12 +82,7 @@ export default {
 .click .ux-text {
   cursor: pointer;
 }
-.hover .ux-text {
-  &:hover {
-    transform: translate(-4px, 4px);
-    transition: 0.2s ease-out;
-  }
-}
+
 @keyframes blur {
   0%, 100% {
     transform: skew(0) translate(0,0);
@@ -104,16 +92,19 @@ export default {
     transform:  skew(-5deg) translate(5px, -5px);
     transform-origin: center center;
   }
-  // 75% {
-  //   transform: skew(5deg);
-  //   transform-origin: center center;
-  // }
 }
-.blur-text {
-  animation: 3.8s ease-in-out infinite reverse blur;
+.skew-text-click {
+  animation: 1.8s ease-in-out infinite reverse blur;
+  h2 {
+    text-decoration: line-through;
+  }
 }
-.scroll .scroll-blur {
-  transform: translate(-4px, 4px);
+.skew-text {
+  transform: skew(-5deg) translate(5px, -5px);
+  transform-origin: center center;
+  h2 {
+    text-decoration: line-through;
+  }
 }
 
 @media screen and (max-width: 1350px) {
