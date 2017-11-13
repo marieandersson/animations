@@ -158,6 +158,10 @@ export default {
     }
   }
 }
+.click .eye {
+  cursor: pointer;
+}
+
 @keyframes blink {
   from {
     border-radius: 0;

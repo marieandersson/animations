@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-on:click="clickAnimate" v-on:mouseover="hoverAnimate" class="activate"></div>
+    <div v-on:click="clickAnimate" v-on:mouseover="hoverAnimate" :class="['activate', activeState === 'click' ? 'click-activate' : '']"></div>
     <div :class="['background', activeState]">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1366 2152.21">
         <defs>
@@ -155,6 +155,9 @@ export default {
   right: 50px;
   top: 120px;
   z-index: 100;
+}
+.click-activate {
+  cursor: pointer;
 }
 .background {
   height: 100vh;

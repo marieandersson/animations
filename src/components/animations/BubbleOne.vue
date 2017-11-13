@@ -135,6 +135,9 @@ export default {
     }
   }
 }
+.click .bubble-one {
+  cursor: pointer;
+}
 @media screen and (max-width: 1150px) {
   .bubble-one {
     left: 100px;

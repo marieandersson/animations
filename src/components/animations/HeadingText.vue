@@ -176,6 +176,7 @@ export default {
 }
 .click .heading-wrap {
   h1 {
+    cursor: pointer;
     -webkit-text-fill-color: #1808EF;
     -webkit-text-stroke-color: #001F44;
     &:nth-child(25) {

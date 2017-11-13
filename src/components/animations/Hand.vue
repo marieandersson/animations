@@ -134,7 +134,9 @@ export default {
 .scroll .active-scroll-hand {
   transform: translate(100px, 0);
 }
-
+.click .hand {
+  cursor: pointer;
+}
 @media screen and (max-width: 1270px) {
   .scroll .hand {
     transform: translate(1000px, -110px);

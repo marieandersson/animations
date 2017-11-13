@@ -134,6 +134,9 @@ export default {
     }
   }
 }
+.click .bubble-two {
+  cursor: pointer;
+}
 @media screen and (max-width: 1000px) {
   .bubble-two {
     width: 200px;

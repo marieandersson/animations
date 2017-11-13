@@ -77,9 +77,9 @@ export default {
   p {
     width: 500px;
   }
-  /*// &:nth-child(2) {
-  //   color: #000;
-  // } */
+}
+.click .ux-text {
+  cursor: pointer;
 }
 .hover .ux-text {
   &:hover {
