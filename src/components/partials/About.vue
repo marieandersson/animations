@@ -90,7 +90,7 @@ export default {
 }
 @media screen and (max-width: 750px) {
   .about {
-    height: 750px;
+    height: 800px;
     padding: 0 3em;
     .about-text {
       align-items: center;
@@ -100,7 +100,9 @@ export default {
         transform: rotate(0) translate(0, 0);
       }
     }
-
+  }
+  .start .about .about-text h2 {
+    transform: rotate(0) translate(0, 0);
   }
 }
 @media screen and (max-width: 690px) {
@@ -116,7 +118,7 @@ export default {
 @media screen and (max-width: 480px) {
   .about {
     align-items: flex-start;
-    height: 400px;
+    height: 480px;
   }
 }
 @media screen and (max-width: 430px) {

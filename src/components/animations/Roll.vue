@@ -205,7 +205,7 @@ export default {
 }
 @media screen and (max-width: 450px) {
   .roll {
-    width: 350%;
+    width: 370%;
   }
 }
 @media screen and (max-width: 380px) {
