@@ -3,7 +3,7 @@
     <bubbleOne></bubbleOne>
     <div class="about-text">
       <h2>Where to?</h2>
-      <p> {{ texts[activeState] }} </p>
+      <p v-html="texts[activeState]"></p>
     </div>
     <bubbleTwo></bubbleTwo>
   </div>

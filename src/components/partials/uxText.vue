@@ -2,7 +2,7 @@
   <div>
     <div v-for="n in 2" class="ux-text">
       <h2>What not to!</h2>
-      <p> {{ texts[activeState] }} </p>
+      <p v-html="texts[activeState]"></p>
     </div>
   </div>
 </template>
