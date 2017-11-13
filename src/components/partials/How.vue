@@ -22,10 +22,10 @@ export default {
     return {
       activeState: 'start',
       texts: {
-        start: 'Start: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.',
-        scroll: 'Scroll: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.',
-        hover: 'Hover: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.',
-        click: 'Click: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.'
+        start: 'The animations on this site are built with CSS, JavaScript and SVG. They all behave a little different based on what triggers them. If you want to check out how it’s all been done, you can visit GitHub (link). A special thanks to Snap.svg (http://snapsvg.io/) for providing such an awesome SVG animation library.',
+        scroll: 'To animate on scroll you have to keep track of both when the user is scrolling and of where the elements are positioned relative to the viewport at that moment. The animation should be triggered when in view, or else the user might not see it. Check out the code at GitHub.',
+        hover: 'The elements on this page are animated in two ways. Some when the user is hovering over them, and some based on where the cursor is positioned relative to themselves. There’s a lot of math going on with those eyes! Check out exactly how we did it at GitHub.',
+        click: 'To animate on click you simply have to keep track of when the user is clicking on the specific element. On this page it will either trigger a SVG animation or one made with only CSS. In the later case the animation happens when adding and removing HTML classes with different styles. Check out the code on GitHub.'
       }
     }
   },

@@ -41,7 +41,12 @@ export default {
         this.runAnimation(2, () => {
           this.runAnimation(1, () => {
             this.runAnimation(2, () => {
-              this.runAnimation(1);
+              this.runAnimation(1, () => {
+                if (this.activeState != 'scroll') {
+                  // set hand in correct start path
+                  this.runAnimation(0);
+                }
+              });
             });
           });
         });
@@ -78,11 +83,6 @@ export default {
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
-      if (clickedNavItem != 'scroll') {
-
-          this.handPath.node.setAttribute('d', this.handPaths[0]);
-
-      }
       if (this.isElInViewport()) {
         this.$el.classList.add('active-scroll-hand');
       }

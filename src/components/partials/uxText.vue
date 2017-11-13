@@ -14,10 +14,10 @@ export default {
     return {
       activeState: 'start',
       texts: {
-        start: 'Start: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.',
-        scroll: 'Scroll: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden. Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet.',
-        hover: 'Hover: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.',
-        click: 'Click: Lorem Ipsum är en utfyllnadstext från tryck- och förlagsindustrin. Lorem ipsum har varit standard ända sedan 1500-talet, när en okänd boksättare tog att antal bokstäver och blandade dem för att göra ett provexemplar av en bok. Lorem ipsum har inte bara överlevt fem århundraden.'
+        start: 'This is a page with decorative animations. Get inspired but don’t forget to keep it simple. Both for the performance of the website and to keep the user focused of what is most important. To get the best experience, visit this webpage in Chrome browser and be sure to have the latest version.',
+        scroll: 'Scroll animations are popular because they can be used on all devices. If you’re using fly-in animations when scrolling, try to use them sparingly so they don’t become overwhelming for the user.',
+        hover: 'When working with a full-screen hover animation, the trick is to impress users whilst  not overwhelming them. The design should remain simple – a clean background with an easy to read sans serif typeface. Hover effects don’t work on touch devices or mobile phones, here you have to activate the effect by utilising actions such as shaking, swiping, or slanting.',
+        click: 'You have to show where the user should click and interact with an element, if not, they may miss it. To indicate that the user is supposed to click on an animation, you can change the mouse to a different icon when hovering over the object. Click animations will work on mobile devices aswell, but remember to avoid placing any click elements at the bottom of the screen where users usually swipe to get to the next section.'
       },
       scrolling: false
     }

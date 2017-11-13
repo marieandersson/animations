@@ -106,6 +106,10 @@ export default {
   created () {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
+      if (clickedNavItem === 'hover') {
+        this.runAnimation(0, 2000);
+        this.animateIn = false;
+      }
     });
     Event.$on('scrolling', () => {
       if (window.isElementInViewport(this.$el)) {
