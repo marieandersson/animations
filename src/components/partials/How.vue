@@ -2,7 +2,7 @@
   <div class="how">
 
     <div class="how-text">
-      <h2>How to?</h2>
+      <h2><span>How to?</span></h2>
       <p v-html="texts[activeState]"></p>
     </div>
     <hand></hand>
@@ -52,6 +52,9 @@ export default {
     margin: 100px 0 150px;
     justify-content: center;
     color: #fff;
+    h2 {
+      transform: rotate(-90deg) translate(57px, 15px);
+    }
     p {
       width: 500px;
     }
@@ -84,6 +87,9 @@ export default {
     .how-text {
       margin-top: 70px;
       flex-direction: column;
+      h2 {
+        transform: rotate(0) translate(0, 0);
+      }
     }
   }
 }

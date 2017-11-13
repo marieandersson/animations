@@ -2,7 +2,7 @@
   <div class="about">
     <bubbleOne></bubbleOne>
     <div class="about-text">
-      <h2>Where to?</h2>
+      <h2><span>Where to?</span></h2>
       <p v-html="texts[activeState]"></p>
     </div>
     <bubbleTwo></bubbleTwo>
@@ -53,7 +53,16 @@ export default {
     p {
       width: 500px;
     }
+    h2 {
+      transform: rotate(-90deg) translate(70px, 30px);
+      span {
+        border-color: #000;
+      }
+    }
   }
+}
+.start .about .about-text h2 {
+  transform: rotate(-90deg) translate(85px, 42px);
 }
 @media screen and (max-width: 1440px) {
   .about {
@@ -88,6 +97,7 @@ export default {
       flex-direction: column;
       h2 {
         width: 500px;
+        transform: rotate(0) translate(0, 0);
       }
     }
 

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="ux-text">
-      <h2>What not to!</h2>
+      <h2><span>What not to!</span></h2>
       <p v-html="texts[activeState]"></p>
     </div>
   </div>
@@ -72,7 +72,7 @@ export default {
   padding: 240px 150px 0 0;
   color: #fff;
   h2 {
-    transform: rotate(-90deg) translate(20px, -30px);
+    transform: rotate(-90deg) translate(12px, -30px);
     transition: all 0.5s linear;
   }
   p {
