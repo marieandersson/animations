@@ -71,11 +71,11 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all .3s linear;
     background: transparent;
     position: relative;
     p {
       transform: rotate(-90deg);
+      transition: all .5s linear;
       margin: 0;
       text-transform: uppercase;
       font-family: 'Poppins' !important;
@@ -83,6 +83,15 @@ nav {
       &::first-letter {
         text-transform: uppercase;
       }
+    }
+    &::before {
+      content: '';
+      height: 100%;
+      position: absolute;
+      right: 0;
+      width: 0;
+      overflow: hidden;
+      transition: .3s linear;
     }
     &::after {
       content: '';
@@ -92,7 +101,7 @@ nav {
       width: 5px;
       z-index: -1;
       transform: scaleY(0);
-      transition: .5s linear;
+      transition: .3s linear;
     }
     &:hover::after {
       transform: scaleY(1);
@@ -103,7 +112,7 @@ nav {
     p {
       color: #000;
     }
-    &::after {
+    &::before, &::after {
       background: linear-gradient(#e6e6e6, #000000);
     }
   }
@@ -111,7 +120,7 @@ nav {
     p {
       color: #FF0098;
     }
-    &::after {
+    &::before, &::after {
       background: linear-gradient(#FF0098, #F40000);
     }
   }
@@ -119,7 +128,7 @@ nav {
     p {
       color: #EE3F00;
     }
-    &::after {
+    &::before, &::after {
       background: linear-gradient(#FF8B00, #EE3F00);
     }
   }
@@ -127,36 +136,19 @@ nav {
     p {
       color: #1808EF;
     }
-    &::after {
+    &::before, &::after {
       background: linear-gradient(#1808EF, #001F44);
     }
   }
-  .active.start-nav {
-    transition: all .3s linear;
-    background: linear-gradient(#e6e6e6, #000000);
+  .active.nav-item {
+    &::before {
+      width: 100%;
+    }
     p {
       color: #fff;
     }
   }
-  .active.scroll-nav {
-    background: linear-gradient(#FF0098, #F40000);
-    p {
-      color: #fff;
-    }
-  }
-  .active.hover-nav {
-    background: linear-gradient(#FF8B00, #EE3F00);
-    p {
-      color: #fff;
-    }
-  }
-  .active.click-nav {
-    background: linear-gradient(#1808EF, #001F44);
-    p {
-      color: #fff;
-    }
-  }
-}
+} // end nav
 @media screen and (max-width:600px) {
   nav {
     width: 40px;
