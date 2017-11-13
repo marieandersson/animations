@@ -121,13 +121,12 @@ export default {
     margin: 50px;
     position: relative;
     overflow: hidden;
-    // add div with no rotation to give inner eye the right x and y axel on hover animation
+    // add div and rotate back to give inner eye the right x and y axel on hover animation
     .eye-rotate {
       height: 100%;
       width: 100%;
       transform: rotate(-45deg);
       position: absolute;
-      // overflow: hidden;
     }
     .inner-eye {
       display: block;
