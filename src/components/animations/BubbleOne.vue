@@ -60,21 +60,26 @@ export default {
     }
   },
   methods: {
-    runAnimation (index, duration) {
+    runAnimation (index, duration, callback) {
       this.grey.animate({ d: this.greyAnimation.paths[index] }, duration, mina.linear);
-      this.pink.animate({ d: this.pinkAnimation.paths[index] }, duration, mina.easeinout);
+      this.pink.animate({ d: this.pinkAnimation.paths[index] }, duration, mina.easeinout, callback);
     },
     scrollAnimate(index) {
-      this.currentScrollPosition = window.scrollY;
-      // check if scroll goes up or down
-      if (this.currentScrollPosition > this.lastScrollPosition) {
-        this.runAnimation(1, 1000);
-        this.animateIn = true;
-      } else {
-        this.runAnimation(0, 1000);
-        this.animateIn = false;
+      if (this.animating) {
+        return;
       }
-      this.lastScrollPosition = this.currentScrollPosition;
+      // let bubble animate to end before trigger a new animation
+      this.animating = true;
+      this.animateIn = !this.animateIn;
+      if (this.animateIn) {
+        this.runAnimation(1, 1000, () => {
+          this.animating = false;
+        });
+      } else {
+        this.runAnimation(0, 1000, () => {
+          this.animating = false;
+        });
+      }
     },
     hoverAnimateIn () {
       if (this.activeState === 'hover') {
