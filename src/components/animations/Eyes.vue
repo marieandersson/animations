@@ -109,6 +109,7 @@ export default {
   display: flex;
   flex-direction: row;
   position: absolute;
+  overflow: hidden;
   .eye {
     width: 200px;
     height: 200px;
@@ -118,6 +119,7 @@ export default {
     background-clip: content-box, border-box;
     transform: rotate(45deg);
     margin: 50px;
+    position: relative;
     overflow: hidden;
     // add div with no rotation to give inner eye the right x and y axel on hover animation
     .eye-rotate {
@@ -125,6 +127,7 @@ export default {
       width: 100%;
       transform: rotate(-45deg);
       position: absolute;
+      // overflow: hidden;
     }
     .inner-eye {
       display: block;

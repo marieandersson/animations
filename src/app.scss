@@ -1,5 +1,11 @@
 @import 'node_modules/sanitize.css/sanitize';
 
+* {
+  -webkit-tap-highlight-color: transparent;
+  &:focus {
+    outline: 0;
+  }
+}
 body {
   background: #e6e6e6;
 }
