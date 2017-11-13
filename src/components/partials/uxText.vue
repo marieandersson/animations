@@ -46,7 +46,15 @@ export default {
       this.activeState = clickedNavItem;
     });
     Event.$on('rollClicked', () => {
-      this.clickAnimate();
+    //  this.clickAnimate();
+      if (this.activeState === 'click') {
+        this.$el.querySelectorAll('.ux-text').forEach(text => text.classList.add('blur-text'));
+      }
+    });
+    Event.$on('rollReady', () => {
+    // this.clickAnimate();
+      this.$el.querySelectorAll('.ux-text').forEach(text => text.classList.remove('blur-text'));
+
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
@@ -88,15 +96,21 @@ export default {
   }
 }
 @keyframes blur {
-  from {
-    transform: translate(-4px, 4px);
+  0%, 100% {
+    transform: skew(0) translate(0,0);
+    transform-origin: center center;
   }
-  to {
-    transform: translate(0);
+  50% {
+    transform:  skew(-5deg) translate(5px, -5px);
+    transform-origin: center center;
   }
+  // 75% {
+  //   transform: skew(5deg);
+  //   transform-origin: center center;
+  // }
 }
 .blur-text {
-  animation: .5s ease-in-out blur;
+  animation: 1.8s ease-in-out infinite reverse blur;
 }
 .scroll .scroll-blur {
   transform: translate(-4px, 4px);
