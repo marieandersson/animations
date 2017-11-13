@@ -1,6 +1,6 @@
 <template>
   <div class="heading-wrap">
-    <h1 v-if="activeState === 'start'">Inspiring<br>Animations</h1>
+    <h1 v-if="activeState === 'start'"><span>Hover, click, scroll</span><br>Animations for the web</h1>
     <h1 v-else v-for="n in 25" v-on:click="clickAnimate" class="heading">{{ headingTexts[activeState ] }}</h1>
   </div>
 </template>
@@ -145,12 +145,15 @@ export default {
 .start .heading-wrap {
   h1 {
     position: absolute;
-    -webkit-text-fill-color: #fff;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #000;
-    font-size: 80px;
+    font-size: 40px;
     transform: translate(-50%);
-    padding-top: 1em;
+    padding-top: 3em;
+    span {
+      -webkit-text-fill-color: #fff;
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: #000;
+      font-size: 60px;
+    }
   }
 
 }
@@ -185,11 +188,14 @@ export default {
     }
   }
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1250px) {
   .start .heading-wrap {
     h1 {
-      padding-top: 0.5em;
-      font-size: 70px;
+      padding: 3em 0 0 2em;
+      font-size: 30px;
+      span {
+        font-size: 50px;
+      }
     }
   }
 }
@@ -199,11 +205,24 @@ export default {
   }
   .start .heading-wrap {
     h1 {
-      font-size: 45px;
+      padding: 3em 0 0 0;
+      font-size: 20px;
+      span {
+        font-size: 40px;
+      }
     }
   }
 }
+@media screen and (max-width: 540px) {
+  .start .heading-wrap {
+    h1 {
+      span {
+        font-size: 30px;
+      }
 
+    }
+  }
+}
 @media screen and (max-width: 400px) {
   .scroll .heading-wrap, .hover .heading-wrap, .click .heading-wrap  {
     @include mixin-loop(25, 1px, 0.04);
@@ -213,7 +232,7 @@ export default {
   }
   .start .heading-wrap {
     h1 {
-      font-size: 40px;
+      padding: 2em 1em; 
       -webkit-text-stroke-width: 1px;
     }
   }
