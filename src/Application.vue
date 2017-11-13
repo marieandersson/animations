@@ -39,10 +39,20 @@ export default {
         slug = '/';
       }
       window.history.pushState(navItem, null, slug);
-      Event.$emit('activeState', navItem);
+      // fade out content before switching state
+      this.fadeOut(() => {
+        Event.$emit('activeState', navItem);
+      })
     },
     isActive(menuItem) {
       return this.activeState === menuItem;
+    },
+    fadeOut(callback) {
+      document.querySelector('.content-wrap').classList.add('fade-out');
+      setTimeout( function () {
+        callback();
+        document.querySelector('.content-wrap').classList.remove('fade-out');
+      }, 200);
     }
   },
   created () {
