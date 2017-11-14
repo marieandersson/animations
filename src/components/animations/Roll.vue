@@ -7,8 +7,8 @@
           <stop offset="1" :stop-color="gradientColors[activeState].start"/>
         </linearGradient>
         <linearGradient id="roll-gradient-2" :x1="gradients.two[0].x1" :y1="gradients.two[0].y1" :x2="gradients.two[0].x2" :y2="gradients.two[0].y2" gradientUnits="userSpaceOnUse">
-          <stop offset="0" :stop-color="gradientColors[activeState].end"/>
-          <stop offset="1" :stop-color="gradientColors[activeState].start"/>
+          <stop offset="0" :stop-color="gradientColors[activeState].start"/>
+          <stop offset="1" :stop-color="gradientColors[activeState].end"/>
         </linearGradient>
       </defs>
       <title>rollstart7</title>
@@ -36,7 +36,7 @@ export default {
       gradientColors: {
         start: {
           start: '#000000',
-          end: '#e6e6e6'
+          end: '#808080'
         },
         scroll: {
           start: '#F40000',
