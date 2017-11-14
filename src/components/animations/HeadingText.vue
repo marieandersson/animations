@@ -130,11 +130,11 @@ export default {
 .scroll .heading-wrap, .hover .heading-wrap, .click .heading-wrap {
   @include mixin-loop(25, 30px, 0.04);
   h1 {
-    text-align: center;
     -webkit-text-stroke-width: 2px;
+    bottom: 0;
     letter-spacing: 5px;
     position: absolute;
-    bottom: 0;
+    text-align: center;
     transform: translate(-50%);
     &:nth-child(25) {
       -webkit-text-fill-color: #fff;
@@ -144,19 +144,19 @@ export default {
 
 .start .heading-wrap {
   h1 {
-    position: absolute;
-    font-size: 40px;
-    transform: translate(-50%);
-    padding: 5em 0 0 2em;
-    text-transform: none;
     font-family: 'Open sans';
+    font-size: 40px;
     font-weight: 300;
     line-height: 1.3;
+    padding: 5em 0 0 2em;
+    position: absolute;
+    text-transform: none;
+    transform: translate(-50%);
     span {
-      font-size: 64px;
-      text-transform: uppercase;
       font-family: 'Poppins';
+      font-size: 64px;
       font-weight: 700;
+      text-transform: uppercase;
     }
   }
 
@@ -183,9 +183,9 @@ export default {
 }
 .click .heading-wrap {
   h1 {
-    cursor: pointer;
     -webkit-text-fill-color: #1808EF;
     -webkit-text-stroke-color: #001F44;
+    cursor: pointer;
     &:nth-child(25) {
       -webkit-text-fill-color: #fff;
       -webkit-text-stroke-color: #1808EF;
@@ -195,8 +195,8 @@ export default {
 @media screen and (max-width: 1250px) {
   .start .heading-wrap {
     h1 {
-      padding: 3em 0 0 2em;
       font-size: 30px;
+      padding: 3em 0 0 2em;
       span {
         font-size: 50px;
       }
@@ -209,8 +209,8 @@ export default {
   }
   .start .heading-wrap {
     h1 {
-      padding: 3em 0 0 0;
       font-size: 20px;
+      padding: 3em 0 0 0;
       span {
         font-size: 40px;
       }
@@ -220,8 +220,8 @@ export default {
 @media screen and (max-width: 540px) {
   .start .heading-wrap {
     h1 {
-      padding: 3em 1em 0;
       font-size: 25px;
+      padding: 3em 1em 0;
       span {
         font-size: 40px;
       }
@@ -238,8 +238,8 @@ export default {
   }
   .start .heading-wrap {
     h1 {
-      padding: 2em 0.5em;
       -webkit-text-stroke-width: 1px;
+      padding: 2em 0.5em;
     }
   }
 }

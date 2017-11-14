@@ -116,10 +116,10 @@ export default {
 }
 .hand {
   position: absolute;
-  width: calc(50% + 100px);
   right: 0;
   transform: translate(105px, 0);
   transition: all 1s linear;
+  width: calc(50% + 100px);
   .hand-path {
     fill: transparent;
     stroke-linecap:round;

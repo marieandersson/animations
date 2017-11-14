@@ -17,22 +17,22 @@ export default {
 
 <style lang="scss">
 .ux {
-  width: 100%;
   height: 780px;
-  position: relative;
   margin-top: 200px;
+  position: relative;
+  width: 100%;
 }
 
 @media screen and (max-width: 1250px) {
   .ux {
-    margin-top: 100px;
     height: 600px;
+    margin-top: 100px;
   }
 }
 @media screen and (max-width: 1150px) {
   .ux {
-    margin-top: 0;
     height: 800px;
+    margin-top: 0;
   }
 }
 @media screen and (max-width: 1000px) {

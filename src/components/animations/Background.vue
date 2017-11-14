@@ -150,10 +150,10 @@ export default {
 <style lang="scss">
 .activate {
   height: 600px;
-  width: 500px;
   position: absolute;
   right: 50px;
   top: 120px;
+  width: 500px;
   z-index: 100;
 }
 .click-activate {
@@ -161,10 +161,10 @@ export default {
 }
 .background {
   height: 100vh;
-  width: calc(100% - 60px);
+  left: 60px;
   position: absolute;
   top: 0;
-  left: 60px;
+  width: calc(100% - 60px);
   z-index: 10;
   .polygon-one {
     fill: url(#linear-gradient-2);
@@ -177,10 +177,10 @@ export default {
     fill: #fff;
   }
   .line-one, .line-two {
-    fill:none;
-    stroke-linecap:round;
-    stroke-miterlimit:10;
-    stroke-width:3px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-miterlimit: 10;
+    stroke-width: 3px;
   }
 }
 .start .line-one, .start .line-two {
@@ -224,9 +224,9 @@ export default {
 @media screen and (max-width: 740px) {
   .activate {
     height: 200px;
-    width: 170px;
     right: 30px;
     top: 250px;
+    width: 170px;
   }
   .background {
     padding-top: 200px;
@@ -235,15 +235,15 @@ export default {
 @media screen and (max-width: 690px) {
   .activate {
     height: 300px;
-    width: 300px;
     right: 100px;
     top: 450px;
+    width: 300px;
   }
   .background {
-    padding-top: 250px;
-    width: 200vw;
     left: auto;
+    padding-top: 250px;
     right: 0;
+    width: 200vw;
   }
 }
 @media screen and (max-width: 600px) {
@@ -254,17 +254,17 @@ export default {
 }
 @media screen and (max-width: 500px) {
   .activate {
-    top: 370px;
-    right: 70px;
     height: 220px;
+    right: 70px;
+    top: 370px;
     width: 220px;
   }
 }
 @media screen and (max-width: 400px) {
   .activate {
-    top: 350px;
-    right: 50px;
     height: 170px;
+    right: 50px;
+    top: 350px;
     width: 170px;
   }
 }

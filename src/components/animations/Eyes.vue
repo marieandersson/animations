@@ -108,55 +108,55 @@ export default {
 .eyes {
   display: flex;
   flex-direction: row;
-  position: absolute;
   overflow: hidden;
+  position: absolute;
   .eye {
-    width: 200px;
-    height: 200px;
-    border: double 10px transparent;
-    border-radius: 75% 1%;
-    background-origin: border-box;
     background-clip: content-box, border-box;
-    transform: rotate(45deg);
+    background-origin: border-box;
+    border-radius: 75% 1%;
+    border: double 10px transparent;
+    height: 200px;
     margin: 50px;
-    position: relative;
     overflow: hidden;
-    // add div and rotate back to give inner eye the right x and y axel on hover animation
+    position: relative;
+    transform: rotate(45deg);
+    width: 200px;
+    // rotate back to give inner eye the right x and y axel on hover animation
     .eye-rotate {
       height: 100%;
-      width: 100%;
-      transform: rotate(-45deg);
       position: absolute;
+      transform: rotate(-45deg);
+      width: 100%;
     }
     .inner-eye {
+      border-radius: 50%;
       display: block;
+      height: 120px;
+      margin: 30px;
       position: absolute;
       width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 30px;
       .pupil {
-        display: block;
-        position: absolute;
-        width: 30px;
-        height: 30px;
         background: #090909;
         border-radius: 50%;
+        display: block;
+        height: 30px;
         margin: 44px;
+        position: absolute;
+        width: 30px;
       }
     }
     &::after {
+      background-clip: content-box, border-box;
+      background-origin: border-box;
+      border-radius: 0;
       content: '';
-      position: absolute;
-      width: 300px;
       height: 500px;
       margin: -130px 0 0 -30px;
       opacity: 1;
-      border-radius: 0;
-      background-origin: border-box;
-      background-clip: content-box, border-box;
-      transition: transform .4s linear, border-radius .3s ease-in;
+      position: absolute;
       transform: translate(-250px, -250px) rotate(45deg);
+      transition: transform .4s linear, border-radius .3s ease-in;
+      width: 300px;
     }
   }
 }

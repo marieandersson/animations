@@ -17,13 +17,13 @@ export default {
 
 <style lang="scss">
 .full-animation-one {
-  width: 100%;
-  height: 500px;
-  padding: 5em;
-  margin: 200px 0 350px;
-  display: flex;
-  justify-content: flex-end;
   align-items: center;
+  display: flex;
+  height: 500px;
+  justify-content: flex-end;
+  margin: 200px 0 350px;
+  padding: 5em;
+  width: 100%;
 }
 
 @media screen and (max-width: 1400px) {

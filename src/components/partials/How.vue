@@ -22,7 +22,7 @@ export default {
     return {
       activeState: 'start',
       texts: {
-        start: 'The animations on this site are built with CSS, JavaScript and SVG. They all behave a little different depending on what triggers them. If you want to check out how it’s all been done, you can visit <a href="https://github.com/marieeriksson/animations">GitHub. </a>A special thanks to <a href="http://snapsvg.io/">Snap.svg </a>for providing such an awesome SVG animation library.',
+        start: 'The animations on this site are built with CSS, JavaScript and SVG. They all behave a little bit different depending on what triggers them. If you want to check out how it has all been done, you can visit <a href="https://github.com/marieeriksson/animations">GitHub. </a>A special thanks to <a href="http://snapsvg.io/">Snap.svg </a>for providing such an awesome SVG animation library.',
         scroll: 'To get the animations triggered by scrolling you have to be aware of both when the user is scrolling and where the elements are positioned relative to the viewport at that moment. The animation should be triggered when in view, or else the user might not see it. Check out <a href="https://github.com/marieeriksson/animations">GitHub </a>for more information about the code.',
         hover: 'The elements on this page are animated in two ways. Some elements are animated when the user is hovering over them, and some are based on the cursor’s position in relation to themselves. There’s a lot of math going on with those eyes! Do you want to try it yourself? Check out exactly how we did it at <a href="https://github.com/marieeriksson/animations">GitHub. </a>',
         click: 'To animate on click you simply have to keep track of when the user is clicking on the specific element. On this page it will trigger a SVG animation or one made with only CSS. In the later example the animation happens when adding and removing HTML classes with different styles. Check out the code on <a href="https://github.com/marieeriksson/animations">GitHub. </a>'
@@ -39,19 +39,19 @@ export default {
 
 <style lang="scss">
 .how {
-  width: 100%;
-  height: 970px;
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  height: 970px;
   justify-content: space-between;
   padding: 0;
+  width: 100%;
   .how-text {
+    color: #fff;
     display: flex;
     flex-direction: row;
-    margin: 100px 0 150px 100px;
     justify-content: center;
-    color: #fff;
+    margin: 100px 0 150px 100px;
     h2 {
       transform: rotate(-90deg) translate(57px, 15px);
     }
@@ -87,11 +87,11 @@ export default {
 }
 @media screen and (max-width: 750px) {
   .how {
-    justify-content: center;
     height: 650px;
+    justify-content: center;
     .how-text {
-      margin-top: 70px;
       flex-direction: column;
+      margin-top: 70px;
       h2 {
         transform: rotate(0) translate(0, 0);
       }

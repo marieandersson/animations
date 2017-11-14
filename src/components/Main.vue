@@ -9,7 +9,6 @@
       <fullAnimationOne></fullAnimationOne>
       <how></how>
       <ux></ux>
-      <!-- <videoSection></videoSection> -->
     </div>
   </main>
 </template>
@@ -20,7 +19,6 @@ import about from './partials/About.vue';
 import how from './partials/How.vue';
 import fullAnimationOne from './partials/FullAnimationOne.vue';
 import ux from './partials/Ux.vue';
-import videoSection from './partials/Video.vue';
 
 export default {
   name: 'mainSection',
@@ -29,8 +27,7 @@ export default {
     about,
     how,
     fullAnimationOne,
-    ux,
-    videoSection
+    ux
   },
   data () {
     return {
@@ -93,29 +90,29 @@ export default {
   }
 }
 main {
-  display: flex;
-  opacity: 1;
-  transition: .5s linear;
   align-items: center;
+  display: flex;
   flex-direction: column;
-  width: calc(100% - 60px);
-  position: absolute;
-  overflow: hidden;
   left: 60px;
+  opacity: 1;
+  overflow: hidden;
+  position: absolute;
+  transition: .5s linear;
+  width: calc(100% - 60px);
   z-index: 11;
   .content-wrap {
     width: 100%;
   }
   .hover-alert {
-    position: fixed;
-    height: 80%;
-    width: 80%;
-    top: 10%;
-    right: 5%;
     background: rgba(255, 255, 255, 0.9);
-    z-index: 1000;
     border: 5px solid #FF8B00;
+    height: 80%;
     padding: 1em;
+    position: fixed;
+    right: 5%;
+    top: 10%;
+    width: 80%;
+    z-index: 1000;
     p {
       font-size: 20px;
     }
@@ -131,8 +128,8 @@ main {
 }
 @media screen and (max-width:600px) {
   main {
-    width: calc(100% - 40px);
     left: 40px;
+    width: calc(100% - 40px);
   }
 }
 </style>

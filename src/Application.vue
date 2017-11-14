@@ -65,31 +65,31 @@ export default {
 
 <style lang="scss">
 nav {
-  position: fixed;
-  height: 100vh;
-  width: 60px;
-  z-index: 12;
-  left: 0;
-  top: 0;
+  background: #e6e6e6;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
-  background: #e6e6e6;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 60px;
+  z-index: 12;
   .nav-item {
-    width: 100%;
-    flex: 1;
-    display: flex;
     align-items: center;
-    justify-content: center;
     background: transparent;
+    display: flex;
+    flex: 1;
+    justify-content: center;
     position: relative;
+    width: 100%;
     p {
-      transform: rotate(-90deg);
-      transition: all .5s linear;
-      margin: 0;
-      text-transform: uppercase;
       font-family: 'Poppins' !important;
       font-weight: 300;
+      margin: 0;
+      text-transform: uppercase;
+      transform: rotate(-90deg);
+      transition: all .5s linear;
       &::first-letter {
         text-transform: uppercase;
       }
@@ -97,21 +97,21 @@ nav {
     &::before {
       content: '';
       height: 100%;
+      overflow: hidden;
       position: absolute;
       right: 0;
-      width: 0;
-      overflow: hidden;
       transition: .3s linear;
+      width: 0;
     }
     &::after {
       content: '';
-      position: absolute;
       height: 100%;
+      position: absolute;
       right: 0;
-      width: 5px;
-      z-index: -1;
       transform: scaleY(0);
       transition: .3s linear;
+      width: 5px;
+      z-index: -1;
     }
     &:hover::after {
       transform: scaleY(1);

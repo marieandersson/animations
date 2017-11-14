@@ -19,10 +19,10 @@ export default {
 
 <style lang="scss">
 header {
-  width: 100%;
   height: 400px;
   margin:0 0 500px 0;
   transform: translateX(30%);
+  width: 100%;
 }
 @media screen and (max-width: 1440px) {
   header {

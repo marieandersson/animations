@@ -169,11 +169,11 @@ export default {
 
 <style lang="scss">
 .roll {
-  position: absolute;
   height: 100%;
-  width: 95%;
+  position: absolute;
   right: -2px;
   transition: all 1s linear;
+  width: 95%;
   svg {
     position: absolute;
   }
@@ -181,9 +181,9 @@ export default {
     fill: #fff;
   }
   .cls-2 {
-    stroke: #fff;
-    stroke-width: 6.53px;
     fill: url(#roll-gradient);
+    stroke-width: 6.53px;
+    stroke: #fff;
   }
   .cls-3 {
     fill: url(#roll-gradient-2);

@@ -40,16 +40,16 @@ export default {
 
 <style lang="scss">
 .about {
+  align-items: center;
+  display: flex;
   height: 650px;
   padding: 0 5em 0 0;
   position: relative;
-  display: flex;
-  align-items: center;
   .about-text {
     display: flex;
     flex-direction: row;
-    width: 100%;
     justify-content: center;
+    width: 100%;
     p {
       width: 500px;
     }
@@ -67,11 +67,10 @@ export default {
 
   }
 }
-
 @media screen and (max-width: 1000px) {
   .about {
-    padding: 0 2em 0 0;
     height: 870px;
+    padding: 0 2em 0 0;
     .about-text {
       justify-content: flex-start;
     }
@@ -93,8 +92,8 @@ export default {
       align-items: center;
       flex-direction: column;
       h2 {
-        width: 500px;
         transform: rotate(0) translate(0, 0);
+        width: 500px;
       }
     }
   }
@@ -125,15 +124,4 @@ export default {
     height: 460px;
   }
 }
-// @media screen and (max-width: 900px) {
-//   .about {
-//     height: 580px;
-//     padding: 1em;
-//     .about-text {
-//       p {
-//         width: 100%;
-//       }
-//     }
-//   }
-// }
 </style>

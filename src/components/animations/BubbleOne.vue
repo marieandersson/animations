@@ -127,10 +127,10 @@ export default {
 
 <style lang="scss">
 .bubble-one {
-  width: 340px;
-  position: absolute;
-  left: 70px;
   bottom: 0;
+  left: 70px;
+  position: absolute;
+  width: 340px;
   svg {
     .grey-two {
       fill:#d8d2d2;
@@ -155,9 +155,9 @@ export default {
 }
 @media screen and (max-width: 1000px) {
   .bubble-one {
-    width: 200px;
     left: auto;
     right: 20px;
+    width: 200px;
   }
 }
 @media screen and (max-width: 580px) {

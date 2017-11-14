@@ -62,19 +62,15 @@ export default {
 
 <style lang="scss">
 .ux-text {
-  transition: all 0.5s linear;
-  position: absolute;
-
-  // height: 100%;
+  align-items: flex-start;
+  color: #fff;
   display: flex;
   flex-direction: row;
-  // margin: 0;
-  top: 250px;
-  right: 200px;
   justify-content: flex-end;
-  align-items: flex-start;
-  // padding: 240px 150px 0 0;
-  color: #fff;
+  position: absolute;
+  right: 200px;
+  top: 250px;
+  transition: all 0.5s linear;
   h2 {
     transform: rotate(-90deg) translate(12px, -30px);
     transition: all 0.5s linear;
@@ -89,12 +85,12 @@ export default {
 
 @keyframes blur {
   0%, 100% {
-    transform: skew(0) translate(0,0);
     transform-origin: center center;
+    transform: skew(0) translate(0,0);
   }
   50% {
-    transform:  skew(-5deg) translate(5px, 10px);
     transform-origin: center center;
+    transform:  skew(-5deg) translate(5px, 10px);
   }
 }
 .skew-text-click {
@@ -104,8 +100,8 @@ export default {
   }
 }
 .skew-text {
-  transform: skew(-5deg) translate(5px, 10px);
   transform-origin: center center;
+  transform: skew(-5deg) translate(5px, 10px);
   h2 {
     text-decoration: line-through;
   }
@@ -113,8 +109,8 @@ export default {
 
 @media screen and (max-width: 1350px) {
   .ux-text {
-    top: 170px;
     right: 150px;
+    top: 170px;
   }
 }
 @media screen and (max-width: 1150px) {
@@ -134,16 +130,15 @@ export default {
 }
 @media screen and (max-width: 750px) {
   .ux-text {
-    top: 170px;
-    width: calc(100vw - 60px);
+    align-items: center;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
     right: 0;
-
+    top: 170px;
+    width: calc(100vw - 60px);
     h2 {
-      width: 500px;
       transform: rotate(0) translate(0, 0);
+      width: 500px;
     }
   }
 }
