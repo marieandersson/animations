@@ -30,6 +30,7 @@ export default {
       }
     },
     hoverAnimate() {
+      // calculate on the cursors position relative to the eyes center
       const cursor = {
         x: event.clientX,
         y: event.clientY
@@ -44,8 +45,8 @@ export default {
         y: cursor.y - eyesCenter.y
       }
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
-
       const norm = {  x: vector.x / distance, y: vector.y / distance };
+      // set animation translate values
       const transInnerEye = {
         x: norm.x * 50,
         y: norm.y * 10
@@ -85,7 +86,7 @@ export default {
           const eye = this.eyes[i];
           const innerEye = eye.querySelector('.inner-eye');
           const pupil = eye.querySelector('.pupil');
-
+          // set eyes back to default position
           innerEye.style.transform = 'translate(0, 0)';
           pupil.style.transform = 'translate(0,0)';
         }

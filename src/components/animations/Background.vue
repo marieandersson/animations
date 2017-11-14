@@ -31,7 +31,6 @@ export default {
   data () {
     return {
       activeState: 'start',
-      animating: false,
       pathAnimation: {
         durations: [3000, 3000],
         shapes: [
@@ -95,11 +94,13 @@ export default {
           if (this.activeState === 'click' || this.activeState === 'hover') {
             this.animating = false;
           }
+          // only loop if active state is 'scroll'
           requestAnimationFrame(this.animateBackground);
         })
       })
     },
     runAnimation (index, callback) {
+      // animation with Snap.svg
       this.line.animate(this.lineAnimation.points[index], this.lineAnimation.durations[index], mina.easeinout);
       this.shadow.animate({ points: this.shadowAnimation.points[index] }, this.shadowAnimation.durations[index], mina.easeinout);
       this.gradient.animate(this.shadowAnimation.gradients[index], this.shadowAnimation.durations[index], mina.easeinout);
@@ -129,6 +130,7 @@ export default {
     }
   },
   mounted () {
+    // setup variables for elements that should be animated
     const svg = document.querySelector('svg');
     const s = Snap(svg);
     this.shadow = Snap.select('.polygon-two');
@@ -195,6 +197,8 @@ export default {
 .click .line-one, .click .line-two {
   stroke: #1808EF;
 }
+
+// position background
 @media screen and (max-width: 1500px) {
   .activate {
     height: 450px;

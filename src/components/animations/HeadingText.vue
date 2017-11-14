@@ -1,6 +1,7 @@
 <template>
   <div class="heading-wrap">
     <h1 v-if="activeState === 'start'"><span>Hover, click, scroll</span><br>Animations for the web</h1>
+    <!-- loop out headings for shadow effect-->
     <h1 v-else v-for="n in 25" v-on:click="clickAnimate" class="heading">{{ headingTexts[activeState ] }}</h1>
   </div>
 </template>
@@ -45,6 +46,7 @@ export default {
       }
     },
     hoverAnimate() {
+      // calculate on the cursors position relative to the heading center
       const cursor = {
         x: event.clientX,
         y: event.clientY
@@ -54,7 +56,9 @@ export default {
         y: cursor.y - this.headingCenter.y
       }
       const distance = Math.sqrt((vector.x * vector.x) + (vector.y * vector.y));
+      // set animation translate values
       const trans = {
+        // default style is translate X -50%
         x: -50 + ((vector.x / distance) * 20),
         y: (vector.y /distance) * 20
       }

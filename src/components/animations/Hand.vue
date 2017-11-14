@@ -25,6 +25,7 @@ export default {
   },
   methods: {
     runAnimation(index, callback) {
+      // animation eith snap.svg
       this.handPath.animate({ d: this.handPaths[index] }, 1000, mina.linear, callback);
     },
     scrollAnimate() {
@@ -37,13 +38,13 @@ export default {
       this.animating = true;
       this.$el.classList.add('active-scroll-hand');
       this.$el.addEventListener('transitionend', () => { // TODO: remove eventlistner when done
-        // use requestAnimationFrame ?
+        // TODO: use requestAnimationFrame
         this.runAnimation(2, () => {
           this.runAnimation(1, () => {
             this.runAnimation(2, () => {
               this.runAnimation(1, () => {
                 if (this.activeState != 'scroll') {
-                  // set hand in correct start path
+                  // set hand back to active page start path
                   this.runAnimation(0);
                 }
               });

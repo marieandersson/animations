@@ -80,6 +80,7 @@ export default {
   },
   methods: {
     runAnimation(index, duration, callback) {
+      // animation with Snap.svg
       this.pathOne.animate({ d: this.paths.one[index] }, duration, mina.easeinout);
       this.pathTwo.animate({ d: this.paths.two[index] }, duration, mina.easeinout);
       this.pathThree.animate({ d: this.paths.three[index] }, duration, mina.easeinout, callback);
@@ -156,6 +157,7 @@ export default {
     });
   },
   mounted() {
+    // setup variables for elements that should be animated
     const svg = this.$el.querySelector('svg');
     const s = Snap(svg);
     this.gradientOne = Snap.select('#roll-gradient');

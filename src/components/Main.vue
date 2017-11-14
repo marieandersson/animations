@@ -40,6 +40,7 @@ export default {
     detectScrolling () {
       Event.$emit('scrolling');
     },
+    // check ig user is on touch screen, then disable hover section
     getScreen () {
       if (navigator.userAgent.match(/mobile/i)) {
         this.isTouchScreen = true;

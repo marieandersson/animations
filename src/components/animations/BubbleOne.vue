@@ -1,3 +1,4 @@
+<!-- TODO : merge bubble one and bubble two into one component-->
 <template>
   <div class="bubble-one">
 
@@ -61,6 +62,7 @@ export default {
   },
   methods: {
     runAnimation (index, duration, callback) {
+      // animation with Snap.svg
       this.grey.animate({ d: this.greyAnimation.paths[index] }, duration, mina.linear);
       this.pink.animate({ d: this.pinkAnimation.paths[index] }, duration, mina.easeinout, callback);
     },
@@ -70,6 +72,7 @@ export default {
       }
       // let bubble animate to end before trigger a new animation
       this.animating = true;
+      // change direction
       this.animateIn = !this.animateIn;
       if (this.animateIn) {
         this.runAnimation(1, 1000, () => {
@@ -103,6 +106,7 @@ export default {
     }
   },
   mounted () {
+    // setup variables for elements that should be animated
     const bubbleOne = this.$el.querySelector('.bubble-one-svg');
     const s = Snap(bubbleOne);
     this.grey = Snap.select('.grey-two');
@@ -112,6 +116,7 @@ export default {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
       if (clickedNavItem === 'hover') {
+        // set bubble to start position
         this.runAnimation(0, 2000);
         this.animateIn = false;
       }

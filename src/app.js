@@ -26,6 +26,7 @@ window.onpopstate = function (event) {
   Event.$emit('activeState', section);
 };
 
+// TODO: use Vue mixins for this function?
 window.isElementInViewport = function (el) {
   var rect = el.getBoundingClientRect();
   return (
