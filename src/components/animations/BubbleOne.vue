@@ -83,21 +83,21 @@ export default {
     },
     hoverAnimateIn () {
       if (this.activeState === 'hover') {
-        this.runAnimation(1, 2000);
+        this.runAnimation(1, 1500);
       }
     },
     hoverAnimateOut () {
       if (this.activeState === 'hover') {
-        this.runAnimation(0, 2000);
+        this.runAnimation(0, 1500);
       }
     },
     clickAnimate() {
       if (this.activeState === 'click') {
         this.animateIn = !this.animateIn;
         if (this.animateIn) {
-          this.runAnimation(1, 2000);
+          this.runAnimation(1, 1500);
         } else {
-          this.runAnimation(0, 2000);
+          this.runAnimation(0, 1500);
         }
       }
     }

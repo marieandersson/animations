@@ -20,8 +20,8 @@ h2 {
   font-family: 'Poppins';
   font-size: 26px;
   font-weight: 700;
-  text-transform: uppercase;
   margin: 0 0 10px;
+  text-transform: uppercase;
   transform-origin: right;
   white-space: nowrap;
 
@@ -38,13 +38,3 @@ a, p {
   line-height: 1.8;
   margin: 0;
 }
-
-
-// @media screen and (max-width: 650px) {
-//   h2 {
-//     font-size: 30px;
-//   }
-//   p {
-//     font-size: 16px;
-//   }
-// }
