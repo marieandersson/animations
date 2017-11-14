@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     scrollAnimate() {
-      const uxText = this.$el.querySelector('.ux-text');
+      const uxText = this.$el;
       window.clearTimeout( this.scrolling );
       uxText.classList.add('skew-text');
       this.scrolling = setTimeout(function() {
