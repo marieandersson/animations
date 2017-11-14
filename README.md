@@ -16,4 +16,4 @@ This project is licensed under the terms of the MIT license.
 
 
 
-!['eyes'](https://github.com/marieeriksson/animations/blob/master/public/images/pinkeyes.png)
+!['eyes'](https://github.com/marieeriksson/animations/blob/master/public/images/pinkeyes.png =300)
