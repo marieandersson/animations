@@ -23,7 +23,7 @@ export default {
     return {
       activeState: 'start',
       texts: {
-        start: 'This project is a collaboration between three students from Digital Design and Web Development at Yrgo. We wanted to explore how a website could be brought to life by adding a variety of decorative animations to it. We have experimented with three different triggers - scroll, hover and click. This landing page is quite boring and grey, have a look around to see the difference some animations and colour can make to it!',
+        start: 'This project is a collaboration between three students from Digital Design and Web Development at Yrgo. We wanted to explore how a website could be brought to life by adding decorative animations to it. We have experimented with three different triggers - scroll, hover and click. This landing page is quite boring and grey, have a look around to see the difference some animations and colour can make to it!',
         scroll: 'Scroll animations can be added to liven up a lengthy page through triggering different animations when scrolling. A popular scrolling effect is parallax, where an element can pop in from different directions. Applying scroll animations can give your page a dramatic effect or a touch of elegance. Scroll down to see some animations that we’ve experimented with and see if you like them!',
         hover: 'The best hover effects can enhance the user’s overall experience of a website. They draw attention to important information and engage the user. Hover effects are often used in designs to improve style and usability, whilst adding an extra energy to the page. On this page we have experimented with different hover animations. Hover around and see how it affects your own experience!',
         click: 'On this webpage we have experimented with click-triggered animations. Click animation is often used for buttons and menus, but it can also be used with decorative animations that create user interaction. Click animations can incorporate drag elements, drawing, double click and hold-in click, and are a fun way to enhance user engagement. Have a click around!'
@@ -61,9 +61,6 @@ export default {
     }
   }
 }
-.start .about .about-text h2 {
-  transform: rotate(-90deg) translate(85px, 42px);
-}
 @media screen and (max-width: 1440px) {
   .about {
     height: 750px;
@@ -100,9 +97,6 @@ export default {
         transform: rotate(0) translate(0, 0);
       }
     }
-  }
-  .start .about .about-text h2 {
-    transform: rotate(0) translate(0, 0);
   }
 }
 @media screen and (max-width: 690px) {
