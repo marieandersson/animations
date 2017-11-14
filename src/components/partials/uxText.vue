@@ -36,16 +36,16 @@ export default {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
     });
-    Event.$on('rollClicked', () => {
+    Event.$on('rollActive', () => {
       this.$el.querySelector('.ux-text').classList.add('skew-text-click');
     });
-    Event.$on('rollReady', () => {
+    Event.$on('rollDone', () => {
       this.$el.querySelector('.ux-text').classList.remove('skew-text-click');
     });
-    Event.$on('rollActive', () => {
+    Event.$on('rollHoverActive', () => {
       this.$el.querySelector('.ux-text').classList.add('skew-text');
     });
-    Event.$on('rollDone', () => {
+    Event.$on('rollHoverDone', () => {
       this.$el.querySelector('.ux-text').classList.remove('skew-text');
     });
     Event.$on('scrolling', () => {
@@ -94,7 +94,7 @@ export default {
   }
 }
 .skew-text-click {
-  animation: 1.8s ease-in-out infinite reverse blur;
+  animation: 2s ease-in-out infinite reverse blur;
   h2 {
     text-decoration: line-through;
   }
