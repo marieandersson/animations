@@ -1,5 +1,5 @@
 <template>
-  <div v-on:mouseover="hoverAnimate" v-on:mouseleave="hoverOut" v-on:click="clickAnimate" class="roll">
+  <div v-on:click="clickAnimate" class="roll">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1817.84 838.3">
       <defs>
         <linearGradient id="roll-gradient" :x1="gradients.one[0].x1" :y1="gradients.one[0].y1" :x2="gradients.one[0].x2" :y2="gradients.one[0].y2" gradientTransform="matrix(1, 0, 0, -1, 0, 838)" gradientUnits="userSpaceOnUse">
@@ -12,9 +12,9 @@
         </linearGradient>
       </defs>
       <title>rollstart7</title>
-      <path class="cls-1 roll-path-one" :d="paths.one[0]"/>
-      <path class="cls-2 roll-path-two" :d="paths.two[0]"/>
-      <path class="cls-3 roll-path-three" :d="paths.three[0]"/>
+      <path v-on:mouseover="hoverAnimate" v-on:mouseleave="hoverOut" class="cls-1 roll-path-one" :d="paths.one[0]"/>
+      <path v-on:mouseover="hoverAnimate" v-on:mouseleave="hoverOut" class="cls-2 roll-path-two" :d="paths.two[0]"/>
+      <path v-on:mouseover="hoverAnimate" v-on:mouseleave="hoverOut" class="cls-3 roll-path-three" :d="paths.three[0]"/>
     </svg>
     <uxText></uxText>
   </div>

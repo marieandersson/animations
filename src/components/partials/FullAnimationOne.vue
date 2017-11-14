@@ -20,21 +20,26 @@ export default {
   width: 100%;
   height: 500px;
   padding: 5em;
-  margin: 300px 0 200px;
+  margin: 200px 0 350px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1400px) {
   .full-animation-one {
     margin: 100px 0 200px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .full-animation-one {
+    margin: 100px 0 100px;
   }
 }
 @media screen and (max-width: 970px) {
   .full-animation-one {
     justify-content: center;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
   }
 }
 @media screen and (max-width: 850px) {

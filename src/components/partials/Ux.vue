@@ -18,7 +18,7 @@ export default {
 <style lang="scss">
 .ux {
   width: 100%;
-  height: 750px;
+  height: 760px;
   position: relative;
   margin-top: 200px;
 }

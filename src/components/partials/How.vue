@@ -40,7 +40,7 @@ export default {
 <style lang="scss">
 .how {
   width: 100%;
-  height: 700px;
+  height: 900px;
   display: flex;
   flex-direction: row;
   align-items: center;

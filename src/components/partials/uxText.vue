@@ -1,10 +1,10 @@
 <template>
-  <div>
+
     <div class="ux-text">
       <h2><span>What not to!</span></h2>
       <p v-html="texts[activeState]"></p>
     </div>
-  </div>
+
 </template>
 
 <script>
@@ -37,20 +37,19 @@ export default {
       this.activeState = clickedNavItem;
     });
     Event.$on('rollActive', () => {
-      this.$el.querySelector('.ux-text').classList.add('skew-text-click');
+      this.$el.classList.add('skew-text-click');
     });
     Event.$on('rollDone', () => {
-      this.$el.querySelector('.ux-text').classList.remove('skew-text-click');
+      this.$el.classList.remove('skew-text-click');
     });
     Event.$on('rollHoverActive', () => {
-      this.$el.querySelector('.ux-text').classList.add('skew-text');
+      this.$el.classList.add('skew-text');
     });
     Event.$on('rollHoverDone', () => {
-      this.$el.querySelector('.ux-text').classList.remove('skew-text');
+      this.$el.classList.remove('skew-text');
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
-
     });
   }
 }
@@ -61,15 +60,16 @@ export default {
 .ux-text {
   transition: all 0.5s linear;
   position: absolute;
-  width: calc(100vw - 60px);
-  height: 100%;
+
+  // height: 100%;
   display: flex;
   flex-direction: row;
-  margin: 0;
-  right: 0;
+  // margin: 0;
+  top: 250px;
+  right: 200px;
   justify-content: flex-end;
   align-items: flex-start;
-  padding: 240px 150px 0 0;
+  // padding: 240px 150px 0 0;
   color: #fff;
   h2 {
     transform: rotate(-90deg) translate(12px, -30px);
@@ -89,7 +89,7 @@ export default {
     transform-origin: center center;
   }
   50% {
-    transform:  skew(-5deg) translate(5px, -5px);
+    transform:  skew(-5deg) translate(5px, 10px);
     transform-origin: center center;
   }
 }
@@ -100,7 +100,7 @@ export default {
   }
 }
 .skew-text {
-  transform: skew(-5deg) translate(5px, -5px);
+  transform: skew(-5deg) translate(5px, 10px);
   transform-origin: center center;
   h2 {
     text-decoration: line-through;
@@ -109,30 +109,34 @@ export default {
 
 @media screen and (max-width: 1350px) {
   .ux-text {
-    padding: 180px 100px 0 0;
+    top: 170px;
+    right: 150px;
   }
 }
 @media screen and (max-width: 1150px) {
   .ux-text {
-    padding: 250px 100px 0 0;
+    top: 250px;
   }
 }
 @media screen and (max-width: 1000px) {
   .ux-text {
-    padding: 200px 100px 0 0;
+    top: 200px;
   }
 }
 @media screen and (max-width: 850px) {
   .ux-text {
-    padding: 220px 100px 0 0;
+    right: 120px
   }
 }
 @media screen and (max-width: 750px) {
   .ux-text {
+    top: 170px;
+    width: calc(100vw - 60px);
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 150px 0 0 0;
+    right: 0;
+
     h2 {
       width: 500px;
       transform: rotate(0) translate(0, 0);
@@ -141,7 +145,7 @@ export default {
 }
 @media screen and (max-width: 690px) {
   .ux-text {
-    padding: 170px 3em 0;
+    padding: 0 3em 0;
     h2, p {
       width: 100%;
     }
@@ -154,7 +158,7 @@ export default {
 }
 @media screen and (max-width: 430px) {
   .ux-text {
-    padding: 200px 1em 0;
+    padding: 0 1em 0;
   }
 }
 </style>
