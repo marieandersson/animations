@@ -22,6 +22,7 @@ export default {
   data () {
     return {
       activeState: 'start',
+      // TODO: move to json?
       texts: {
         start: 'This project is a collaboration between three students from Digital Design and Web Development at Yrgo. We wanted to explore how a website could be brought to life by adding decorative animations to it. We have experimented with three different triggers - scroll, hover and click. This landing page is quite boring and grey, have a look around to see the difference some animations and colour can make to it!',
         scroll: 'Scroll animations can be added to liven up a lengthy page through triggering different animations when scrolling. A popular scrolling effect is parallax, where an element can pop in from different directions. Applying scroll animations can give your page a dramatic effect or a touch of elegance. Scroll down to see some animations that we’ve experimented with and see if you like them!',

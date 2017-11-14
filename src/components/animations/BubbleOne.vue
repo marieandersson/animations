@@ -17,6 +17,7 @@
 </template>
 
 <script>
+// TODO: only require once and not in each svg comppnent?
 const Snap = require( "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js" );
 
 export default {
@@ -116,7 +117,7 @@ export default {
     Event.$on('activeState', clickedNavItem => {
       this.activeState = clickedNavItem;
       if (clickedNavItem === 'hover') {
-        // set bubble to start position
+        // set bubble back to start position
         this.runAnimation(0, 2000);
         this.animateIn = false;
       }

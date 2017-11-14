@@ -11,6 +11,7 @@ export default {
   data () {
     return {
       activeState: 'start',
+      // TODO: move to json?
       texts: {
         start: 'This is a page with decorative animations. We want to inspire you to use them, but doing so sparingly. This matters to the website’s performance as well as keeping the user focused on the most important content. Animations can bring life to a website but it can also disorientate the user if there is too much happening on the page at the same time. It’s important to find a good balance. To get the best experience, visit this webpage in a Chrome browser.',
         scroll: 'Scroll animations are popular because they can be used on all devices. If you’re using fly-in animations when scrolling, try to use them sparingly so they don’t overwhelm the user. It’s also important to show the user that they can scroll down. You can use either a scroll icon or let some content from the next section become visible at the section above it. Use scroll-triggered animations for secondary content to minimise the risk of wearing down the user’s patience.',

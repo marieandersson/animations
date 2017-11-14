@@ -21,6 +21,7 @@
 </template>
 
 <script>
+// TODO: only require once and not in each svg comppnent?
 const Snap = require( "imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js" );
 import uxText from '../partials/uxText.vue';
 
