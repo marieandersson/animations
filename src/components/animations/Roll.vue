@@ -112,7 +112,7 @@ export default {
         }
         this.animating = true;
         Event.$emit('rollHoverActive');
-        this.runAnimation(1, 1000, () => {
+        this.runAnimation(1, 600, () => {
           this.animating = false;
         });
       }
@@ -121,7 +121,7 @@ export default {
       if (this.activeState === 'hover') {
         this.animating = false;
         Event.$emit('rollHoverDone');
-        this.runAnimation(0, 1000, () => {
+        this.runAnimation(0, 600, () => {
         });
       }
     },
