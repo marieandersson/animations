@@ -49,7 +49,7 @@ export default {
   .how-text {
     display: flex;
     flex-direction: row;
-    margin: 100px 0 150px;
+    margin: 100px 0 150px 100px;
     justify-content: center;
     color: #fff;
     h2 {
@@ -62,6 +62,11 @@ export default {
       color: #fff;
       text-decoration-style: wavy;
     }
+  }
+}
+@media screen and (max-width: 1450px) {
+  .how .how-text {
+    margin: 100px 0 150px;
   }
 }
 @media screen and (max-width: 1270px) {

@@ -127,7 +127,7 @@ export default {
 
 <style lang="scss">
 .bubble-two {
-  width: 240px;
+  width: 340px;
   position: absolute;
   right: 70px;
   top: 0;
@@ -142,6 +142,11 @@ export default {
 }
 .click .bubble-two {
   cursor: pointer;
+}
+@media screen and (max-width: 1250px) {
+  .bubble-two {
+    width: 250px;
+  }
 }
 @media screen and (max-width: 1000px) {
   .bubble-two {
