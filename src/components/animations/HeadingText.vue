@@ -111,6 +111,7 @@ export default {
 </script>
 
 <style lang="scss">
+// TODO: Switch em to px, t0 be consistent (check all components)
 @keyframes jump {
   from {
     bottom: 0;
