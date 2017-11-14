@@ -35,7 +35,7 @@ export default {
     scrollAnimate() {
       const rect = this.$el.parentElement.getBoundingClientRect();
       const windowheight = (window.innerHeight || document.documentElement.clientHeight);
-      const scrollPercent = (window.scrollY / (rect.height * 1.5)) * 100;
+      const scrollPercent = (window.scrollY / rect.height) * 100;
       const translateY = scrollPercent;
       // if element is in viewport
       if (translateY <= 150) {
