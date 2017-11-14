@@ -147,12 +147,16 @@ export default {
     position: absolute;
     font-size: 40px;
     transform: translate(-50%);
-    padding-top: 3em;
+    padding: 3em 0 0 2em;
+    text-transform: none;
+    font-family: 'Open sans';
+    font-weight: 300;
+    line-height: 1.3;
     span {
-      -webkit-text-fill-color: #fff;
-      -webkit-text-stroke-width: 2px;
-      -webkit-text-stroke-color: #000;
-      font-size: 60px;
+      font-size: 64px;
+      text-transform: uppercase;
+      font-family: 'Poppins';
+      font-weight: 700;
     }
   }
 
@@ -216,8 +220,10 @@ export default {
 @media screen and (max-width: 540px) {
   .start .heading-wrap {
     h1 {
+      padding: 3em 1em 0;
+      font-size: 25px;
       span {
-        font-size: 30px;
+        font-size: 40px;
       }
 
     }
@@ -232,7 +238,7 @@ export default {
   }
   .start .heading-wrap {
     h1 {
-      padding: 2em 1em; 
+      padding: 2em 0.5em;
       -webkit-text-stroke-width: 1px;
     }
   }
