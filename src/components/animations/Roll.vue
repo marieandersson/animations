@@ -93,8 +93,16 @@ export default {
       // if more than half the element is in viewport
       if (rect.top < windowheight * 0.5) {
         this.$el.classList.add('active-scroll-roll');
+        if (this.animating) {
+          return;
+        }
+        this.animating = true;
+        Event.$emit('rollActive');
         this.runAnimation(1, 1000, () => {
-          this.runAnimation(0, 1000);
+          this.runAnimation(0, 1000, () => {
+            Event.$emit('rollDone');
+            this.animating = false;
+          });
         });
       } else {
         this.$el.classList.remove('active-scroll-roll');
@@ -139,7 +147,6 @@ export default {
       }
     });
     Event.$on('scrolling', () => {
-      Event.$emit('rollActive');
       this.scrollAnimate();
     });
   },
