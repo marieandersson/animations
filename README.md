@@ -13,6 +13,5 @@ This project is a collaboration between three students from the Digital Design a
 This project is licensed under the terms of the MIT license.
 >You'll find all about the license [here](https://github.com/marieeriksson/animations/blob/master/LICENSE).
 
----
 
 !['eyes'](https://github.com/marieeriksson/animations/blob/master/public/images/pinkeyes.png)
