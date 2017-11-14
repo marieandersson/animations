@@ -118,7 +118,7 @@ export default {
   position: absolute;
   width: calc(50% + 100px);
   right: 0;
-  transform: translate(100px, 0);
+  transform: translate(105px, 0);
   transition: all 1s linear;
   .hand-path {
     fill: transparent;
