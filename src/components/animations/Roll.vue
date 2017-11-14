@@ -119,8 +119,10 @@ export default {
     },
     hoverOut() {
       if (this.activeState === 'hover') {
+        this.animating = false;
         Event.$emit('rollHoverDone');
-        this.runAnimation(0, 1000);
+        this.runAnimation(0, 1000, () => {
+        });
       }
     },
     clickAnimate() {
@@ -145,6 +147,12 @@ export default {
     });
     Event.$on('scrolling', () => {
       this.scrollAnimate();
+    });
+    Event.$on('uxTextHover', () => {
+      this.hoverAnimate();
+    });
+    Event.$on('uxTextOut', () => {
+      this.hoverOut();
     });
   },
   mounted() {

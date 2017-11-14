@@ -1,10 +1,8 @@
 <template>
-
-    <div class="ux-text">
-      <h2><span>What not to!</span></h2>
-      <p v-html="texts[activeState]"></p>
-    </div>
-
+  <div v-on:mouseover="hoverAnimate" v-on:mouseleave="hoverOut" class="ux-text">
+    <h2><span>What not to!</span></h2>
+    <p v-html="texts[activeState]"></p>
+  </div>
 </template>
 
 <script>
@@ -31,6 +29,12 @@ export default {
         uxText.classList.remove('skew-text');
       }, 66);
     },
+    hoverAnimate() {
+      Event.$emit('uxTextHover');
+    },
+    hoverOut() {
+      Event.$emit('uxTextOut');
+    }
   },
   created () {
     Event.$on('activeState', clickedNavItem => {
