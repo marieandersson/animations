@@ -130,7 +130,7 @@ export default {
   width: 340px;
   position: absolute;
   right: 70px;
-  top: 0;
+  top: 50px;
   svg {
     .grey-one {
       fill:#d8d2d2;
@@ -146,6 +146,7 @@ export default {
 @media screen and (max-width: 1250px) {
   .bubble-two {
     width: 250px;
+    top: 0;
   }
 }
 @media screen and (max-width: 1000px) {

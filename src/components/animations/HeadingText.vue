@@ -147,7 +147,7 @@ export default {
     position: absolute;
     font-size: 40px;
     transform: translate(-50%);
-    padding: 3em 0 0 2em;
+    padding: 5em 0 0 2em;
     text-transform: none;
     font-family: 'Open sans';
     font-weight: 300;
