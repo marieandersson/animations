@@ -9148,7 +9148,7 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(92);
+module.exports = __webpack_require__(87);
 
 
 /***/ }),
@@ -9175,6 +9175,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 });
 
 // check initial url/state
+console.log(location.pathname);
 var subUrl = location.pathname.substring(1).toLowerCase();
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
   Event.$emit('activeState', subUrl);
@@ -20224,7 +20225,7 @@ var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(15)
 /* template */
-var __vue_template__ = __webpack_require__(91)
+var __vue_template__ = __webpack_require__(86)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -20792,7 +20793,7 @@ var normalizeComponent = __webpack_require__(2)
 /* script */
 var __vue_script__ = __webpack_require__(24)
 /* template */
-var __vue_template__ = __webpack_require__(90)
+var __vue_template__ = __webpack_require__(85)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
@@ -23695,12 +23696,7 @@ if (false) {
 }
 
 /***/ }),
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -23747,7 +23743,7 @@ if (false) {
 }
 
 /***/ }),
-/* 91 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -23798,7 +23794,7 @@ if (false) {
 }
 
 /***/ }),
-/* 92 */
+/* 87 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
