@@ -11,7 +11,9 @@ new Vue({
 });
 
 // check initial url/state
-const subUrl = location.pathname.substring(1).toLowerCase();
+const subUrlParts = location.pathname.substring(1).split('/');
+const subUrl = subUrlParts[subUrlParts.length - 1].toLowerCase();
+
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
   Event.$emit('activeState', subUrl);
 } else {

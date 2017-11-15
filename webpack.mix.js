@@ -1,5 +1,5 @@
 let mix = require('laravel-mix');
-
+let ghpages = require('gh-pages');
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -19,6 +19,8 @@ mix.browserSync({
   proxy: 'http://animations.dev/',
   files: ['public/**/*.css']
 });
+
+ghpages.publish('public', function (err) {});
 
 // Full API
 // mix.js(src, output);
