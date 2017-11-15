@@ -34,8 +34,7 @@ export default {
   methods: {
     setActive(navItemName) {
       this.activeState = navItemName;
-      let slug = navItemName;
-      window.history.pushState(navItemName, null, slug);
+      window.history.pushState(navItemName, null, navItemName);
       // fade out content before switching state
       this.fadeOut(() => {
         Event.$emit('activeState', navItemName);
