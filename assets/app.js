@@ -9175,21 +9175,26 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 });
 
 // check initial url/state
-var subUrlParts = location.pathname.substring(1).split('/');
+var subUrlParts = location.pathname.split('/');
 var subUrl = subUrlParts[subUrlParts.length - 1].toLowerCase();
 
+// console.log(location);
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
   Event.$emit('activeState', subUrl);
-} else {
-  // if sub url is unvalid, redirect to root
-  window.history.replaceState('start', '', '/');
+} else if (subUrl === 'start') {
+  // if sub url is invalid, redirect to root
+  //  window.history.replaceState('start', '', '/');
+} else if (subUrl.length > 0) {
+
+  subUrlParts[subUrlParts.length - 1] = '';
+  location.pathname = subUrlParts.join('/');
 }
 
 // handle user going back and forward in history
 window.onpopstate = function (event) {
-  var section = event.state;
-  if (!section) section = 'start';
-  Event.$emit('activeState', section);
+  var navItemName = event.state;
+  if (!navItemName) navItemName = 'start';
+  Event.$emit('activeState', navItemName);
 };
 
 // TODO: use Vue mixins for this function?
@@ -20378,20 +20383,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
 
   methods: {
-    setActive: function setActive(navItem) {
-      this.activeState = navItem;
-      var slug = navItem;
-      if (navItem === 'start') {
+    setActive: function setActive(navItemName) {
+      this.activeState = navItemName;
+      var slug = navItemName;
+      if (navItemName === 'start') {
         slug = '/';
       }
-      window.history.pushState(navItem, null, slug);
+      window.history.pushState(navItemName, null, slug);
       // fade out content before switching state
       this.fadeOut(function () {
-        Event.$emit('activeState', navItem);
+        Event.$emit('activeState', navItemName);
       });
     },
-    isActive: function isActive(menuItem) {
-      return this.activeState === menuItem;
+    isActive: function isActive(navItemName) {
+      return this.activeState === navItemName;
     },
     fadeOut: function fadeOut(callback) {
       document.querySelector('.content-wrap').classList.add('fade-out');
