@@ -9175,8 +9175,9 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 });
 
 // check initial url/state
-console.log(location.pathname);
-var subUrl = location.pathname.substring(1).toLowerCase();
+var subUrlParts = location.pathname.substring(1).split('/');
+var subUrl = subUrlParts[subUrlParts.length - 1].toLowerCase();
+
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
   Event.$emit('activeState', subUrl);
 } else {
