@@ -20376,8 +20376,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     setActive: function setActive(navItemName) {
       this.activeState = navItemName;
-      var slug = navItemName;
-      window.history.pushState(navItemName, null, slug);
+      window.history.pushState(navItemName, null, navItemName);
       // fade out content before switching state
       this.fadeOut(function () {
         Event.$emit('activeState', navItemName);
