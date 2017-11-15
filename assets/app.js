@@ -9177,17 +9177,8 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 // check initial url/state
 var subUrlParts = location.pathname.split('/');
 var subUrl = subUrlParts[subUrlParts.length - 1].toLowerCase();
-
-// console.log(location);
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
   Event.$emit('activeState', subUrl);
-} else if (subUrl === 'start') {
-  // if sub url is invalid, redirect to root
-  //  window.history.replaceState('start', '', '/');
-} else if (subUrl.length > 0) {
-
-  subUrlParts[subUrlParts.length - 1] = '';
-  location.pathname = subUrlParts.join('/');
 }
 
 // handle user going back and forward in history
@@ -20386,9 +20377,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     setActive: function setActive(navItemName) {
       this.activeState = navItemName;
       var slug = navItemName;
-      if (navItemName === 'start') {
-        slug = '/';
-      }
       window.history.pushState(navItemName, null, slug);
       // fade out content before switching state
       this.fadeOut(function () {
