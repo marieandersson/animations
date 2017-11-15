@@ -11,21 +11,26 @@ new Vue({
 });
 
 // check initial url/state
-const subUrlParts = location.pathname.substring(1).split('/');
+let subUrlParts = location.pathname.split('/');
 const subUrl = subUrlParts[subUrlParts.length - 1].toLowerCase();
 
+// console.log(location);
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
   Event.$emit('activeState', subUrl);
-} else {
-  // if sub url is unvalid, redirect to root
-  window.history.replaceState('start', '', '/');
+} else if (subUrl === 'start') {
+  // if sub url is invalid, redirect to root
+//  window.history.replaceState('start', '', '/');
+} else if (subUrl.length > 0) {
+
+  subUrlParts[subUrlParts.length - 1] = '';
+  location.pathname = subUrlParts.join('/');
 }
 
 // handle user going back and forward in history
 window.onpopstate = function (event) {
-  let section = event.state;
-  if (!section) section = 'start';
-  Event.$emit('activeState', section);
+  let navItemName = event.state;
+  if (!navItemName) navItemName = 'start';
+  Event.$emit('activeState', navItemName);
 };
 
 // TODO: use Vue mixins for this function?

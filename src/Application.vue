@@ -32,20 +32,20 @@ export default {
     }
   },
   methods: {
-    setActive(navItem) {
-      this.activeState = navItem;
-      let slug = navItem;
-      if (navItem === 'start') {
+    setActive(navItemName) {
+      this.activeState = navItemName;
+      let slug = navItemName;
+      if (navItemName === 'start') {
         slug = '/';
       }
-      window.history.pushState(navItem, null, slug);
+      window.history.pushState(navItemName, null, slug);
       // fade out content before switching state
       this.fadeOut(() => {
-        Event.$emit('activeState', navItem);
+        Event.$emit('activeState', navItemName);
       })
     },
-    isActive(menuItem) {
-      return this.activeState === menuItem;
+    isActive(navItemName) {
+      return this.activeState === navItemName;
     },
     fadeOut(callback) {
       document.querySelector('.content-wrap').classList.add('fade-out');
