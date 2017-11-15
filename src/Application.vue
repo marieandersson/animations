@@ -35,9 +35,6 @@ export default {
     setActive(navItemName) {
       this.activeState = navItemName;
       let slug = navItemName;
-      if (navItemName === 'start') {
-        slug = '/';
-      }
       window.history.pushState(navItemName, null, slug);
       // fade out content before switching state
       this.fadeOut(() => {

@@ -13,17 +13,8 @@ new Vue({
 // check initial url/state
 let subUrlParts = location.pathname.split('/');
 const subUrl = subUrlParts[subUrlParts.length - 1].toLowerCase();
-
-// console.log(location);
 if (subUrl === 'scroll' || subUrl === 'hover' || subUrl === 'click') {
   Event.$emit('activeState', subUrl);
-} else if (subUrl === 'start') {
-  // if sub url is invalid, redirect to root
-//  window.history.replaceState('start', '', '/');
-} else if (subUrl.length > 0) {
-
-  subUrlParts[subUrlParts.length - 1] = '';
-  location.pathname = subUrlParts.join('/');
 }
 
 // handle user going back and forward in history
