@@ -1,7 +1,7 @@
 <template>
   <main v-bind:class="activeState">
     <div v-if="activeState === 'hover' && isTouchScreen" class="hover-alert">
-      <p>Oh crap! Hover interactions doesn't work on this device. Get the whole experience on your computer.</p>
+      <p>Oh crap! Hover interactions don't work on this device. Get the whole experience on your computer.</p>
     </div>
     <div class="content-wrap">
       <heading></heading>
