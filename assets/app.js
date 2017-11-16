@@ -23701,7 +23701,7 @@ var render = function() {
       ? _c("div", { staticClass: "hover-alert" }, [
           _c("p", [
             _vm._v(
-              "Oh crap! Hover interactions doesn't work on this device. Get the whole experience on your computer."
+              "Oh crap! Hover interactions don't work on this device. Get the whole experience on your computer."
             )
           ])
         ])
