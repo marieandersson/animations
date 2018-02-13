@@ -16,11 +16,11 @@ mix.js('src/app.js', 'assets');
 mix.sass('src/app.scss', 'assets');
 
 mix.browserSync({
-  proxy: 'http://animations.dev/',
+  proxy: 'http://animations.test/',
   files: ['public/**/*.css']
 });
 
-ghpages.publish('public', function (err) {});
+ghpages.publish('public', function(err) {});
 
 // Full API
 // mix.js(src, output);
